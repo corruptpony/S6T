@@ -31,3 +31,13 @@
 # Debug files
 *.dSYM/
 *.su
+
+TSE/CPUMandelbrot/\.vs/CPUMandelbrot/v14/\.suo
+
+*.log
+
+*.tlog
+
+TSE/OpenCL_1/\.vs/OpenCL_1/v14/\.suo
+
+TSE/OpenCL_2/\.vs/OpenCL_2/v14/\.suo
