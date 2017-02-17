@@ -1,0 +1,21 @@
+/*********************************************************************
+	Rhapsody	: 7.4 
+	Login		: User
+	Component	: HelloApp 
+	Configuration 	: HelloAppConfig
+	Model Element	: HelloAppConfig
+//!	Generated Date	: Tue, 14, Feb 2017  
+	File Path	: HelloApp/HelloAppConfig/MainHelloApp.h
+*********************************************************************/
+
+#ifndef MainHelloApp_H
+#define MainHelloApp_H
+
+//## auto_generated
+#include <oxf/oxf.h>
+//## auto_generated
+#include <../Profiles/SysML/SIDefinitions.h>
+#endif
+/*********************************************************************
+	File Path	: HelloApp/HelloAppConfig/MainHelloApp.h
+*********************************************************************/
