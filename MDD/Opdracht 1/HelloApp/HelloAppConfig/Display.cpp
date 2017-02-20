@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Display
-//!	Generated Date	: Tue, 14, Feb 2017  
+//!	Generated Date	: Mon, 20, Feb 2017  
 	File Path	: HelloApp/HelloAppConfig/Display.cpp
 *********************************************************************/
 
@@ -110,6 +110,7 @@ void Display::rootState_entDef() {
         rootState_active = stateHello;
         //#[ state ROOT.stateHello.(Entry) 
         cout << name << " says: Hello " << endl;
+        name = "Tim";
         //#]
         stateHello_timeout = scheduleTimeout(1000, NULL);
     }
@@ -135,6 +136,7 @@ IOxfReactive::TakeEventStatus Display::rootState_processEvent() {
                             //#[ state ROOT.stateWorld.(Entry) 
                             cout << name << " says: World" << endl;
                             count++;
+                            name = "Dominic";
                             //#]
                             stateWorld_timeout = scheduleTimeout(1000, NULL);
                             res = eventConsumed;
@@ -162,6 +164,7 @@ IOxfReactive::TakeEventStatus Display::rootState_processEvent() {
                                     rootState_active = stateHello;
                                     //#[ state ROOT.stateHello.(Entry) 
                                     cout << name << " says: Hello " << endl;
+                                    name = "Tim";
                                     //#]
                                     stateHello_timeout = scheduleTimeout(1000, NULL);
                                     res = eventConsumed;
@@ -187,7 +190,6 @@ IOxfReactive::TakeEventStatus Display::rootState_processEvent() {
             
             break;
         }
-        
         default:
             break;
     }
