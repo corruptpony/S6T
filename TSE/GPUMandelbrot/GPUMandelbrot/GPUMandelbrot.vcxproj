@@ -151,6 +151,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bitmap_image.hpp" />
+    <ClInclude Include="mandelbrot_frame.h" />
     <ClInclude Include="opencl_utils.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
