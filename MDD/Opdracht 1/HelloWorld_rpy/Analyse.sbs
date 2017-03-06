@@ -1282,7 +1282,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 6c142614-3349-49e9-8c6b-0236be5f6b61;
 				}
 			}
-			- _lastModifiedTime = "2.14.2017::10:23:20";
+			- _lastModifiedTime = "2.20.2017::8:30:59";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID d64387cd-f522-43ed-8cd2-01b863d5c957;
 				- m_type = 0;
@@ -2247,7 +2247,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				}
 			}
 			- _name = "Usecases";
-			- _lastModifiedTime = "2.14.2017::8:45:9";
+			- _lastModifiedTime = "2.20.2017::8:26:11";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID 37154e7c-1782-4e6d-8f61-358510c1aae1;
 				- m_type = 0;
@@ -2486,7 +2486,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 8;
 					}
 					- m_drawBehavior = 4096;
-					- m_transform = 0.446254 0 0 0.23871 30 34 ;
+					- m_transform = 0.446254 0 0 0.23871 34 46 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_polygon = 4 0 0  0 1240  1228 1240  1228 0  ;
 					- m_nNameFormat = 0;
@@ -2996,8 +2996,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			}
 		}
 	}
-	- weakCGTime = 2.14.2017::9:59:14;
-	- strongCGTime = 2.14.2017::9:59:14;
+	- weakCGTime = 2.20.2017::8:29:33;
+	- strongCGTime = 2.20.2017::8:29:33;
 	- _defaultComposite = GUID 95b01087-61c7-4f21-98f1-7c304cb2b448;
 	- _eventsBaseID = -1;
 	- Classes = { IRPYRawContainer 
@@ -3007,8 +3007,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID 95b01087-61c7-4f21-98f1-7c304cb2b448;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 9.12.2011::20:2:1;
-			- strongCGTime = 11.2.2009::16:14:25;
+			- weakCGTime = 2.20.2017::8:29:33;
+			- strongCGTime = 2.20.2017::8:29:33;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -3039,8 +3039,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				- _m2Class = "IDiagram";
 				- _id = GUID 92580230-5335-40d6-be6c-059745a26f37;
 			}
-			- weakCGTime = 2.14.2017::8:46:17;
-			- strongCGTime = 2.14.2017::8:46:17;
+			- weakCGTime = 2.20.2017::8:29:33;
+			- strongCGTime = 2.20.2017::8:29:33;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -3051,9 +3051,6 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID 816ae0a7-e399-4004-9f4e-696ea241b9fe;
 			- _myState = 8192;
 			- _name = "Display";
-			- Dependencies = { IRPYRawContainer 
-				- size = 0;
-			}
 			- Stereotypes = { IRPYRawContainer 
 				- size = 1;
 				- value = 
@@ -3070,9 +3067,9 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				- _m2Class = "IDiagram";
 				- _id = GUID aacb80e0-8f02-4a90-b4ea-bf2622d508ea;
 			}
-			- _lastID = 8;
-			- weakCGTime = 2.14.2017::10:25:59;
-			- strongCGTime = 2.14.2017::10:19:27;
+			- _lastID = 9;
+			- weakCGTime = 2.20.2017::8:39:43;
+			- strongCGTime = 2.20.2017::8:30:59;
 			- Operations = { IRPYRawContainer 
 				- size = 3;
 				- value = 
@@ -3219,9 +3216,6 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 60ef3bc2-1465-43c5-97ed-e4ae982aff03;
 					- _myState = 139264;
 					- _name = "Display";
-					- Dependencies = { IRPYRawContainer 
-						- size = 0;
-					}
 					- m_path = "";
 					- m_type = specFile;
 					- Fragments = { IRPYRawContainer 
@@ -3501,6 +3495,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 								}
 								{ IFileFragment 
 									- _id = GUID 60b87571-febb-458f-acc8-52303dec5820;
+									- _name = "Display";
 									- m_type = specFragment;
 									- m_text = "";
 									- m_startRow = 65;
@@ -3635,9 +3630,6 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID ae1a2a46-dc82-468f-8e19-97b301f0dead;
 					- _myState = 139264;
 					- _name = "Display";
-					- Dependencies = { IRPYRawContainer 
-						- size = 0;
-					}
 					- m_path = "";
 					- m_type = implFile;
 					- Fragments = { IRPYRawContainer 
@@ -3730,6 +3722,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 								}
 								{ IFileFragment 
 									- _id = GUID abb8d56d-c24d-484a-8497-32942815efc6;
+									- _name = "Display";
 									- m_type = implFragment;
 									- m_text = "";
 									- m_startRow = 39;
@@ -3954,7 +3947,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					}
 					- _name = "statechart_7";
 					- _lastID = 5;
-					- _lastModifiedTime = "2.14.2017::10:25:59";
+					- _lastModifiedTime = "2.20.2017::8:39:20";
 					- _graphicChart = { CGIStateChart 
 						- _id = GUID e987f198-3d14-4916-a10c-60a0496af1b9;
 						- m_type = 0;
@@ -4024,6 +4017,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							}
 							- m_nInheritanceMask = 0;
 							- m_pDefaultComponentRelation = ;
+							- m_moveAndLineTimeStamp = 1.2.1990::0:0:0;
 						}
 						{ CGIState 
 							- _id = GUID 63933125-480c-4917-b474-68816af7c351;
@@ -4096,6 +4090,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							}
 							- m_nInheritanceMask = 0;
 							- m_pDefaultComponentRelation = ;
+							- m_moveAndLineTimeStamp = 1.2.1990::0:0:0;
 						}
 						{ CGIState 
 							- _id = GUID b3b811de-ff39-479f-b22a-8e07bb580140;
@@ -4168,6 +4163,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							}
 							- m_nInheritanceMask = 0;
 							- m_pDefaultComponentRelation = ;
+							- m_moveAndLineTimeStamp = 1.2.1990::0:0:0;
 						}
 						{ CGIConnector 
 							- _id = GUID 3fecb0a3-27b0-4c3f-9ee3-dbbe3c690ced;
@@ -4618,7 +4614,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _entryAction = { IAction 
 								- _id = GUID ff4aeb58-36bd-4aa3-abd1-3a6c123cb85b;
 								- _myState = 4096;
-								- _body = "cout << name << \" says: Hello \" << endl;";
+								- _body = "cout << name << \" says: Hello \" << endl;
+name = \"Tim\";";
 							}
 						}
 						{ IState 
@@ -4630,7 +4627,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 								- _id = GUID 516d21ce-22e6-4b48-a5dd-2454b47d90b2;
 								- _myState = 4096;
 								- _body = "cout << name << \" says: World\" << endl;
-count++;";
+count++;
+name = \"Dominic\";";
 							}
 						}
 						{ IState 
@@ -4642,7 +4640,7 @@ count++;";
 							- _defaultTrans = ;
 						}
 					}
-					- _version = 2.14.2017::11:25:59;
+					- _version = 2.20.2017::9:39:20;
 					- _baseVersion = 1.2.1990::0:0:0;
 				}
 			}
@@ -4660,16 +4658,13 @@ count++;";
 			- _id = GUID db086c6e-ff42-4376-aeb8-ae1ec834830f;
 			- _myState = 10240;
 			- _name = "usecase_31";
-			- weakCGTime = 1.1.1970::1:0:0;
-			- strongCGTime = 1.1.1970::1:0:0;
+			- weakCGTime = 1.2.1990::0:0:0;
+			- strongCGTime = 1.2.1990::0:0:0;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
 			}
 			- _classModifier = Unspecified;
-			- UseCaseStereoTypes = { IRPYRawContainer 
-				- size = 0;
-			}
 			- _EntryPoints = { IRPYRawContainer 
 				- size = 0;
 			}
@@ -4732,9 +4727,6 @@ count++;";
 				}
 			}
 			- _classModifier = Unspecified;
-			- UseCaseStereoTypes = { IRPYRawContainer 
-				- size = 0;
-			}
 			- _EntryPoints = { IRPYRawContainer 
 				- size = 0;
 			}
@@ -4759,8 +4751,8 @@ count++;";
 				- _m2Class = "IDiagram";
 				- _id = GUID 92580230-5335-40d6-be6c-059745a26f37;
 			}
-			- weakCGTime = 2.14.2017::8:46:39;
-			- strongCGTime = 2.14.2017::8:40:12;
+			- weakCGTime = 2.20.2017::8:29:33;
+			- strongCGTime = 2.20.2017::8:29:33;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";

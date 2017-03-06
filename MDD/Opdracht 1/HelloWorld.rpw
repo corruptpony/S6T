@@ -4,8 +4,36 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 		- size = 0;
 	}
 	- myViewsWithID = { IRPYRawContainer 
-		- size = 7;
+		- size = 10;
 		- value = 
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 66;
+				- m_nTop = 66;
+				- m_nRight = 1199;
+				- m_nBottom = 392;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IUCDiagram";
+				- _filename = "Analyse.sbs";
+				- _subsystem = "Analyse";
+				- _class = "";
+				- _name = "Actoren";
+				- _id = GUID 40f98be4-ff6e-45de-9644-033bb37795c2;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1105 279 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 6;
+		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
 				- m_nLength = 44;
@@ -20,7 +48,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- m_nRight = 547;
 				- m_nBottom = 323;
 			}
-			- _wasOpenedOnCloseProject = 0;
+			- _wasOpenedOnCloseProject = 1;
 			- _theDiagram = { IHandle 
 				- _m2Class = "IStateChart";
 				- _filename = "Analyse.sbs";
@@ -37,8 +65,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
 				- m_nLength = 44;
-				- m_nFlags = 2;
-				- m_showCmd = 3;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
 				- m_ptMinPositionX = -1;
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -4;
@@ -58,9 +86,37 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _id = GUID aacb80e0-8f02-4a90-b4ea-bf2622d508ea;
 			}
 			- _UpLeft = 0 10 ;
-			- _DownRight = 314 313 ;
+			- _DownRight = 255 207 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 0;
+			- m_nDiagramIndex = 7;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 88;
+				- m_nTop = 88;
+				- m_nRight = 1244;
+				- m_nBottom = 414;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IUCDiagram";
+				- _filename = "Analyse.sbs";
+				- _subsystem = "Analyse";
+				- _class = "";
+				- _name = "Processes";
+				- _id = GUID f05f8588-3e38-4c61-bc9f-ad0932b88983;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1128 279 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 5;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -99,6 +155,34 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -4;
 				- m_ptMaxPositionY = -23;
+				- m_nLeft = 110;
+				- m_nTop = 110;
+				- m_nRight = 1266;
+				- m_nBottom = 436;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IUCDiagram";
+				- _filename = "Analyse.sbs";
+				- _subsystem = "Analyse";
+				- _class = "";
+				- _name = "Stakeholders";
+				- _id = GUID 90ccbe94-9568-4c52-83a0-dac760b2fb49;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1128 279 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 4;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
 				- m_nLeft = 66;
 				- m_nTop = 66;
 				- m_nRight = 485;
@@ -116,7 +200,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 			- _UpLeft = 0 0 ;
 			- _DownRight = 391 284 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 1;
+			- m_nDiagramIndex = 8;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -132,7 +216,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- m_nRight = 349;
 				- m_nBottom = 375;
 			}
-			- _wasOpenedOnCloseProject = 0;
+			- _wasOpenedOnCloseProject = 1;
 			- _theDiagram = { IHandle 
 				- _m2Class = "IUCDiagram";
 				- _filename = "Analyse.sbs";
@@ -144,13 +228,13 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 			- _UpLeft = 0 0 ;
 			- _DownRight = 277 284 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 0;
+			- m_nDiagramIndex = 3;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
 				- m_nLength = 44;
-				- m_nFlags = 0;
-				- m_showCmd = 1;
+				- m_nFlags = 2;
+				- m_showCmd = 3;
 				- m_ptMinPositionX = -1;
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -4;
@@ -160,7 +244,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- m_nRight = 506;
 				- m_nBottom = 441;
 			}
-			- _wasOpenedOnCloseProject = 0;
+			- _wasOpenedOnCloseProject = 1;
 			- _theDiagram = { IHandle 
 				- _m2Class = "IDiagram";
 				- _filename = "Design.sbs";
@@ -170,9 +254,9 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _id = GUID d7b7175c-2eda-4a61-9b9e-4acb59688b3e;
 			}
 			- _UpLeft = 0 0 ;
-			- _DownRight = 368 284 ;
+			- _DownRight = 1184 438 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 0;
+			- m_nDiagramIndex = 2;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -188,7 +272,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- m_nRight = 484;
 				- m_nBottom = 463;
 			}
-			- _wasOpenedOnCloseProject = 0;
+			- _wasOpenedOnCloseProject = 1;
 			- _theDiagram = { IHandle 
 				- _m2Class = "IStructureDiagram";
 				- _filename = "Test.sbs";
@@ -200,7 +284,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 			- _UpLeft = 0 0 ;
 			- _DownRight = 324 284 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 0;
+			- m_nDiagramIndex = 1;
 		}
 	}
 	- _fullName = "C:\\Documents and Settings\\User\\Desktop\\MDD6\\Opdracht 1\\HelloWorld";
