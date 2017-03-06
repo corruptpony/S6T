@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Test
-//!	Generated Date	: Tue, 14, Feb 2017  
+//!	Generated Date	: Mon, 20, Feb 2017  
 	File Path	: HelloApp/HelloAppConfig/Test.cpp
 *********************************************************************/
 
@@ -12,6 +12,8 @@
 #include "Test.h"
 //## classInstance itsDisplay
 #include "Display.h"
+//## auto_generated
+#include "DistributedHelloTestSystem.h"
 //## package Test
 
 
@@ -20,22 +22,15 @@ void Test_initRelations() {
         {
             itsDisplay.setShouldDelete(false);
         }
-        {
-            itsDisplay_1.setShouldDelete(false);
-        }
     }
 }
 
 //## classInstance itsDisplay
-Display itsDisplay("Scherm1");
-
-//## classInstance itsDisplay_1
-Display itsDisplay_1("Scherm2");
+Display itsDisplay;
 
 bool Test_startBehavior() {
     bool done = true;
     done &= itsDisplay.startBehavior();
-    done &= itsDisplay_1.startBehavior();
     return done;
 }
 

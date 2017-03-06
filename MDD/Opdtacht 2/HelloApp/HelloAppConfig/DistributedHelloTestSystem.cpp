@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: DistributedHelloTestSystem
-//!	Generated Date	: Tue, 14, Feb 2017  
+//!	Generated Date	: Mon, 6, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/DistributedHelloTestSystem.cpp
 *********************************************************************/
 
@@ -29,6 +29,10 @@ DistributedHelloTestSystem::DistributedHelloTestSystem(IOxfActive* theActiveCont
             itsDisplay_1.setShouldDelete(false);
         }
         itsDisplay_1.setActiveContext(theActiveContext, false);
+        {
+            itsController.setShouldDelete(false);
+        }
+        itsController.setActiveContext(theActiveContext, false);
     }
     initRelations();
 }
@@ -50,6 +54,7 @@ Display* DistributedHelloTestSystem::getItsDisplay_1() const {
 
 bool DistributedHelloTestSystem::startBehavior() {
     bool done = true;
+    done &= itsController.startBehavior();
     done &= itsDisplay.startBehavior();
     done &= itsDisplay_1.startBehavior();
     done &= OMReactive::startBehavior();
@@ -78,6 +83,7 @@ void DistributedHelloTestSystem::initRelations() {
 }
 
 void DistributedHelloTestSystem::destroy() {
+    itsController.destroy();
     itsDisplay.destroy();
     itsDisplay_1.destroy();
     OMReactive::destroy();

@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: DistributedHelloTestSystem
-//!	Generated Date	: Tue, 14, Feb 2017  
+//!	Generated Date	: Mon, 6, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/DistributedHelloTestSystem.h
 *********************************************************************/
 
@@ -15,6 +15,8 @@
 #include <oxf/oxf.h>
 //## auto_generated
 #include <../Profiles/SysML/SIDefinitions.h>
+//## auto_generated
+#include "Test.h"
 //## auto_generated
 #include <oxf/omreactive.h>
 //## auto_generated

@@ -57,7 +57,9 @@ OBJS= \
   Controller.o \
   IDisplay.o \
   IControl.o \
-  DistributedHelloTestSystem.o
+  DistributedHelloTestSystem.o \
+  Design.o \
+  Test.o
 
 
 
@@ -116,37 +118,51 @@ Application.o : Application.cpp Application.h
 
 
 
-Display.o : Display.cpp Display.h    IControl.h 
+Display.o : Display.cpp Display.h    IControl.h Design.h IDisplay.h 
 	@echo Compiling Display.cpp
 	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Display.o Display.cpp
 
 
 
 
-Controller.o : Controller.cpp Controller.h    IDisplay.h 
+Controller.o : Controller.cpp Controller.h    Design.h IDisplay.h IControl.h 
 	@echo Compiling Controller.cpp
 	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Controller.o Controller.cpp
 
 
 
 
-IDisplay.o : IDisplay.cpp IDisplay.h    
+IDisplay.o : IDisplay.cpp IDisplay.h    Design.h 
 	@echo Compiling IDisplay.cpp
 	@$(CC) $(ConfigurationCPPCompileSwitches)  -o IDisplay.o IDisplay.cpp
 
 
 
 
-IControl.o : IControl.cpp IControl.h    
+IControl.o : IControl.cpp IControl.h    Design.h 
 	@echo Compiling IControl.cpp
 	@$(CC) $(ConfigurationCPPCompileSwitches)  -o IControl.o IControl.cpp
 
 
 
 
-DistributedHelloTestSystem.o : DistributedHelloTestSystem.cpp DistributedHelloTestSystem.h    Display.h Controller.h 
+DistributedHelloTestSystem.o : DistributedHelloTestSystem.cpp DistributedHelloTestSystem.h    Test.h Display.h Controller.h IDisplay.h IControl.h 
 	@echo Compiling DistributedHelloTestSystem.cpp
 	@$(CC) $(ConfigurationCPPCompileSwitches)  -o DistributedHelloTestSystem.o DistributedHelloTestSystem.cpp
+
+
+
+
+Design.o : Design.cpp Design.h    Controller.h IDisplay.h IControl.h 
+	@echo Compiling Design.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Design.o Design.cpp
+
+
+
+
+Test.o : Test.cpp Test.h    DistributedHelloTestSystem.h Display.h 
+	@echo Compiling Test.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Test.o Test.cpp
 
 
 
@@ -185,6 +201,8 @@ clean:
 	$(RM) IDisplay.o
 	$(RM) IControl.o
 	$(RM) DistributedHelloTestSystem.o
+	$(RM) Design.o
+	$(RM) Test.o
 	$(RM) $(TARGET_MAIN)$(OBJ_EXT) $(ADDITIONAL_OBJS)
 	$(RM) $(TARGET_NAME)$(LIB_EXT)
 	$(RM) $(TARGET_NAME)$(EXE_EXT)

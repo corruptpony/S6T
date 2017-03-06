@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Display
-//!	Generated Date	: Tue, 14, Feb 2017  
+//!	Generated Date	: Mon, 20, Feb 2017  
 	File Path	: HelloApp/HelloAppConfig/Display.h
 *********************************************************************/
 
@@ -29,14 +29,14 @@
 #include <oxf/state.h>
 //## auto_generated
 #include <oxf/event.h>
-//## class InBound
+//## class Display
 #include "IDisplay.h"
 //## class OutBound
 #include "IControl.h"
 //## package Analyse
 
 //## class Display
-class Display : public OMReactive {
+class Display : public OMReactive, public IDisplay {
 public :
 
 //#[ ignore
@@ -69,6 +69,12 @@ public :
             
             //## auto_generated
             void setItsIDisplay(IDisplay* p_IDisplay);
+            
+            //## auto_generated
+            ctl_C* getPort() const;
+            
+            //## auto_generated
+            void setPort(ctl_C* p_ctl_C);
         
         protected :
         
@@ -78,6 +84,21 @@ public :
             ////    Relations and components    ////
             
             IDisplay* itsIDisplay;		//## link itsIDisplay
+            
+            ctl_C* port;		//## link port
+            
+            ////    Framework operations    ////
+        
+        public :
+        
+            //## auto_generated
+            void __setPort(ctl_C* p_ctl_C);
+            
+            //## auto_generated
+            void _setPort(ctl_C* p_ctl_C);
+            
+            //## auto_generated
+            void _clearPort();
         };
         
         //## package Analyse
@@ -142,11 +163,14 @@ public :
         
         //## auto_generated
         OutBound_C* getOutBound() const;
-        
-        ////    Attributes    ////
     
     protected :
     
+        //## auto_generated
+        void initRelations();
+        
+        ////    Attributes    ////
+        
         int _p_;		//## attribute _p_
         
         ////    Relations and components    ////
@@ -186,15 +210,6 @@ public :
     //## operation Display(RhpString)
     Display(const RhpString& itsname, IOxfActive* theActiveContext = 0);
     
-    //## operation AmIDone()
-    bool AmIDone();
-    
-    //## auto_generated
-    int getCount() const;
-    
-    //## auto_generated
-    void setCount(int p_count);
-    
     //## auto_generated
     virtual bool startBehavior();
 
@@ -208,8 +223,6 @@ protected :
     
     //## auto_generated
     bool cancelTimeout(const IOxfTimeout* arg);
-    
-    int count;		//## attribute count
 
 public :
 
@@ -247,9 +260,6 @@ public :
     inline bool rootState_IN() const;
     
     //## statechart_method
-    inline bool rootState_isCompleted();
-    
-    //## statechart_method
     virtual void rootState_entDef();
     
     //## statechart_method
@@ -259,13 +269,13 @@ public :
     //## statechart_method
     inline bool stateWorld_IN() const;
     
+    // stateWaitForEvent:
+    //## statechart_method
+    inline bool stateWaitForEvent_IN() const;
+    
     // stateHello:
     //## statechart_method
     inline bool stateHello_IN() const;
-    
-    // state_2:
-    //## statechart_method
-    inline bool state_2_IN() const;
 
 protected :
 
@@ -273,8 +283,8 @@ protected :
     enum Display_Enum {
         OMNonState = 0,
         stateWorld = 1,
-        stateHello = 2,
-        state_2 = 3
+        stateWaitForEvent = 2,
+        stateHello = 3
     };
     
     int rootState_subState;
@@ -291,20 +301,16 @@ inline bool Display::rootState_IN() const {
     return true;
 }
 
-inline bool Display::rootState_isCompleted() {
-    return ( IS_IN(state_2) );
-}
-
 inline bool Display::stateWorld_IN() const {
     return rootState_subState == stateWorld;
 }
 
-inline bool Display::stateHello_IN() const {
-    return rootState_subState == stateHello;
+inline bool Display::stateWaitForEvent_IN() const {
+    return rootState_subState == stateWaitForEvent;
 }
 
-inline bool Display::state_2_IN() const {
-    return rootState_subState == state_2;
+inline bool Display::stateHello_IN() const {
+    return rootState_subState == stateHello;
 }
 
 #endif

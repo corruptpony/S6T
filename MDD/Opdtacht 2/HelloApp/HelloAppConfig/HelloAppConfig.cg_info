@@ -1,33 +1,26 @@
 I-Logix-RPY-Archive version 8.1.4 * 1367309
 
 - m_fileModifyTime = { IRPYRawContainer 
-	- size = 14;
+	- size = 16;
 	- value = "HelloApp/HelloAppConfig/Application.cpp" 2.14.2017::11:2:19
 	"HelloApp/HelloAppConfig/Application.h" 2.14.2017::11:2:19
-	"HelloApp/HelloAppConfig/Controller.cpp" 2.14.2017::13:41:38
-	"HelloApp/HelloAppConfig/Controller.h" 2.14.2017::13:41:38
-	"HelloApp/HelloAppConfig/Display.cpp" 2.14.2017::13:41:38
-	"HelloApp/HelloAppConfig/Display.h" 2.14.2017::13:41:38
-	"HelloApp/HelloAppConfig/DistributedHelloTestSystem.cpp" 2.14.2017::13:41:38
-	"HelloApp/HelloAppConfig/DistributedHelloTestSystem.h" 2.14.2017::13:41:38
+	"HelloApp/HelloAppConfig/Controller.cpp" 3.6.2017::11:5:18
+	"HelloApp/HelloAppConfig/Controller.h" 3.6.2017::11:5:18
+	"HelloApp/HelloAppConfig/Design.cpp" 2.20.2017::10:0:37
+	"HelloApp/HelloAppConfig/Design.h" 2.20.2017::10:0:37
+	"HelloApp/HelloAppConfig/Display.cpp" 2.20.2017::10:23:39
+	"HelloApp/HelloAppConfig/Display.h" 2.20.2017::10:0:37
+	"HelloApp/HelloAppConfig/DistributedHelloTestSystem.cpp" 3.6.2017::9:41:14
+	"HelloApp/HelloAppConfig/DistributedHelloTestSystem.h" 3.6.2017::9:41:14
 	"HelloApp/HelloAppConfig/IControl.cpp" 2.14.2017::13:12:57
 	"HelloApp/HelloAppConfig/IControl.h" 2.14.2017::13:12:57
 	"HelloApp/HelloAppConfig/IDisplay.cpp" 2.14.2017::13:41:38
 	"HelloApp/HelloAppConfig/IDisplay.h" 2.14.2017::13:41:38
-	"HelloApp/HelloAppConfig/Test.cpp" 2.14.2017::11:26:7
-	"HelloApp/HelloAppConfig/Test.h" 2.14.2017::11:23:36
+	"HelloApp/HelloAppConfig/Test.cpp" 2.20.2017::10:0:37
+	"HelloApp/HelloAppConfig/Test.h" 2.20.2017::10:0:37
 	
 }
-- size = 13;
-- hElement = { IHandle 
-	- _m2Class = "*";
-	- _filename = "";
-	- _subsystem = "";
-	- _class = "";
-	- _name = "";
-	- _id = GUID d628e0c3-f603-4b18-a75b-e77483d09b1c;
-}
-- genTime = 2.14.2017::13:12:57;
+- size = 9;
 - hElement = { IHandle 
 	- _m2Class = "ICodeGenConfigInfo";
 	- _filename = "HelloApp.cmp";
@@ -36,7 +29,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "HelloApp\\HelloAppConfig";
 	- _id = GUID 9393688e-eeb3-419e-9b56-4c0151ceb5b1;
 }
-- genTime = 2.14.2017::13:41:38;
+- genTime = 3.6.2017::11:5:18;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -54,7 +47,16 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Test";
 	- _id = GUID 8e3b0c46-0e6d-4f16-8e06-e24aebfcc0e1;
 }
-- genTime = 2.14.2017::11:26:7;
+- genTime = 3.6.2017::9:4:21;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "Design.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "Design";
+	- _id = GUID a0b2e9c6-ed76-4d4a-a4f8-0ab04eee642a;
+}
+- genTime = 3.6.2017::11:3:32;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -63,7 +65,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Controller";
 	- _id = GUID 9a7e3843-04d6-4e9b-9af9-a9032a4432d0;
 }
-- genTime = 2.14.2017::13:41:38;
+- genTime = 3.6.2017::11:5:18;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Analyse.sbs";
@@ -72,7 +74,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Application";
 	- _id = GUID 9a2f839b-e5cf-45b0-bd1b-7771d2b3f496;
 }
-- genTime = 2.14.2017::11:2:19;
+- genTime = 2.20.2017::10:23:39;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -90,25 +92,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Display";
 	- _id = GUID 816ae0a7-e399-4004-9f4e-696ea241b9fe;
 }
-- genTime = 2.14.2017::13:41:38;
-- hElement = { IHandle 
-	- _m2Class = "*";
-	- _filename = "";
-	- _subsystem = "";
-	- _class = "";
-	- _name = "";
-	- _id = GUID 085d3167-5803-4e05-b102-efd412b4f457;
-}
-- genTime = 2.14.2017::13:12:57;
-- hElement = { IHandle 
-	- _m2Class = "*";
-	- _filename = "";
-	- _subsystem = "";
-	- _class = "";
-	- _name = "";
-	- _id = GUID 2243e1e4-ff4b-4463-8c64-2a77d66af7b2;
-}
-- genTime = 2.14.2017::13:25:54;
+- genTime = 2.20.2017::10:23:39;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Test.sbs";
@@ -117,23 +101,5 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "DistributedHelloTestSystem";
 	- _id = GUID c9c6d68c-2e25-4b05-ae6f-51ee202141bc;
 }
-- genTime = 2.14.2017::13:41:38;
-- hElement = { IHandle 
-	- _m2Class = "*";
-	- _filename = "";
-	- _subsystem = "";
-	- _class = "";
-	- _name = "";
-	- _id = GUID 0e67bc39-57e1-47a0-a2fc-5fa25be1cff3;
-}
-- genTime = 2.14.2017::13:25:54;
-- hElement = { IHandle 
-	- _m2Class = "*";
-	- _filename = "";
-	- _subsystem = "";
-	- _class = "";
-	- _name = "";
-	- _id = GUID 1e90c7e9-d916-48ef-870e-5f2cf4f1c05f;
-}
-- genTime = 2.14.2017::13:25:54;
+- genTime = 3.6.2017::9:41:14;
 

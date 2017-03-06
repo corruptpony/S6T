@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Display
-//!	Generated Date	: Tue, 14, Feb 2017  
+//!	Generated Date	: Mon, 20, Feb 2017  
 	File Path	: HelloApp/HelloAppConfig/Display.cpp
 *********************************************************************/
 
@@ -12,6 +12,8 @@
 #include <oxf/omthread.h>
 //## auto_generated
 #include "Display.h"
+//## event evPrint(int)
+#include "Design.h"
 //## package Analyse
 
 //## class Display
@@ -27,6 +29,7 @@ using namespace std;
 
 Display::ctl_C::InBound_C::InBound_C() {
     itsIDisplay = NULL;
+    port = NULL;
 }
 
 Display::ctl_C::InBound_C::~InBound_C() {
@@ -41,11 +44,35 @@ void Display::ctl_C::InBound_C::setItsIDisplay(IDisplay* p_IDisplay) {
     itsIDisplay = p_IDisplay;
 }
 
+Display::ctl_C* Display::ctl_C::InBound_C::getPort() const {
+    return port;
+}
+
+void Display::ctl_C::InBound_C::setPort(Display::ctl_C* p_ctl_C) {
+    _setPort(p_ctl_C);
+}
+
 void Display::ctl_C::InBound_C::cleanUpRelations() {
     if(itsIDisplay != NULL)
         {
             itsIDisplay = NULL;
         }
+    if(port != NULL)
+        {
+            port = NULL;
+        }
+}
+
+void Display::ctl_C::InBound_C::__setPort(Display::ctl_C* p_ctl_C) {
+    port = p_ctl_C;
+}
+
+void Display::ctl_C::InBound_C::_setPort(Display::ctl_C* p_ctl_C) {
+    __setPort(p_ctl_C);
+}
+
+void Display::ctl_C::InBound_C::_clearPort() {
+    port = NULL;
 }
 
 
@@ -75,6 +102,7 @@ void Display::ctl_C::OutBound_C::cleanUpRelations() {
 }
 
 Display::ctl_C::ctl_C() {
+    initRelations();
 }
 
 Display::ctl_C::~ctl_C() {
@@ -82,7 +110,8 @@ Display::ctl_C::~ctl_C() {
 
 void Display::ctl_C::connectDisplay(Display* part) {
     //#[ operation connectDisplay(Display*)
-    
+    InBound.setItsIDisplay(part);
+    InBound.setPort(this); // for IS_PORT macro support
     
     //#]
 }
@@ -118,6 +147,10 @@ Display::ctl_C::InBound_C* Display::ctl_C::getInBound() const {
 Display::ctl_C::OutBound_C* Display::ctl_C::getOutBound() const {
     return (Display::ctl_C::OutBound_C*) &OutBound;
 }
+
+void Display::ctl_C::initRelations() {
+    InBound._setPort(this);
+}
 //#]
 
 Display::~Display() {
@@ -139,32 +172,13 @@ void Display::setName(RhpString p_name) {
     name = p_name;
 }
 
-Display::Display(const RhpString& itsname, IOxfActive* theActiveContext) : count(1), name(itsname) {
+Display::Display(const RhpString& itsname, IOxfActive* theActiveContext) : name(itsname) {
     setActiveContext(theActiveContext, false);
     initRelations();
     initStatechart();
     //#[ operation Display(RhpString)
     print("Hello World");
     //#]
-}
-
-bool Display::AmIDone() {
-    //#[ operation AmIDone()
-                  if(count > 5){
-                  	return true;
-                  }
-                  else{
-                  	return false;
-                  }
-    //#]
-}
-
-int Display::getCount() const {
-    return count;
-}
-
-void Display::setCount(int p_count) {
-    count = p_count;
 }
 
 bool Display::startBehavior() {
@@ -208,7 +222,7 @@ bool Display::cancelTimeout(const IOxfTimeout* arg) {
     return res;
 }
 
-Display::Display(IOxfActive* theActiveContext) : count(1) {
+Display::Display(IOxfActive* theActiveContext) {
     setActiveContext(theActiveContext, false);
     initRelations();
     initStatechart();
@@ -246,12 +260,8 @@ void Display::cleanUpRelations() {
 
 void Display::rootState_entDef() {
     {
-        rootState_subState = stateHello;
-        rootState_active = stateHello;
-        //#[ state ROOT.stateHello.(Entry) 
-        cout << name << " says: Hello " << endl;
-        //#]
-        stateHello_timeout = scheduleTimeout(1000, NULL);
+        rootState_subState = stateWaitForEvent;
+        rootState_active = stateWaitForEvent;
     }
 }
 
@@ -269,12 +279,10 @@ IOxfReactive::TakeEventStatus Display::rootState_processEvent() {
                                     stateHello_timeout->cancel();
                                     stateHello_timeout = NULL;
                                 }
-                            pushNullTransition();
                             rootState_subState = stateWorld;
                             rootState_active = stateWorld;
                             //#[ state ROOT.stateWorld.(Entry) 
-                            cout << name << " says: World" << endl;
-                            count++;
+                            cout << name << " says: World " << endl;
                             //#]
                             stateWorld_timeout = scheduleTimeout(1000, NULL);
                             res = eventConsumed;
@@ -289,45 +297,35 @@ IOxfReactive::TakeEventStatus Display::rootState_processEvent() {
                 {
                     if(getCurrentEvent() == stateWorld_timeout)
                         {
-                            //## transition 3 
-                            if(!AmIDone())
-                                {
-                                    popNullTransition();
-                                    if(stateWorld_timeout != NULL)
-                                        {
-                                            stateWorld_timeout->cancel();
-                                            stateWorld_timeout = NULL;
-                                        }
-                                    rootState_subState = stateHello;
-                                    rootState_active = stateHello;
-                                    //#[ state ROOT.stateHello.(Entry) 
-                                    cout << name << " says: Hello " << endl;
-                                    //#]
-                                    stateHello_timeout = scheduleTimeout(1000, NULL);
-                                    res = eventConsumed;
-                                }
-                        }
-                }
-            else if(IS_EVENT_TYPE_OF(OMNullEventId))
-                {
-                    //## transition 2 
-                    if(AmIDone())
-                        {
-                            popNullTransition();
                             if(stateWorld_timeout != NULL)
                                 {
                                     stateWorld_timeout->cancel();
                                     stateWorld_timeout = NULL;
                                 }
-                            rootState_subState = state_2;
-                            rootState_active = state_2;
+                            rootState_subState = stateWaitForEvent;
+                            rootState_active = stateWaitForEvent;
                             res = eventConsumed;
                         }
                 }
             
             break;
         }
-        
+        case stateWaitForEvent:
+        {
+            if(IS_EVENT_TYPE_OF(evPrint_Design_id))
+                {
+                    OMSETPARAMS(evPrint);
+                    rootState_subState = stateHello;
+                    rootState_active = stateHello;
+                    //#[ state ROOT.stateHello.(Entry) 
+                    cout << name << " says: Hello " << endl;
+                    //#]
+                    stateHello_timeout = scheduleTimeout(1000, NULL);
+                    res = eventConsumed;
+                }
+            
+            break;
+        }
         default:
             break;
     }
