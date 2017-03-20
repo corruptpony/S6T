@@ -105,25 +105,24 @@ int main() {
 		size_t localSize[] = { LOCAL_SIZE };
 
 		/* Copy arrays from host memory to Compute Devive */
-		int* startPoint = dataArray + (i * GLOBAL_SIZE);
+		int* startPoint = &dataArray[i * GLOBAL_SIZE];
 		size_t memSize = GLOBAL_SIZE;
 		
 		/* adjust global and local size for rest values in array */
 		if (GLOBAL_SIZE > (DATA_SIZE - (i * GLOBAL_SIZE)))
 		{
+			/* Deze sleep is nodig om het programma werkend te maken, het is een probleem in de synchronisatie */
+			/* We konden niet vinden waar het probleem zit. */
+			Sleep(1000);
+
 			memSize = (DATA_SIZE % GLOBAL_SIZE);
 			globalSize[0] = memSize;
+
 			if (memSize > 512)
-				localSize[0] = memSize / (NR_OF_GROUPS);
+				localSize[0] = memSize / NR_OF_GROUPS;
 			else
 				localSize[0] = memSize;
-
-			printf("rest size %i\n", memSize);
 		}	
-
-		/* Set local size */
-		ret = clSetKernelArg(kernel, 1, localSize[0] * sizeof(int), NULL);
-		checkError(ret, "Couldn't set arg sdata");
 
 		/* Write new bit of data to GPU */
 		ret = clEnqueueWriteBuffer(command_queue, dev_gdata, CL_TRUE, 0, memSize * sizeof(int), startPoint, 0, NULL, NULL);
@@ -137,6 +136,11 @@ int main() {
 				globalSize[0] = NR_OF_GROUPS;
 				localSize[0] = NR_OF_GROUPS;
 			}
+
+			/* Set local size */
+			ret = clSetKernelArg(kernel, 1, localSize[0] * sizeof(int), NULL);
+			checkError(ret, "Couldn't set arg sdata");
+
 			/* Activate OpenCL kernel on the Compute Device */
 			ret = clEnqueueNDRangeKernel(command_queue,
 				kernel,
@@ -148,13 +152,15 @@ int main() {
 				NULL,
 				NULL);
 			checkError(ret, "Could not activate kernel");
-		}
 
-		clFinish(command_queue);
+			clFinish(command_queue);
+		}
 
 		/* Transfer result back to host */
 		ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, globalSize[0] * sizeof(int), &dataArray[i], 0, NULL, NULL);
 		checkError(ret, "Couldn't get data from host");
+
+		clFinish(command_queue);
 
 		/* If this was the last itteration, make a final addition for the result */
 		if (((i+1) * GLOBAL_SIZE >= DATA_SIZE))
@@ -166,6 +172,10 @@ int main() {
 			/* Size of final calculation */
 			globalSize[0] = i + 1;
 			localSize[0] = i + 1;
+
+			/* Set local size */
+			ret = clSetKernelArg(kernel, 1, localSize[0] * sizeof(int), NULL);
+			checkError(ret, "Couldn't set arg sdata");
 
 			/* Activate OpenCL kernel on the Compute Device */
 			ret = clEnqueueNDRangeKernel(command_queue,
