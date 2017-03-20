@@ -11,9 +11,10 @@ __kernel void reduction(__global int *gdata) {
 	// do reduction in Local memory
 	for (unsigned int s = 1; s < get_local_size(0); s *= 2)
 	{
-		if (tid % (2 * s) == 0) // if ThreadID is a multiple of 2*s
+		int index = 2 * s*tid;
+		if (index < get_local_size(0))
 		{
-			sdata[tid] += sdata[tid + s];
+			sdata[index] += sdata[index + s];
 		}
 		barrier(CLK_LOCAL_MEM_FENCE);
 	}

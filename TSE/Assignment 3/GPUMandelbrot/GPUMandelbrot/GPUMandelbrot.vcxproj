@@ -83,16 +83,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GPUMandelbrot.cpp" />
-    <ClCompile Include="mandelbrot_frame.cpp" />
     <ClCompile Include="opencl_utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="bitmap_image.hpp" />
     <ClInclude Include="opencl_utils.h" />
-    <ClInclude Include="mandelbrot_frame.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="kernel1.cl" />
+    <None Include="kernel2.cl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
