@@ -28,7 +28,7 @@ int main() {
 
 	/* Parameters for testing */
 	char fileName[] = "./kernel1.cl";
-	const int DATA_SIZE = 100000;
+	const int DATA_SIZE = 200000;
 	const int GLOBAL_SIZE = 8192; /* 16 * 512 */
 	const int LOCAL_SIZE = 512;
 	const int NR_OF_GROUPS = GLOBAL_SIZE / LOCAL_SIZE;
@@ -92,25 +92,22 @@ int main() {
 	/* Set OpenCL kernel arguments */
 	ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&dev_gdata);
 	checkError(ret, "Couldn't set arg gdata");
-	ret = clSetKernelArg(kernel, 1, LOCAL_SIZE * sizeof(int), NULL);
-	checkError(ret, "Couldn't set arg sdata");
 
 	/* Get current time before calculating the array with GPU */
 	LARGE_INTEGER freq, start;
 	QueryPerformanceFrequency(&freq);
 	QueryPerformanceCounter(&start);
 
-	/* Set global en local size */
-
 	for (int i = 0; i * GLOBAL_SIZE <= DATA_SIZE; i++)
 	{
-		printf("lol\n");
-		/* Copy arrays from host memory to Compute Devive */
-		int* startPoint = dataArray + i * GLOBAL_SIZE;
-		size_t memSize = GLOBAL_SIZE;
+		/* Set global en local size */
 		size_t globalSize[] = { GLOBAL_SIZE };
 		size_t localSize[] = { LOCAL_SIZE };
 
+		/* Copy arrays from host memory to Compute Devive */
+		int* startPoint = dataArray + (i * GLOBAL_SIZE);
+		size_t memSize = GLOBAL_SIZE;
+		
 		/* adjust global and local size for rest values in array */
 		if (GLOBAL_SIZE > (DATA_SIZE - (i * GLOBAL_SIZE)))
 		{
@@ -121,8 +118,12 @@ int main() {
 			else
 				localSize[0] = memSize;
 
-			printf("test %i\n", memSize);
+			printf("rest size %i\n", memSize);
 		}	
+
+		/* Set local size */
+		ret = clSetKernelArg(kernel, 1, localSize[0] * sizeof(int), NULL);
+		checkError(ret, "Couldn't set arg sdata");
 
 		/* Write new bit of data to GPU */
 		ret = clEnqueueWriteBuffer(command_queue, dev_gdata, CL_TRUE, 0, memSize * sizeof(int), startPoint, 0, NULL, NULL);
@@ -130,7 +131,7 @@ int main() {
 
 		for (int j = 0; j < globalSize[0]/localSize[0]; j++)
 		{
-			printf("lol2\n");
+			/* First calculation was NR_OF_GROUPS calculations, therefore we need to add the results together */
 			if (j > 0)
 			{
 				globalSize[0] = NR_OF_GROUPS;
@@ -149,16 +150,39 @@ int main() {
 			checkError(ret, "Could not activate kernel");
 		}
 
-		/* Transfer result back to host */
-		ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, sizeof(int), dataArray + i, 0, NULL, NULL);
-		checkError(ret, "Couldn't get data from host");
-	}
+		clFinish(command_queue);
 
-	for (int i = 0; i < 100; i++)
-	{
-		if (i % 32 == 0)
-			printf("\n");
-		printf("%i ", dataArray[i]);
+		/* Transfer result back to host */
+		ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, globalSize[0] * sizeof(int), &dataArray[i], 0, NULL, NULL);
+		checkError(ret, "Couldn't get data from host");
+
+		/* If this was the last itteration, make a final addition for the result */
+		if (((i+1) * GLOBAL_SIZE >= DATA_SIZE))
+		{
+			/* Write new bit of data to GPU */
+			ret = clEnqueueWriteBuffer(command_queue, dev_gdata, CL_TRUE, 0, (i + 1) * sizeof(int), dataArray, 0, NULL, NULL);
+			checkError(ret, "Couldn't write array on device");
+
+			/* Size of final calculation */
+			globalSize[0] = i + 1;
+			localSize[0] = i + 1;
+
+			/* Activate OpenCL kernel on the Compute Device */
+			ret = clEnqueueNDRangeKernel(command_queue,
+				kernel,
+				1,			// 1D array 
+				NULL,
+				globalSize,
+				localSize,		// local size (NULL = auto) 
+				0,
+				NULL,
+				NULL);
+			checkError(ret, "Could not activate kernel");
+
+			/* Transfer result back to host */
+			ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, sizeof(int), &dataArray[0], 0, NULL, NULL);
+			checkError(ret, "Couldn't get data from host");
+		}
 	}
 
 	/* Add blocking element */
