@@ -1,5 +1,4 @@
-__kernel void reduction(__global int *gdata) {
-	__local int sdata[128];
+__kernel void reduction(__global int *gdata, __local int *sdata)
 	unsigned int tid = get_local_id(0);
 	unsigned int gid = get_global_id(0);
 

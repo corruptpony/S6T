@@ -24,18 +24,36 @@ int main() {
 	
 	/* Declare device mem */
 	cl_mem dev_gdata;
+	cl_mem dev_sdata;
 
 	/* Parameters for testing */
 	char fileName[] = "./kernel1.cl";
-	const int GLOBAL_SIZE = 128;
-	const int LOCAL_SIZE = 128;
+	const int DATA_SIZE = 100000;
+	const int GLOBAL_SIZE = 8192; /* 16 * 512 */
+	const int LOCAL_SIZE = 512;
+	const int NR_OF_GROUPS = GLOBAL_SIZE / LOCAL_SIZE;
 
 	/* Fill array with test data */
-	int dataArray[GLOBAL_SIZE];
-	for (int i = 0; i < GLOBAL_SIZE; i++)
+	int dataArray[DATA_SIZE];
+	for (int i = 0; i < DATA_SIZE; i++)
 	{
-		dataArray[i] = i;
+		dataArray[i] = (i % 10);
 	}
+
+	/* Get current time before calculating the array with CPU */
+	LARGE_INTEGER freqCPU, startCPU;
+	QueryPerformanceFrequency(&freqCPU);
+	QueryPerformanceCounter(&startCPU);
+
+	int sum = 0;
+	for (int i = 0; i < DATA_SIZE; i++)
+	{
+		sum += dataArray[i];
+	}
+
+	/* Get current time after calculating the array with CPU */
+	LARGE_INTEGER endCPU;
+	QueryPerformanceCounter(&endCPU);
 
 	/* Get Platform and Device Info */
 	char* info;
@@ -60,18 +78,9 @@ int main() {
 	checkError(ret, "Couldn't create commandqueue");
 
 	/* Allocate memory for arrays on the Compute Device */
-	dev_gdata = clCreateBuffer(context, CL_MEM_READ_ONLY, 128 * sizeof(int), NULL, &ret);
+	dev_gdata = clCreateBuffer(context, CL_MEM_READ_ONLY, GLOBAL_SIZE * sizeof(int), NULL, &ret);
 	checkError(ret, "Couldn't create gdata on device");
-
-	/* Get current time before calculating the fractal */
-	LARGE_INTEGER freq, start;
-	QueryPerformanceFrequency(&freq);
-	QueryPerformanceCounter(&start);
-
-	/* Copy arrays from host memory to Compute Devive */
-	ret = clEnqueueWriteBuffer(command_queue, dev_gdata, CL_TRUE, 0, GLOBAL_SIZE * sizeof(int), dataArray, 0, NULL, NULL);
-	checkError(ret, "Couldn't write array on device");
-
+	
 	/* Create kernel program */
 	program = build_program(context, device_id, fileName);
 	checkError(ret, "Couldn't compile");
@@ -83,44 +92,88 @@ int main() {
 	/* Set OpenCL kernel arguments */
 	ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&dev_gdata);
 	checkError(ret, "Couldn't set arg gdata");
+	ret = clSetKernelArg(kernel, 1, LOCAL_SIZE * sizeof(int), NULL);
+	checkError(ret, "Couldn't set arg sdata");
+
+	/* Get current time before calculating the array with GPU */
+	LARGE_INTEGER freq, start;
+	QueryPerformanceFrequency(&freq);
+	QueryPerformanceCounter(&start);
 
 	/* Set global en local size */
-	size_t globalSize[] = { GLOBAL_SIZE };
-	size_t localSize[] = { LOCAL_SIZE };
 
-	/* Activate OpenCL kernel on the Compute Device */
-	ret = clEnqueueNDRangeKernel(command_queue,
-		kernel,
-		1,			// 1D array 
-		NULL,
-		globalSize,
-		localSize,		// local size (NULL = auto) 
-		0,
-		NULL,
-		NULL);
-	checkError(ret, "Could not activate kernel");
+	for (int i = 0; i * GLOBAL_SIZE <= DATA_SIZE; i++)
+	{
+		printf("lol\n");
+		/* Copy arrays from host memory to Compute Devive */
+		int* startPoint = dataArray + i * GLOBAL_SIZE;
+		size_t memSize = GLOBAL_SIZE;
+		size_t globalSize[] = { GLOBAL_SIZE };
+		size_t localSize[] = { LOCAL_SIZE };
 
-	/* Transfer result back to host */
-	ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, GLOBAL_SIZE * sizeof(int), dataArray, 0, NULL, NULL);
-	checkError(ret, "Couldn't get data from host");
+		/* adjust global and local size for rest values in array */
+		if (GLOBAL_SIZE > (DATA_SIZE - (i * GLOBAL_SIZE)))
+		{
+			memSize = (DATA_SIZE % GLOBAL_SIZE);
+			globalSize[0] = memSize;
+			if (memSize > 512)
+				localSize[0] = memSize / (NR_OF_GROUPS);
+			else
+				localSize[0] = memSize;
+
+			printf("test %i\n", memSize);
+		}	
+
+		/* Write new bit of data to GPU */
+		ret = clEnqueueWriteBuffer(command_queue, dev_gdata, CL_TRUE, 0, memSize * sizeof(int), startPoint, 0, NULL, NULL);
+		checkError(ret, "Couldn't write array on device");
+
+		for (int j = 0; j < globalSize[0]/localSize[0]; j++)
+		{
+			printf("lol2\n");
+			if (j > 0)
+			{
+				globalSize[0] = NR_OF_GROUPS;
+				localSize[0] = NR_OF_GROUPS;
+			}
+			/* Activate OpenCL kernel on the Compute Device */
+			ret = clEnqueueNDRangeKernel(command_queue,
+				kernel,
+				1,			// 1D array 
+				NULL,
+				globalSize,
+				localSize,		// local size (NULL = auto) 
+				0,
+				NULL,
+				NULL);
+			checkError(ret, "Could not activate kernel");
+		}
+
+		/* Transfer result back to host */
+		ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, sizeof(int), dataArray + i, 0, NULL, NULL);
+		checkError(ret, "Couldn't get data from host");
+	}
+
+	for (int i = 0; i < 100; i++)
+	{
+		if (i % 32 == 0)
+			printf("\n");
+		printf("%i ", dataArray[i]);
+	}
 
 	/* Add blocking element */
 	clFinish(command_queue);
 
-	/* Get current time after calculating the fractal */
+	/* Get current time after calculating the array on GPU */
 	LARGE_INTEGER end;
 	QueryPerformanceCounter(&end);
 
 	/* Print elapsed time */
-	printf("Elapsed time: %f msec\n", (double)(end.QuadPart - start.QuadPart) / freq.QuadPart * 1000.0);
+	printf("Elapsed time CPU: %f msec\n", (double)(endCPU.QuadPart - startCPU.QuadPart) / freqCPU.QuadPart * 1000.0);
+	printf("Elapsed time GPU: %f msec\n", (double)(end.QuadPart - start.QuadPart) / freq.QuadPart * 1000.0);
 
-	/* Print result */
-	int sum = 0;
-	for (int i = 0; i < GLOBAL_SIZE/LOCAL_SIZE; i++)
-	{
-		sum += dataArray[i];
-	}
-	printf("result: %i\n", sum);
+	printf("result CPU: %i\n", sum);
+	printf("result GPU: %i\n", dataArray[0]);
 
 	/* Finalization */
 	ret = clFlush(command_queue);
