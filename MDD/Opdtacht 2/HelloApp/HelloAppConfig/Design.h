@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Design
-//!	Generated Date	: Mon, 20, Feb 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Design.h
 *********************************************************************/
 
@@ -28,6 +28,8 @@ class IDisplay;
 
 //#[ ignore
 #define evPrint_Design_id 28001
+
+#define evDone_Design_id 28002
 //#]
 
 //## package Design
@@ -51,6 +53,21 @@ public :
     ////    Framework    ////
     
     int seqnr;		//## statechart_method
+};
+
+//## event evDone()
+class evDone : public OMEvent {
+    ////    Constructors and destructors    ////
+    
+public :
+
+    //## auto_generated
+    evDone();
+    
+    ////    Framework operations    ////
+    
+    //## statechart_method
+    bool isTypeOf(short id) const;
 };
 
 #endif

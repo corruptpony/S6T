@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Controller
-//!	Generated Date	: Mon, 6, Mar 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Controller.cpp
 *********************************************************************/
 
@@ -34,6 +34,40 @@ Controller::dsp1_C::InBound_C::InBound_C() {
 
 Controller::dsp1_C::InBound_C::~InBound_C() {
     cleanUpRelations();
+}
+
+bool Controller::dsp1_C::InBound_C::send(IOxfEvent* event, const IOxfEventGenerationParams& params) {
+    //#[ operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+    bool res = false;
+    if (event != NULL) {
+        event->setPort(getPort());
+        if (itsIControl != NULL) {
+            if (event->isTypeOf(evDone_Design_id)) {
+                res = itsIControl->send(event, params);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+bool Controller::dsp1_C::InBound_C::send(IOxfEvent* event) {
+    //#[ operation send(IOxfEvent*)
+    bool res = false;
+    if (event != NULL) {
+        event->setPort(getPort());
+        if (itsIControl != NULL) {
+            if (event->isTypeOf(evDone_Design_id)) {
+                res = itsIControl->send(event);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
 }
 
 IControl* Controller::dsp1_C::InBound_C::getItsIControl() const {
@@ -86,12 +120,44 @@ Controller::dsp1_C::OutBound_C::~OutBound_C() {
     cleanUpRelations();
 }
 
-IDisplay* Controller::dsp1_C::OutBound_C::getItsIDisplay() const {
+bool Controller::dsp1_C::OutBound_C::send(IOxfEvent* event, const IOxfEventGenerationParams& params) {
+    //#[ operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+    bool res = false;
+    if (event != NULL) {
+        if (itsIDisplay != NULL) {
+            if (event->isTypeOf(evPrint_Design_id)) {
+                res = itsIDisplay->send(event, params);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+bool Controller::dsp1_C::OutBound_C::send(IOxfEvent* event) {
+    //#[ operation send(IOxfEvent*)
+    bool res = false;
+    if (event != NULL) {
+        if (itsIDisplay != NULL) {
+            if (event->isTypeOf(evPrint_Design_id)) {
+                res = itsIDisplay->send(event);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+OMReactive* Controller::dsp1_C::OutBound_C::getItsIDisplay() const {
     return itsIDisplay;
 }
 
-void Controller::dsp1_C::OutBound_C::setItsIDisplay(IDisplay* p_IDisplay) {
-    itsIDisplay = p_IDisplay;
+void Controller::dsp1_C::OutBound_C::setItsIDisplay(OMReactive* p_OMReactive) {
+    itsIDisplay = p_OMReactive;
 }
 
 void Controller::dsp1_C::OutBound_C::cleanUpRelations() {
@@ -134,8 +200,8 @@ void Controller::dsp1_C::setItsIControl(IControl* p_IControl) {
     //#]
 }
 
-void Controller::dsp1_C::setItsIDisplay(IDisplay* p_IDisplay) {
-    //#[ operation setItsIDisplay(IDisplay*)
+void Controller::dsp1_C::setItsIDisplay(OMReactive* p_IDisplay) {
+    //#[ operation setItsIDisplay(OMReactive*)
     OutBound.setItsIDisplay(p_IDisplay);
     //#]
 }
@@ -152,6 +218,9 @@ void Controller::dsp1_C::initRelations() {
     InBound._setPort(this);
 }
 
+void Controller::dsp1_C::destroy() {
+}
+
 
 using namespace std;
 
@@ -165,6 +234,40 @@ Controller::dsp2_C::InBound_C::InBound_C() {
 
 Controller::dsp2_C::InBound_C::~InBound_C() {
     cleanUpRelations();
+}
+
+bool Controller::dsp2_C::InBound_C::send(IOxfEvent* event, const IOxfEventGenerationParams& params) {
+    //#[ operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+    bool res = false;
+    if (event != NULL) {
+        event->setPort(getPort());
+        if (itsIControl != NULL) {
+            if (event->isTypeOf(evDone_Design_id)) {
+                res = itsIControl->send(event, params);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+bool Controller::dsp2_C::InBound_C::send(IOxfEvent* event) {
+    //#[ operation send(IOxfEvent*)
+    bool res = false;
+    if (event != NULL) {
+        event->setPort(getPort());
+        if (itsIControl != NULL) {
+            if (event->isTypeOf(evDone_Design_id)) {
+                res = itsIControl->send(event);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
 }
 
 IControl* Controller::dsp2_C::InBound_C::getItsIControl() const {
@@ -217,12 +320,44 @@ Controller::dsp2_C::OutBound_C::~OutBound_C() {
     cleanUpRelations();
 }
 
-IDisplay* Controller::dsp2_C::OutBound_C::getItsIDisplay() const {
+bool Controller::dsp2_C::OutBound_C::send(IOxfEvent* event, const IOxfEventGenerationParams& params) {
+    //#[ operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+    bool res = false;
+    if (event != NULL) {
+        if (itsIDisplay != NULL) {
+            if (event->isTypeOf(evPrint_Design_id)) {
+                res = itsIDisplay->send(event, params);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+bool Controller::dsp2_C::OutBound_C::send(IOxfEvent* event) {
+    //#[ operation send(IOxfEvent*)
+    bool res = false;
+    if (event != NULL) {
+        if (itsIDisplay != NULL) {
+            if (event->isTypeOf(evPrint_Design_id)) {
+                res = itsIDisplay->send(event);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+OMReactive* Controller::dsp2_C::OutBound_C::getItsIDisplay() const {
     return itsIDisplay;
 }
 
-void Controller::dsp2_C::OutBound_C::setItsIDisplay(IDisplay* p_IDisplay) {
-    itsIDisplay = p_IDisplay;
+void Controller::dsp2_C::OutBound_C::setItsIDisplay(OMReactive* p_OMReactive) {
+    itsIDisplay = p_OMReactive;
 }
 
 void Controller::dsp2_C::OutBound_C::cleanUpRelations() {
@@ -265,8 +400,8 @@ void Controller::dsp2_C::setItsIControl(IControl* p_IControl) {
     //#]
 }
 
-void Controller::dsp2_C::setItsIDisplay(IDisplay* p_IDisplay) {
-    //#[ operation setItsIDisplay(IDisplay*)
+void Controller::dsp2_C::setItsIDisplay(OMReactive* p_IDisplay) {
+    //#[ operation setItsIDisplay(OMReactive*)
     OutBound.setItsIDisplay(p_IDisplay);
     //#]
 }
@@ -281,6 +416,9 @@ Controller::dsp2_C::OutBound_C* Controller::dsp2_C::getOutBound() const {
 
 void Controller::dsp2_C::initRelations() {
     InBound._setPort(this);
+}
+
+void Controller::dsp2_C::destroy() {
 }
 //#]
 
@@ -362,7 +500,6 @@ void Controller::initRelations() {
 void Controller::initStatechart() {
     rootState_subState = OMNonState;
     rootState_active = OMNonState;
-    stateDisplay_subState = OMNonState;
     stateDisplay_timeout = NULL;
 }
 
@@ -395,72 +532,114 @@ bool Controller::cancelTimeout(const IOxfTimeout* arg) {
 
 void Controller::rootState_entDef() {
     {
-        stateDisplay_entDef();
+        pushNullTransition();
+        rootState_subState = stateDisplay;
+        rootState_active = stateDisplay;
+        stateDisplay_timeout = scheduleTimeout(1000, NULL);
     }
 }
 
-IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
-    IOxfReactive::TakeEventStatus res = eventNotConsumed;
-    switch (rootState_active) {
-        case sendaction_3:
+void Controller::rootState_exit() {
+    switch (rootState_subState) {
+        case stateDisplay:
         {
-            res = stateDisplay_handleEvent();
+            popNullTransition();
+            if(stateDisplay_timeout != NULL)
+                {
+                    stateDisplay_timeout->cancel();
+                    stateDisplay_timeout = NULL;
+                }
+            //#[ state ROOT.stateDisplay.(Exit) 
+            count++;
+            //#]
             break;
         }
         
         default:
             break;
     }
-    return res;
-}
-
-void Controller::stateDisplay_entDef() {
-    pushNullTransition();
-    rootState_subState = stateDisplay;
-    stateDisplay_timeout = scheduleTimeout(2000, NULL);
-    stateDisplay_subState = sendaction_3;
-    rootState_active = sendaction_3;
-    //#[ state ROOT.stateDisplay.sendaction_3.(Entry) 
-    OUT_PORT(dsp1)->GEN(evPrint(count));
-    //#]
-}
-
-void Controller::stateDisplay_exit() {
-    popNullTransition();
-    stateDisplay_subState = OMNonState;
-    if(stateDisplay_timeout != NULL)
-        {
-            stateDisplay_timeout->cancel();
-            stateDisplay_timeout = NULL;
-        }
-    //#[ state ROOT.stateDisplay.(Exit) 
-    count++;
-    //#]
-}
-
-IOxfReactive::TakeEventStatus Controller::stateDisplay_handleEvent() {
-    IOxfReactive::TakeEventStatus res = eventNotConsumed;
-    if(IS_EVENT_TYPE_OF(OMTimeoutEventId))
-        {
-            if(getCurrentEvent() == stateDisplay_timeout)
-                {
-                    stateDisplay_exit();
-                    stateDisplay_entDef();
-                    res = eventConsumed;
-                }
-        }
-    else if(IS_EVENT_TYPE_OF(OMNullEventId))
-        {
-            //## transition 2 
-            if(count > 5)
-                {
-                    stateDisplay_exit();
-                    rootState_subState = state_2;
-                    rootState_active = state_2;
-                    res = eventConsumed;
-                }
-        }
+    rootState_subState = OMNonState;
     
+}
+
+IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
+    IOxfReactive::TakeEventStatus res = eventNotConsumed;
+    switch (rootState_active) {
+        case stateDisplay:
+        {
+            if(IS_EVENT_TYPE_OF(OMTimeoutEventId))
+                {
+                    if(getCurrentEvent() == stateDisplay_timeout)
+                        {
+                            popNullTransition();
+                            if(stateDisplay_timeout != NULL)
+                                {
+                                    stateDisplay_timeout->cancel();
+                                    stateDisplay_timeout = NULL;
+                                }
+                            //#[ state ROOT.stateDisplay.(Exit) 
+                            count++;
+                            //#]
+                            rootState_subState = sendaction_3;
+                            rootState_active = sendaction_3;
+                            //#[ state ROOT.sendaction_3.(Entry) 
+                            OUT_PORT(dsp1)->GEN(evPrint(count));
+                            //#]
+                            res = eventConsumed;
+                        }
+                }
+            else if(IS_EVENT_TYPE_OF(OMNullEventId))
+                {
+                    //## transition 1 
+                    if(count > 5)
+                        {
+                            popNullTransition();
+                            if(stateDisplay_timeout != NULL)
+                                {
+                                    stateDisplay_timeout->cancel();
+                                    stateDisplay_timeout = NULL;
+                                }
+                            //#[ state ROOT.stateDisplay.(Exit) 
+                            count++;
+                            //#]
+                            rootState_subState = state_2;
+                            rootState_active = state_2;
+                            res = eventConsumed;
+                        }
+                }
+            
+            break;
+        }
+        case sendaction_3:
+        {
+            if(IS_EVENT_TYPE_OF(evDone_Design_id))
+                {
+                    rootState_subState = sendaction_4;
+                    rootState_active = sendaction_4;
+                    //#[ state ROOT.sendaction_4.(Entry) 
+                    OUT_PORT(dsp2)->GEN(evPrint(count));
+                    //#]
+                    res = eventConsumed;
+                }
+            
+            break;
+        }
+        case sendaction_4:
+        {
+            if(IS_EVENT_TYPE_OF(evDone_Design_id))
+                {
+                    pushNullTransition();
+                    rootState_subState = stateDisplay;
+                    rootState_active = stateDisplay;
+                    stateDisplay_timeout = scheduleTimeout(1000, NULL);
+                    res = eventConsumed;
+                }
+            
+            break;
+        }
+        default:
+            break;
+    }
     return res;
 }
 

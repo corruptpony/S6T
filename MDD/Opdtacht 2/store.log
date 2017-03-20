@@ -1,52 +1,52 @@
-03, 06, 2017 (12:05:47): Starting Pre-Save actions
+03, 20, 2017 (10:20:52): Starting Pre-Save actions
 
-03, 06, 2017 (12:05:47): Starting Dialogs Check/Save
-03, 06, 2017 (12:05:47): Finished Dialogs Check/Save
-03, 06, 2017 (12:05:47): Starting Controlled Files Resolution
-03, 06, 2017 (12:05:47): Finished Controlled Files Resolution
-03, 06, 2017 (12:05:47): Starting Save VBA
-03, 06, 2017 (12:05:47): Finished Save VBA
-03, 06, 2017 (12:05:47): Finished Pre-Save actions
+03, 20, 2017 (10:20:52): Starting Dialogs Check/Save
+03, 20, 2017 (10:20:52): Finished Dialogs Check/Save
+03, 20, 2017 (10:20:52): Starting Controlled Files Resolution
+03, 20, 2017 (10:20:52): Finished Controlled Files Resolution
+03, 20, 2017 (10:20:52): Starting Save VBA
+03, 20, 2017 (10:20:52): Finished Save VBA
+03, 20, 2017 (10:20:52): Finished Pre-Save actions
 
-03, 06, 2017 (12:05:47): Creating C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2.rpy
-03, 06, 2017 (12:05:47): 
-Started writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2.rpy on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Creating Z:\MDD\Opdtacht 2\HelloWorldNumero2.rpy
+03, 20, 2017 (10:20:52): 
+Started writing Z:\MDD\Opdtacht 2\HelloWorldNumero2.rpy on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): 
-Started writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\filesTable.dat on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): 
+Started writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\filesTable.dat on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Finished writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\filesTable.dat on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Finished writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\filesTable.dat on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Creating C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Analyse.sbs
-03, 06, 2017 (12:05:47): 
-Started writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Analyse.sbs on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Creating Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Analyse.sbs
+03, 20, 2017 (10:20:52): 
+Started writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Analyse.sbs on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Finished writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Analyse.sbs on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Finished writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Analyse.sbs on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Creating C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Design.sbs
-03, 06, 2017 (12:05:47): 
-Started writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Design.sbs on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Creating Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Design.sbs
+03, 20, 2017 (10:20:52): 
+Started writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Design.sbs on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Finished writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Design.sbs on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Finished writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Design.sbs on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Creating C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Test.sbs
-03, 06, 2017 (12:05:47): 
-Started writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Test.sbs on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Creating Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Test.sbs
+03, 20, 2017 (10:20:52): 
+Started writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Test.sbs on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Finished writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\Test.sbs on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Finished writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\Test.sbs on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Creating C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\CGCompatibilityPre73Cpp.sbs
-03, 06, 2017 (12:05:47): 
-Started writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\CGCompatibilityPre73Cpp.sbs on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Creating Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\CGCompatibilityPre73Cpp.sbs
+03, 20, 2017 (10:20:52): 
+Started writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\CGCompatibilityPre73Cpp.sbs on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Finished writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\CGCompatibilityPre73Cpp.sbs on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Finished writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\CGCompatibilityPre73Cpp.sbs on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Creating C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\HelloApp.cmp
-03, 06, 2017 (12:05:47): 
-Started writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\HelloApp.cmp on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Creating Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\HelloApp.cmp
+03, 20, 2017 (10:20:52): 
+Started writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\HelloApp.cmp on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Finished writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2_rpy\HelloApp.cmp on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Finished writing Z:\MDD\Opdtacht 2\HelloWorldNumero2_rpy\HelloApp.cmp on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): Finished writing C:\Documents and Settings\User\Desktop\MDD6\Opdtacht 2\HelloWorldNumero2.rpy on Monday, March 06, 2017 (12:05:47)
+03, 20, 2017 (10:20:52): Finished writing Z:\MDD\Opdtacht 2\HelloWorldNumero2.rpy on Monday, March 20, 2017 (10:20:52)
 
-03, 06, 2017 (12:05:47): End Log
+03, 20, 2017 (10:20:52): End Log

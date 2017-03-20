@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Design
-//!	Generated Date	: Mon, 20, Feb 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Design.cpp
 *********************************************************************/
 
@@ -28,6 +28,22 @@ evPrint::evPrint(int p_seqnr) {
 
 bool evPrint::isTypeOf(short id) const {
     if(evPrint_Design_id==id)
+        {
+            return true;
+        }
+    else
+        {
+            return false;
+        }
+}
+
+//## event evDone()
+evDone::evDone() {
+    setId(evDone_Design_id);
+}
+
+bool evDone::isTypeOf(short id) const {
+    if(evDone_Design_id==id)
         {
             return true;
         }

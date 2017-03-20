@@ -4,10 +4,12 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: IControl
-//!	Generated Date	: Tue, 14, Feb 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/IControl.cpp
 *********************************************************************/
 
+//## auto_generated
+#include <oxf/omthread.h>
 //## auto_generated
 #include "IControl.h"
 //## package Design

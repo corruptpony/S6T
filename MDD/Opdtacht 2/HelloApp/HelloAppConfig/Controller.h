@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Controller
-//!	Generated Date	: Mon, 6, Mar 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Controller.h
 *********************************************************************/
 
@@ -17,12 +17,6 @@
 #include <../Profiles/SysML/SIDefinitions.h>
 //## auto_generated
 #include "Design.h"
-//## auto_generated
-#include <oxf/omreactive.h>
-//## auto_generated
-#include <oxf/state.h>
-//## auto_generated
-#include <oxf/event.h>
 //## class Controller
 #include "IControl.h"
 //## auto_generated
@@ -38,7 +32,7 @@
 //## package Design
 
 //## class Controller
-class Controller : public OMReactive, public IControl {
+class Controller : public IControl {
 public :
 
 //#[ ignore
@@ -63,6 +57,14 @@ public :
             
             //## auto_generated
             virtual ~InBound_C();
+            
+            ////    Operations    ////
+            
+            //## operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+            bool send(IOxfEvent* event, const IOxfEventGenerationParams& params);
+            
+            //## operation send(IOxfEvent*)
+            bool send(IOxfEvent* event);
             
             ////    Additional operations    ////
             
@@ -115,13 +117,21 @@ public :
             //## auto_generated
             virtual ~OutBound_C();
             
+            ////    Operations    ////
+            
+            //## operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+            bool send(IOxfEvent* event, const IOxfEventGenerationParams& params);
+            
+            //## operation send(IOxfEvent*)
+            bool send(IOxfEvent* event);
+            
             ////    Additional operations    ////
             
             //## auto_generated
-            IDisplay* getItsIDisplay() const;
+            OMReactive* getItsIDisplay() const;
             
             //## auto_generated
-            void setItsIDisplay(IDisplay* p_IDisplay);
+            void setItsIDisplay(OMReactive* p_OMReactive);
         
         protected :
         
@@ -130,7 +140,7 @@ public :
             
             ////    Relations and components    ////
             
-            IDisplay* itsIDisplay;		//## link itsIDisplay
+            OMReactive* itsIDisplay;		//## link itsIDisplay
         };
         
         ////    Constructors and destructors    ////
@@ -155,8 +165,8 @@ public :
         //## operation setItsIControl(IControl*)
         void setItsIControl(IControl* p_IControl);
         
-        //## operation setItsIDisplay(IDisplay*)
-        void setItsIDisplay(IDisplay* p_IDisplay);
+        //## operation setItsIDisplay(OMReactive*)
+        void setItsIDisplay(OMReactive* p_IDisplay);
         
         ////    Additional operations    ////
         
@@ -180,6 +190,13 @@ public :
         InBound_C InBound;		//## classInstance InBound
         
         OutBound_C OutBound;		//## classInstance OutBound
+        
+        ////    Framework operations    ////
+    
+    public :
+    
+        //## auto_generated
+        void destroy();
     };
     
     //## package Design
@@ -203,6 +220,14 @@ public :
             
             //## auto_generated
             virtual ~InBound_C();
+            
+            ////    Operations    ////
+            
+            //## operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+            bool send(IOxfEvent* event, const IOxfEventGenerationParams& params);
+            
+            //## operation send(IOxfEvent*)
+            bool send(IOxfEvent* event);
             
             ////    Additional operations    ////
             
@@ -255,13 +280,21 @@ public :
             //## auto_generated
             virtual ~OutBound_C();
             
+            ////    Operations    ////
+            
+            //## operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+            bool send(IOxfEvent* event, const IOxfEventGenerationParams& params);
+            
+            //## operation send(IOxfEvent*)
+            bool send(IOxfEvent* event);
+            
             ////    Additional operations    ////
             
             //## auto_generated
-            IDisplay* getItsIDisplay() const;
+            OMReactive* getItsIDisplay() const;
             
             //## auto_generated
-            void setItsIDisplay(IDisplay* p_IDisplay);
+            void setItsIDisplay(OMReactive* p_OMReactive);
         
         protected :
         
@@ -270,7 +303,7 @@ public :
             
             ////    Relations and components    ////
             
-            IDisplay* itsIDisplay;		//## link itsIDisplay
+            OMReactive* itsIDisplay;		//## link itsIDisplay
         };
         
         ////    Constructors and destructors    ////
@@ -295,8 +328,8 @@ public :
         //## operation setItsIControl(IControl*)
         void setItsIControl(IControl* p_IControl);
         
-        //## operation setItsIDisplay(IDisplay*)
-        void setItsIDisplay(IDisplay* p_IDisplay);
+        //## operation setItsIDisplay(OMReactive*)
+        void setItsIDisplay(OMReactive* p_IDisplay);
         
         ////    Additional operations    ////
         
@@ -320,6 +353,13 @@ public :
         InBound_C InBound;		//## classInstance InBound
         
         OutBound_C OutBound;		//## classInstance OutBound
+        
+        ////    Framework operations    ////
+    
+    public :
+    
+        //## auto_generated
+        void destroy();
     };
 //#]
 
@@ -417,28 +457,26 @@ public :
     virtual void rootState_entDef();
     
     //## statechart_method
+    void rootState_exit();
+    
+    //## statechart_method
     virtual IOxfReactive::TakeEventStatus rootState_processEvent();
     
     // stateDisplay:
     //## statechart_method
     inline bool stateDisplay_IN() const;
     
+    // state_2:
     //## statechart_method
-    void stateDisplay_entDef();
+    inline bool state_2_IN() const;
     
+    // sendaction_4:
     //## statechart_method
-    virtual void stateDisplay_exit();
-    
-    //## statechart_method
-    IOxfReactive::TakeEventStatus stateDisplay_handleEvent();
+    inline bool sendaction_4_IN() const;
     
     // sendaction_3:
     //## statechart_method
     inline bool sendaction_3_IN() const;
-    
-    // state_2:
-    //## statechart_method
-    inline bool state_2_IN() const;
 
 protected :
 
@@ -446,15 +484,14 @@ protected :
     enum Controller_Enum {
         OMNonState = 0,
         stateDisplay = 1,
-        sendaction_3 = 2,
-        state_2 = 3
+        state_2 = 2,
+        sendaction_4 = 3,
+        sendaction_3 = 4
     };
     
     int rootState_subState;
     
     int rootState_active;
-    
-    int stateDisplay_subState;
     
     IOxfTimeout* stateDisplay_timeout;
 //#]
@@ -472,12 +509,16 @@ inline bool Controller::stateDisplay_IN() const {
     return rootState_subState == stateDisplay;
 }
 
-inline bool Controller::sendaction_3_IN() const {
-    return stateDisplay_subState == sendaction_3;
-}
-
 inline bool Controller::state_2_IN() const {
     return rootState_subState == state_2;
+}
+
+inline bool Controller::sendaction_4_IN() const {
+    return rootState_subState == sendaction_4;
+}
+
+inline bool Controller::sendaction_3_IN() const {
+    return rootState_subState == sendaction_3;
 }
 
 #endif

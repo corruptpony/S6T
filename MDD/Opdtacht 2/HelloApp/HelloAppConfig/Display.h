@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Display
-//!	Generated Date	: Mon, 20, Feb 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Display.h
 *********************************************************************/
 
@@ -23,12 +23,6 @@
 #include <fstream>
 //## auto_generated
 #include <vector>
-//## auto_generated
-#include <oxf/omreactive.h>
-//## auto_generated
-#include <oxf/state.h>
-//## auto_generated
-#include <oxf/event.h>
 //## class Display
 #include "IDisplay.h"
 //## class OutBound
@@ -36,7 +30,7 @@
 //## package Analyse
 
 //## class Display
-class Display : public OMReactive, public IDisplay {
+class Display : public IDisplay {
 public :
 
 //#[ ignore
@@ -61,6 +55,14 @@ public :
             
             //## auto_generated
             virtual ~InBound_C();
+            
+            ////    Operations    ////
+            
+            //## operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+            bool send(IOxfEvent* event, const IOxfEventGenerationParams& params);
+            
+            //## operation send(IOxfEvent*)
+            bool send(IOxfEvent* event);
             
             ////    Additional operations    ////
             
@@ -113,13 +115,21 @@ public :
             //## auto_generated
             virtual ~OutBound_C();
             
+            ////    Operations    ////
+            
+            //## operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+            bool send(IOxfEvent* event, const IOxfEventGenerationParams& params);
+            
+            //## operation send(IOxfEvent*)
+            bool send(IOxfEvent* event);
+            
             ////    Additional operations    ////
             
             //## auto_generated
-            IControl* getItsIControl() const;
+            OMReactive* getItsIControl() const;
             
             //## auto_generated
-            void setItsIControl(IControl* p_IControl);
+            void setItsIControl(OMReactive* p_OMReactive);
         
         protected :
         
@@ -128,7 +138,7 @@ public :
             
             ////    Relations and components    ////
             
-            IControl* itsIControl;		//## link itsIControl
+            OMReactive* itsIControl;		//## link itsIControl
         };
         
         ////    Constructors and destructors    ////
@@ -150,8 +160,8 @@ public :
         //## operation getItsIDisplay()
         IDisplay* getItsIDisplay();
         
-        //## operation setItsIControl(IControl*)
-        void setItsIControl(IControl* p_IControl);
+        //## operation setItsIControl(OMReactive*)
+        void setItsIControl(OMReactive* p_IControl);
         
         //## operation setItsIDisplay(IDisplay*)
         void setItsIDisplay(IDisplay* p_IDisplay);
@@ -178,6 +188,13 @@ public :
         InBound_C InBound;		//## classInstance InBound
         
         OutBound_C OutBound;		//## classInstance OutBound
+        
+        ////    Framework operations    ////
+    
+    public :
+    
+        //## auto_generated
+        void destroy();
     };
 //#]
 

@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: IDisplay
-//!	Generated Date	: Tue, 14, Feb 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/IDisplay.h
 *********************************************************************/
 
@@ -16,6 +16,14 @@
 //## auto_generated
 #include <../Profiles/SysML/SIDefinitions.h>
 //## auto_generated
+#include "Design.h"
+//## auto_generated
+#include <oxf/omreactive.h>
+//## auto_generated
+#include <oxf/state.h>
+//## auto_generated
+#include <oxf/event.h>
+//## auto_generated
 #include <string>
 //## auto_generated
 #include <iostream>
@@ -26,7 +34,7 @@
 //## package Design
 
 //## class IDisplay
-class IDisplay {
+class IDisplay : virtual public OMReactive {
     ////    Constructors and destructors    ////
     
 public :
@@ -35,7 +43,7 @@ public :
     IDisplay();
     
     //## auto_generated
-    virtual ~IDisplay();
+    virtual ~IDisplay() = 0;
 };
 
 #endif

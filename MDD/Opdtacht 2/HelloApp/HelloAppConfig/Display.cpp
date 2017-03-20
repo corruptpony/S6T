@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Display
-//!	Generated Date	: Mon, 20, Feb 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Display.cpp
 *********************************************************************/
 
@@ -34,6 +34,40 @@ Display::ctl_C::InBound_C::InBound_C() {
 
 Display::ctl_C::InBound_C::~InBound_C() {
     cleanUpRelations();
+}
+
+bool Display::ctl_C::InBound_C::send(IOxfEvent* event, const IOxfEventGenerationParams& params) {
+    //#[ operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+    bool res = false;
+    if (event != NULL) {
+        event->setPort(getPort());
+        if (itsIDisplay != NULL) {
+            if (event->isTypeOf(evPrint_Design_id)) {
+                res = itsIDisplay->send(event, params);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+bool Display::ctl_C::InBound_C::send(IOxfEvent* event) {
+    //#[ operation send(IOxfEvent*)
+    bool res = false;
+    if (event != NULL) {
+        event->setPort(getPort());
+        if (itsIDisplay != NULL) {
+            if (event->isTypeOf(evPrint_Design_id)) {
+                res = itsIDisplay->send(event);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
 }
 
 IDisplay* Display::ctl_C::InBound_C::getItsIDisplay() const {
@@ -86,12 +120,44 @@ Display::ctl_C::OutBound_C::~OutBound_C() {
     cleanUpRelations();
 }
 
-IControl* Display::ctl_C::OutBound_C::getItsIControl() const {
+bool Display::ctl_C::OutBound_C::send(IOxfEvent* event, const IOxfEventGenerationParams& params) {
+    //#[ operation send(IOxfEvent*,const IOxfEventGenerationParams&)
+    bool res = false;
+    if (event != NULL) {
+        if (itsIControl != NULL) {
+            if (event->isTypeOf(evDone_Design_id)) {
+                res = itsIControl->send(event, params);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+bool Display::ctl_C::OutBound_C::send(IOxfEvent* event) {
+    //#[ operation send(IOxfEvent*)
+    bool res = false;
+    if (event != NULL) {
+        if (itsIControl != NULL) {
+            if (event->isTypeOf(evDone_Design_id)) {
+                res = itsIControl->send(event);
+                return res;
+            }
+        }
+    }
+    return res;
+    
+    //#]
+}
+
+OMReactive* Display::ctl_C::OutBound_C::getItsIControl() const {
     return itsIControl;
 }
 
-void Display::ctl_C::OutBound_C::setItsIControl(IControl* p_IControl) {
-    itsIControl = p_IControl;
+void Display::ctl_C::OutBound_C::setItsIControl(OMReactive* p_OMReactive) {
+    itsIControl = p_OMReactive;
 }
 
 void Display::ctl_C::OutBound_C::cleanUpRelations() {
@@ -128,8 +194,8 @@ IDisplay* Display::ctl_C::getItsIDisplay() {
     //#]
 }
 
-void Display::ctl_C::setItsIControl(IControl* p_IControl) {
-    //#[ operation setItsIControl(IControl*)
+void Display::ctl_C::setItsIControl(OMReactive* p_IControl) {
+    //#[ operation setItsIControl(OMReactive*)
     OutBound.setItsIControl(p_IControl);
     //#]
 }
@@ -150,6 +216,9 @@ Display::ctl_C::OutBound_C* Display::ctl_C::getOutBound() const {
 
 void Display::ctl_C::initRelations() {
     InBound._setPort(this);
+}
+
+void Display::ctl_C::destroy() {
 }
 //#]
 
@@ -302,6 +371,9 @@ IOxfReactive::TakeEventStatus Display::rootState_processEvent() {
                                     stateWorld_timeout->cancel();
                                     stateWorld_timeout = NULL;
                                 }
+                            //#[ state ROOT.stateWorld.(Exit) 
+                            OUT_PORT(ctl)->GEN(evDone);
+                            //#]
                             rootState_subState = stateWaitForEvent;
                             rootState_active = stateWaitForEvent;
                             res = eventConsumed;

@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: HelloAppConfig
-//!	Generated Date	: Mon, 20, Feb 2017  
+//!	Generated Date	: Mon, 20, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/MainHelloApp.cpp
 *********************************************************************/
 
@@ -15,7 +15,7 @@
 //## auto_generated
 #include "Test.h"
 //## auto_generated
-#include "Application.h"
+#include "DistributedHelloTestSystem.h"
 HelloApp::HelloApp() {
     Test_initRelations();
     Test_startBehavior();
@@ -24,13 +24,14 @@ HelloApp::HelloApp() {
 int main(int argc, char* argv[]) {
     if(OXF::initialize(argc, argv, 6423, "VMWARE"))
         {
-            Application * p_Application;
+            DistributedHelloTestSystem * p_DistributedHelloTestSystem;
             HelloApp initializer_HelloApp;
-            p_Application = new Application;
+            p_DistributedHelloTestSystem = new DistributedHelloTestSystem;
+            p_DistributedHelloTestSystem->startBehavior();
             //#[ configuration HelloApp::HelloAppConfig 
             //#]
             OXF::start();
-            delete p_Application;
+            delete p_DistributedHelloTestSystem;
             return 0;
         }
     else

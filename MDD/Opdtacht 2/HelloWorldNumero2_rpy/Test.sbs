@@ -17,7 +17,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					{ IPropertySubject 
 						- _Name = "Format";
 						- Metaclasses = { IRPYRawContainer 
-							- size = 5;
+							- size = 6;
 							- value = 
 							{ IPropertyMetaclass 
 								- _Name = "Class";
@@ -110,6 +110,48 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 										- _Name = "Line.LineColor";
 										- _Value = "0,0,255";
 										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineWidth";
+										- _Value = "1";
+										- _Type = Int;
+									}
+								}
+							}
+							{ IPropertyMetaclass 
+								- _Name = "Event";
+								- Properties = { IRPYRawContainer 
+									- size = 7;
+									- value = 
+									{ IProperty 
+										- _Name = "DefaultSize";
+										- _Value = "0,0,108,73";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.Font";
+										- _Value = "Arial";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.FontColor";
+										- _Value = "0,0,128";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Font.Size";
+										- _Value = "10";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineColor";
+										- _Value = "0,0,255";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineStyle";
+										- _Value = "0";
+										- _Type = Int;
 									}
 									{ IProperty 
 										- _Name = "Line.LineWidth";
@@ -266,7 +308,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 38dfec39-1968-4f0a-87ef-c2fde9a5d5e1;
 				}
 			}
-			- _lastModifiedTime = "3.6.2017::9:44:14";
+			- _lastModifiedTime = "3.20.2017::8:43:59";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID cd36fd47-6607-45d1-94f1-78902653b9d3;
 				- m_type = 0;
@@ -509,7 +551,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						}
 					}
 					- Operations = { IRPYRawContainer 
-						- size = 3;
+						- size = 4;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IConstructor";
@@ -534,6 +576,14 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Display";
 							- _name = "evPrint()";
 							- _id = GUID 8ccc8983-90d2-47f4-9061-7305be0f8a77;
+						}
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "Analyse.sbs";
+							- _subsystem = "Analyse";
+							- _class = "Display";
+							- _name = "evDone()";
+							- _id = GUID ddca519c-a617-4166-beb2-8f96f8f4808f;
 						}
 					}
 					- m_multiplicity = { CGIText 
@@ -628,7 +678,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						}
 					}
 					- Operations = { IRPYRawContainer 
-						- size = 3;
+						- size = 4;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IConstructor";
@@ -653,6 +703,14 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Display";
 							- _name = "evPrint()";
 							- _id = GUID 8ccc8983-90d2-47f4-9061-7305be0f8a77;
+						}
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "Analyse.sbs";
+							- _subsystem = "Analyse";
+							- _class = "Display";
+							- _name = "evDone()";
+							- _id = GUID ddca519c-a617-4166-beb2-8f96f8f4808f;
 						}
 					}
 					- m_multiplicity = { CGIText 
@@ -1056,7 +1114,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.42787 0 0 0.785902 34.3369 188.638 ;
+					- m_transform = 0.42787 0 0 0.785902 33.9116 190.147 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -1178,11 +1236,12 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_bImplicitSetRectPoints = 0;
 						- m_nOrientationCtrlPt = 8;
 					}
+					- m_arrow = 2 325 174  325 164  ;
 					- m_anglePoint1 = 0 0 ;
 					- m_anglePoint2 = 0 0 ;
 					- m_line_style = 2;
-					- m_SourcePort = 27 39 ;
-					- m_TargetPort = 28 39 ;
+					- m_SourcePort = 32 34 ;
+					- m_TargetPort = 32 50 ;
 					- m_bShowSourceMultiplicity = 0;
 					- m_bShowSourceRole = 0;
 					- m_bShowTargetMultiplicity = 0;
@@ -1307,7 +1366,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- m_anglePoint2 = 0 0 ;
 					- m_line_style = 2;
 					- m_SourcePort = 31 40 ;
-					- m_TargetPort = 37 38 ;
+					- m_TargetPort = 33 38 ;
 					- m_bShowSourceMultiplicity = 0;
 					- m_bShowSourceRole = 0;
 					- m_bShowTargetMultiplicity = 0;
@@ -1381,7 +1440,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			}
 		}
 	}
-	- weakCGTime = 3.6.2017::9:3:48;
+	- weakCGTime = 3.20.2017::8:31:1;
 	- strongCGTime = 2.20.2017::8:59:37;
 	- _defaultComposite = GUID e672814b-95ce-4292-8c6d-653b8e26bb07;
 	- _eventsBaseID = -1;
@@ -1392,7 +1451,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID e672814b-95ce-4292-8c6d-653b8e26bb07;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 3.6.2017::9:3:48;
+			- weakCGTime = 3.20.2017::8:31:1;
 			- strongCGTime = 2.20.2017::8:59:37;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
