@@ -170,7 +170,7 @@ int main(int argc, char** argv) {
 	checkError(ret, "Couldn't get platform ids");
 	ret = clGetDeviceIDs(platform_id, CL_DEVICE_TYPE_DEFAULT, 1, &device_id, &ret_num_devices);
 	checkError(ret, "Couldn't get device ids");
-	ret = clGetPlatformInfo(platform_id, CL_PLATFORM_NAME, 0, NULL, &infoSize);
+	ret = clGetPlatformInfo(platform_id, CL_PLATFORM_NAME, 1, NULL, &infoSize);
 	checkError(ret, "Couldn't get platform info");
 	info = (char*)malloc(infoSize);
 	ret = clGetPlatformInfo(platform_id, CL_PLATFORM_NAME, infoSize, info, NULL);
