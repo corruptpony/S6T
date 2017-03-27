@@ -151,7 +151,6 @@ int main(int argc, char** argv) {
 	size_t infoSize;
 
 	char* info;
-	char* infoPlat;
 	char fileName[] = "./mandelbrot.cl";
 
 	/* Create the colortable and fill it with colors */
@@ -160,12 +159,11 @@ int main(int argc, char** argv) {
 	/* Create texture in OpenGL using OpenGL_functions */
 	g_texture = init_gl(WIDTH, HEIGHT);
 
-	/* Create OpenCL Context */
-	cl_context_properties properties[] = {
-		CL_GL_CONTEXT_KHR, reinterpret_cast<cl_context_properties>(wglGetCurrentContext()),
+	/* Create OpenCL Context properties */
+	cl_context_properties properties[] = { 
+		CL_GL_CONTEXT_KHR, reinterpret_cast<cl_context_properties>(wglGetCurrentContext()),
 		CL_WGL_HDC_KHR, reinterpret_cast<cl_context_properties>(wglGetCurrentDC()),
-		0
-	};
+		0 };
 
 	/* Get Platform and Device Info */
 	ret = clGetPlatformIDs(1, &platform_id, &ret_num_platforms);
@@ -179,6 +177,7 @@ int main(int argc, char** argv) {
 	checkError(ret, "Couldn't get platform attribute value");
 	printf("Running on %s\n\n", info);
 
+	/* Create context */
 	context = clCreateContext(properties, 1, &device_id, NULL, NULL, &ret);
 	checkError(ret, "Couldn't create context");
 
