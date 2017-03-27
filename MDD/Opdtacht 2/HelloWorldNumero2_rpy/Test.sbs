@@ -308,7 +308,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 38dfec39-1968-4f0a-87ef-c2fde9a5d5e1;
 				}
 			}
-			- _lastModifiedTime = "3.20.2017::8:43:59";
+			- _lastModifiedTime = "3.27.2017::9:13:6";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID cd36fd47-6607-45d1-94f1-78902653b9d3;
 				- m_type = 0;
@@ -539,7 +539,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
 					- Attrs = { IRPYRawContainer 
-						- size = 1;
+						- size = 2;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IAttribute";
@@ -548,6 +548,14 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Display";
 							- _name = "name";
 							- _id = GUID 7607f391-00e0-4699-a1a8-b265ac7d0d7e;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Analyse.sbs";
+							- _subsystem = "Analyse";
+							- _class = "Display";
+							- _name = "seqNr";
+							- _id = GUID c9016b50-ca43-4c22-923c-e3c5109f36cc;
 						}
 					}
 					- Operations = { IRPYRawContainer 
@@ -666,7 +674,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
 					- Attrs = { IRPYRawContainer 
-						- size = 1;
+						- size = 2;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IAttribute";
@@ -675,6 +683,14 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Display";
 							- _name = "name";
 							- _id = GUID 7607f391-00e0-4699-a1a8-b265ac7d0d7e;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Analyse.sbs";
+							- _subsystem = "Analyse";
+							- _class = "Display";
+							- _name = "seqNr";
+							- _id = GUID c9016b50-ca43-4c22-923c-e3c5109f36cc;
 						}
 					}
 					- Operations = { IRPYRawContainer 
@@ -1440,7 +1456,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			}
 		}
 	}
-	- weakCGTime = 3.20.2017::8:31:1;
+	- weakCGTime = 3.27.2017::9:0:22;
 	- strongCGTime = 2.20.2017::8:59:37;
 	- _defaultComposite = GUID e672814b-95ce-4292-8c6d-653b8e26bb07;
 	- _eventsBaseID = -1;

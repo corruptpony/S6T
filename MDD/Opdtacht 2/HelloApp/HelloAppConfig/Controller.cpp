@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Controller
-//!	Generated Date	: Mon, 20, Mar 2017  
+//!	Generated Date	: Mon, 27, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Controller.cpp
 *********************************************************************/
 
@@ -422,7 +422,7 @@ void Controller::dsp2_C::destroy() {
 }
 //#]
 
-Controller::Controller(IOxfActive* theActiveContext) : count(1) {
+Controller::Controller(IOxfActive* theActiveContext) : count(0) {
     setActiveContext(theActiveContext, false);
     initRelations();
     initStatechart();
@@ -535,6 +535,9 @@ void Controller::rootState_entDef() {
         pushNullTransition();
         rootState_subState = stateDisplay;
         rootState_active = stateDisplay;
+        //#[ state ROOT.stateDisplay.(Entry) 
+        count++;
+        //#]
         stateDisplay_timeout = scheduleTimeout(1000, NULL);
     }
 }
@@ -549,9 +552,6 @@ void Controller::rootState_exit() {
                     stateDisplay_timeout->cancel();
                     stateDisplay_timeout = NULL;
                 }
-            //#[ state ROOT.stateDisplay.(Exit) 
-            count++;
-            //#]
             break;
         }
         
@@ -577,9 +577,6 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                                     stateDisplay_timeout->cancel();
                                     stateDisplay_timeout = NULL;
                                 }
-                            //#[ state ROOT.stateDisplay.(Exit) 
-                            count++;
-                            //#]
                             rootState_subState = sendaction_3;
                             rootState_active = sendaction_3;
                             //#[ state ROOT.sendaction_3.(Entry) 
@@ -599,9 +596,6 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                                     stateDisplay_timeout->cancel();
                                     stateDisplay_timeout = NULL;
                                 }
-                            //#[ state ROOT.stateDisplay.(Exit) 
-                            count++;
-                            //#]
                             rootState_subState = state_2;
                             rootState_active = state_2;
                             res = eventConsumed;
@@ -631,6 +625,9 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     pushNullTransition();
                     rootState_subState = stateDisplay;
                     rootState_active = stateDisplay;
+                    //#[ state ROOT.stateDisplay.(Entry) 
+                    count++;
+                    //#]
                     stateDisplay_timeout = scheduleTimeout(1000, NULL);
                     res = eventConsumed;
                 }

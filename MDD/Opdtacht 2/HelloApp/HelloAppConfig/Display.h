@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Display
-//!	Generated Date	: Mon, 20, Mar 2017  
+//!	Generated Date	: Mon, 27, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Display.h
 *********************************************************************/
 
@@ -257,6 +257,12 @@ public :
     
     //## auto_generated
     void deleteCtl();
+    
+    //## auto_generated
+    int getSeqNr() const;
+    
+    //## auto_generated
+    void setSeqNr(int p_seqNr);
 
 protected :
 
@@ -265,6 +271,8 @@ protected :
     
     //## auto_generated
     void cleanUpRelations();
+    
+    int seqNr;		//## attribute seqNr
     
 //#[ ignore
     ctl_C* ctl;

@@ -1494,7 +1494,7 @@ This event must have an integer parameter, the sequence number.
 					- _id = GUID 6c142614-3349-49e9-8c6b-0236be5f6b61;
 				}
 			}
-			- _lastModifiedTime = "3.20.2017::8:43:59";
+			- _lastModifiedTime = "3.27.2017::9:0:34";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID d64387cd-f522-43ed-8cd2-01b863d5c957;
 				- m_type = 0;
@@ -1674,11 +1674,15 @@ This event must have an integer parameter, the sequence number.
 <frame name=AttributeListCompartment>
 <frame name=PrimitiveOperationListCompartment>";
 					- Attrs = { IRPYRawContainer 
-						- size = 1;
+						- size = 2;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IAttribute";
 							- _id = GUID 7607f391-00e0-4699-a1a8-b265ac7d0d7e;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _id = GUID c9016b50-ca43-4c22-923c-e3c5109f36cc;
 						}
 					}
 					- Operations = { IRPYRawContainer 
@@ -3272,7 +3276,7 @@ This event must have an integer parameter, the sequence number.
 			}
 		}
 	}
-	- weakCGTime = 3.20.2017::9:18:14;
+	- weakCGTime = 3.27.2017::8:59:19;
 	- strongCGTime = 2.20.2017::10:23:33;
 	- _defaultComposite = GUID 95b01087-61c7-4f21-98f1-7c304cb2b448;
 	- _eventsBaseID = -1;
@@ -3283,7 +3287,7 @@ This event must have an integer parameter, the sequence number.
 			- _id = GUID 95b01087-61c7-4f21-98f1-7c304cb2b448;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 3.20.2017::8:34:12;
+			- weakCGTime = 3.20.2017::9:18:14;
 			- strongCGTime = 2.20.2017::10:23:33;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
@@ -3343,9 +3347,9 @@ This event must have an integer parameter, the sequence number.
 				- _m2Class = "IDiagram";
 				- _id = GUID aacb80e0-8f02-4a90-b4ea-bf2622d508ea;
 			}
-			- _lastID = 12;
-			- weakCGTime = 3.20.2017::9:18:43;
-			- strongCGTime = 2.20.2017::10:23:33;
+			- _lastID = 13;
+			- weakCGTime = 3.27.2017::9:11:56;
+			- strongCGTime = 3.27.2017::9:0:28;
 			- Ports = { IRPYRawContainer 
 				- size = 1;
 				- value = 
@@ -3552,7 +3556,7 @@ This event must have an integer parameter, the sequence number.
 				}
 			}
 			- Attrs = { IRPYRawContainer 
-				- size = 1;
+				- size = 2;
 				- value = 
 				{ IAttribute 
 					- _id = GUID 7607f391-00e0-4699-a1a8-b265ac7d0d7e;
@@ -3565,6 +3569,24 @@ This event must have an integer parameter, the sequence number.
 						- _class = "";
 						- _name = "RhpString";
 						- _id = GUID ae5e3720-4e3e-40f1-9346-9a8b4e501f35;
+					}
+					- _isOrdered = 0;
+					- _protection = iPublic;
+					- _static = 0;
+					- _isReference = 0;
+					- _isConstant = 0;
+				}
+				{ IAttribute 
+					- _id = GUID c9016b50-ca43-4c22-923c-e3c5109f36cc;
+					- _name = "seqNr";
+					- _defaultValue = "0";
+					- _typeOf = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "PredefinedTypesC++.sbs";
+						- _subsystem = "PredefinedTypesCpp";
+						- _class = "";
+						- _name = "int";
+						- _id = GUID 6024c6ab-fe9e-402e-954f-27aca6d3b5e4;
 					}
 					- _isOrdered = 0;
 					- _protection = iPublic;
@@ -4194,7 +4216,7 @@ This event must have an integer parameter, the sequence number.
 					}
 					- _name = "statechart_7";
 					- _lastID = 7;
-					- _lastModifiedTime = "3.20.2017::9:18:43";
+					- _lastModifiedTime = "3.27.2017::9:11:56";
 					- _graphicChart = { CGIStateChart 
 						- _id = GUID e987f198-3d14-4916-a10c-60a0496af1b9;
 						- m_type = 0;
@@ -4737,7 +4759,7 @@ This event must have an integer parameter, the sequence number.
 							- m_targetType = 'T';
 							- m_direction = ' ';
 							- m_rpn = { CGIText 
-								- m_str = "evPrint";
+								- m_str = "evPrint/seqNr = params->seqnr;";
 								- m_style = "Arial" 10 0 0 0 1 ;
 								- m_color = { IColor 
 									- m_fgColor = 0;
@@ -4814,7 +4836,7 @@ This event must have an integer parameter, the sequence number.
 							- m_targetType = 'T';
 							- m_direction = ' ';
 							- m_rpn = { CGIText 
-								- m_str = "tm(1000)";
+								- m_str = "tm(10)";
 								- m_style = "Arial" 10 0 0 0 1 ;
 								- m_color = { IColor 
 									- m_fgColor = 0;
@@ -4911,7 +4933,10 @@ This event must have an integer parameter, the sequence number.
 									}
 								}
 								- _itsGuard = NULL;
-								- _itsAction = NULL;
+								- _itsAction = { IAction 
+									- _id = GUID fc337eb5-459f-479d-9c25-0f6d40c1d6cf;
+									- _body = "seqNr = params->seqnr;";
+								}
 							}
 							- _itsTarget = GUID c3d0ba45-0024-4533-ac0b-60dc518e3c90;
 							- _staticReaction = 0;
@@ -4925,9 +4950,9 @@ This event must have an integer parameter, the sequence number.
 								- _id = GUID a910a0fb-1d3a-4bde-8b2c-402d7d887ce0;
 								- _itsTrigger = { ITimeout 
 									- _id = GUID 748e628a-03d9-486e-a187-d6c53522bb87;
-									- _body = "tm(1000)";
+									- _body = "tm(10)";
 									- _info = "";
-									- _time = "1000";
+									- _time = "10";
 								}
 								- _itsGuard = NULL;
 								- _itsAction = NULL;
@@ -4953,7 +4978,7 @@ This event must have an integer parameter, the sequence number.
 							- _entryAction = { IAction 
 								- _id = GUID ff4aeb58-36bd-4aa3-abd1-3a6c123cb85b;
 								- _myState = 4096;
-								- _body = "cout << name << \" says: Hello \" << endl;";
+								- _body = "cout << name << \" says: Hello \" << seqNr << endl;";
 							}
 						}
 						{ IState 
@@ -4964,7 +4989,7 @@ This event must have an integer parameter, the sequence number.
 							- _entryAction = { IAction 
 								- _id = GUID 516d21ce-22e6-4b48-a5dd-2454b47d90b2;
 								- _myState = 4096;
-								- _body = "cout << name << \" says: World \" << endl;";
+								- _body = "cout << name << \" says: World \" << seqNr << endl;";
 							}
 							- _exitAction = { IAction 
 								- _id = GUID 73290cb9-2736-4f39-9bfe-9094f2bee8af;
@@ -4978,7 +5003,7 @@ This event must have an integer parameter, the sequence number.
 							- _defaultTrans = ;
 						}
 					}
-					- _version = 3.20.2017::10:18:43;
+					- _version = 3.27.2017::11:12:19;
 					- _baseVersion = 1.2.1990::0:0:0;
 				}
 			}

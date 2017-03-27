@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Display
-//!	Generated Date	: Mon, 20, Mar 2017  
+//!	Generated Date	: Mon, 27, Mar 2017  
 	File Path	: HelloApp/HelloAppConfig/Display.cpp
 *********************************************************************/
 
@@ -241,7 +241,7 @@ void Display::setName(RhpString p_name) {
     name = p_name;
 }
 
-Display::Display(const RhpString& itsname, IOxfActive* theActiveContext) : name(itsname) {
+Display::Display(const RhpString& itsname, IOxfActive* theActiveContext) : seqNr(0), name(itsname) {
     setActiveContext(theActiveContext, false);
     initRelations();
     initStatechart();
@@ -291,7 +291,7 @@ bool Display::cancelTimeout(const IOxfTimeout* arg) {
     return res;
 }
 
-Display::Display(IOxfActive* theActiveContext) {
+Display::Display(IOxfActive* theActiveContext) : seqNr(0) {
     setActiveContext(theActiveContext, false);
     initRelations();
     initStatechart();
@@ -313,6 +313,14 @@ Display::ctl_C* Display::newCtl() {
 void Display::deleteCtl() {
     delete ctl;
     ctl = NULL;
+}
+
+int Display::getSeqNr() const {
+    return seqNr;
+}
+
+void Display::setSeqNr(int p_seqNr) {
+    seqNr = p_seqNr;
 }
 
 void Display::initRelations() {
@@ -351,9 +359,9 @@ IOxfReactive::TakeEventStatus Display::rootState_processEvent() {
                             rootState_subState = stateWorld;
                             rootState_active = stateWorld;
                             //#[ state ROOT.stateWorld.(Entry) 
-                            cout << name << " says: World " << endl;
+                            cout << name << " says: World " << seqNr << endl;
                             //#]
-                            stateWorld_timeout = scheduleTimeout(1000, NULL);
+                            stateWorld_timeout = scheduleTimeout(10, NULL);
                             res = eventConsumed;
                         }
                 }
@@ -387,10 +395,13 @@ IOxfReactive::TakeEventStatus Display::rootState_processEvent() {
             if(IS_EVENT_TYPE_OF(evPrint_Design_id))
                 {
                     OMSETPARAMS(evPrint);
+                    //#[ transition 2 
+                    seqNr = params->seqnr;
+                    //#]
                     rootState_subState = stateHello;
                     rootState_active = stateHello;
                     //#[ state ROOT.stateHello.(Entry) 
-                    cout << name << " says: Hello " << endl;
+                    cout << name << " says: Hello " << seqNr << endl;
                     //#]
                     stateHello_timeout = scheduleTimeout(1000, NULL);
                     res = eventConsumed;

@@ -4,12 +4,12 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- size = 16;
 	- value = "HelloApp/HelloAppConfig/Application.cpp" 2.14.2017::11:2:19
 	"HelloApp/HelloAppConfig/Application.h" 2.14.2017::11:2:19
-	"HelloApp/HelloAppConfig/Controller.cpp" 3.20.2017::8:57:28
-	"HelloApp/HelloAppConfig/Controller.h" 3.20.2017::8:43:8
+	"HelloApp/HelloAppConfig/Controller.cpp" 3.27.2017::9:13:15
+	"HelloApp/HelloAppConfig/Controller.h" 3.27.2017::8:58:44
 	"HelloApp/HelloAppConfig/Design.cpp" 3.20.2017::8:24:46
 	"HelloApp/HelloAppConfig/Design.h" 3.20.2017::8:24:46
-	"HelloApp/HelloAppConfig/Display.cpp" 3.20.2017::9:18:51
-	"HelloApp/HelloAppConfig/Display.h" 3.20.2017::9:18:30
+	"HelloApp/HelloAppConfig/Display.cpp" 3.27.2017::9:11:58
+	"HelloApp/HelloAppConfig/Display.h" 3.27.2017::9:2:17
 	"HelloApp/HelloAppConfig/DistributedHelloTestSystem.cpp" 3.14.2017::11:25:29
 	"HelloApp/HelloAppConfig/DistributedHelloTestSystem.h" 3.14.2017::11:25:29
 	"HelloApp/HelloAppConfig/IControl.cpp" 3.20.2017::8:38:26
@@ -29,7 +29,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "HelloApp\\HelloAppConfig";
 	- _id = GUID 9393688e-eeb3-419e-9b56-4c0151ceb5b1;
 }
-- genTime = 3.20.2017::9:18:51;
+- genTime = 3.27.2017::9:13:15;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -47,7 +47,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Test";
 	- _id = GUID 8e3b0c46-0e6d-4f16-8e06-e24aebfcc0e1;
 }
-- genTime = 3.20.2017::8:52:26;
+- genTime = 3.27.2017::9:2:17;
 - hElement = { IHandle 
 	- _m2Class = "ISubsystem";
 	- _filename = "Design.sbs";
@@ -56,7 +56,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Design";
 	- _id = GUID a0b2e9c6-ed76-4d4a-a4f8-0ab04eee642a;
 }
-- genTime = 3.20.2017::9:18:51;
+- genTime = 3.27.2017::9:2:17;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -65,7 +65,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Controller";
 	- _id = GUID 9a7e3843-04d6-4e9b-9af9-a9032a4432d0;
 }
-- genTime = 3.20.2017::9:18:51;
+- genTime = 3.27.2017::9:13:15;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Analyse.sbs";
@@ -92,7 +92,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Display";
 	- _id = GUID 816ae0a7-e399-4004-9f4e-696ea241b9fe;
 }
-- genTime = 3.20.2017::9:18:51;
+- genTime = 3.27.2017::9:11:58;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Test.sbs";
