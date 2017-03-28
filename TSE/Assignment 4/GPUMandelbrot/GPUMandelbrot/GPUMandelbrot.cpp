@@ -82,9 +82,6 @@ void create_colortable()
 }
 
 void display() {
-	/* Clear all pixels */
-	glFlush();
-
 	/* Wait for gl to finish before starting a new frame */
 	glFinish();
 
@@ -101,13 +98,6 @@ void display() {
 	ret = clEnqueueAcquireGLObjects(command_queue, 1, &dev_texture, 0, NULL, NULL);
 	checkError(ret, "Couldnt acquire GL object");
 
-	/* Set OpenCL kernel arguments */
-	ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&dev_params);
-	checkError(ret, "Couldn't set arg dev_params");
-	ret = clSetKernelArg(kernel, 1, sizeof(cl_mem), (void *)&dev_texture);
-	checkError(ret, "Couldn't set arg dev_texture");
-	ret = clSetKernelArg(kernel, 2, sizeof(cl_mem), (void *)&dev_colortable);
-	checkError(ret, "Couldn't set arg dev_colortable");
 	ret = clSetKernelArg(kernel, 3, sizeof(cl_mem), (void *)&dev_stepsize);
 	checkError(ret, "Couldn't set arg dev_stepsize");
 
@@ -161,7 +151,7 @@ int main(int argc, char** argv) {
 
 	/* Create window and glut parameters */
 	glutInit(&argc, argv); // Initialize GLUT
-	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION); // Continues the main if window is closed
+	//glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION); // Continues the main if window is closed
 	glutCreateWindow("Mandelbrot"); // Create a window with the given title
 	glutInitWindowSize(WIDTH, HEIGHT); // Set the window's initial width & height
 	glutDisplayFunc(display); // Register display callback handler for window re-paint
@@ -226,6 +216,14 @@ int main(int argc, char** argv) {
 	/* Create OpenCL kernel from the compiled program */
 	kernel = clCreateKernel(program, "mandelbrot", &ret);
 	checkError(ret, "Couldn't create kernel");
+
+	/* Set OpenCL kernel arguments */
+	ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&dev_params);
+	checkError(ret, "Couldn't set arg dev_params");
+	ret = clSetKernelArg(kernel, 1, sizeof(cl_mem), (void *)&dev_texture);
+	checkError(ret, "Couldn't set arg dev_texture");
+	ret = clSetKernelArg(kernel, 2, sizeof(cl_mem), (void *)&dev_colortable);
+	checkError(ret, "Couldn't set arg dev_colortable");
 
 	/* Enter the display function */
 	now, previous = glutGet(GLUT_ELAPSED_TIME);

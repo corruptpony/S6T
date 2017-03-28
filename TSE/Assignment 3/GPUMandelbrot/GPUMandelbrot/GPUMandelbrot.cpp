@@ -109,6 +109,7 @@ int main() {
 
 	for (int i = 0; i < 3; i++)
 	{
+		
 		/* Activate OpenCL kernel on the Compute Device */
 		ret = clEnqueueNDRangeKernel(command_queue,
 			kernel,
@@ -122,6 +123,8 @@ int main() {
 		checkError(ret, "Could not activate kernel");
 		
 		clFinish(command_queue);
+
+		globalSize[0] = globalSize[0] / 512;
 	}
 	
 	/* Transfer result back to host */
