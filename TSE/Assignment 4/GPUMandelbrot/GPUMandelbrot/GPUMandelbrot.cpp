@@ -16,32 +16,37 @@
 #define HEIGHT 500
 #define OFFSET_X -0.2414796
 #define OFFSET_Y -0.5521
-#define ZOOMFACTOR 200
+#define ZOOMFACTOR 0
 #define MAX_ITERATIONS 8192
 #define COLORTABLE_SIZE 4096
 
 mandelbrot_color colortable2[COLORTABLE_SIZE];
 
-/* Create PARAMS*/
+/* For calculating stepsize between frames */
 int now, previous;
 float stepsize = 0.01f;
+
+/* Create PARAMS*/
 unsigned int PARAMS[6] = {	
-	ZOOMFACTOR, 
+	ZOOMFACTOR, /* Not in use for this program */
 	WIDTH, 
 	HEIGHT, 
 	OFFSET_X, 
 	OFFSET_Y, 
 	MAX_ITERATIONS };
 
+/* Globals for main and display function */
 cl_kernel kernel = NULL;
 cl_command_queue command_queue = NULL;
 cl_int ret;
 
+/* Device memory */
 cl_mem dev_texture = NULL;
 cl_mem dev_colortable = NULL;
 cl_mem dev_params = NULL;
 cl_mem dev_stepsize = NULL;
 
+/* GL texture */
 GLuint g_texture;
 
 void create_colortable() 
@@ -77,7 +82,6 @@ void create_colortable()
 }
 
 void display() {
-
 	/* Clear all pixels */
 	glFlush();
 
@@ -86,7 +90,7 @@ void display() {
 
 	/* Calculate stepsize from frame duration */
 	now = glutGet(GLUT_ELAPSED_TIME);
-	stepsize *= pow(0.95, (now - previous) / 100);
+	stepsize *= (float)(pow(0.95, (now - previous) / 100));
 	previous = now;
 
 	/* Write stepsize to device */
@@ -107,7 +111,7 @@ void display() {
 	ret = clSetKernelArg(kernel, 3, sizeof(cl_mem), (void *)&dev_stepsize);
 	checkError(ret, "Couldn't set arg dev_stepsize");
 
-	/* Set global en local size */
+	/* Set global size */
 	size_t globalSize[] = { WIDTH , HEIGHT };
 
 	/* Activate OpenCL kernel on the Compute Device */
@@ -162,10 +166,16 @@ int main(int argc, char** argv) {
 	glutInitWindowSize(WIDTH, HEIGHT); // Set the window's initial width & height
 	glutDisplayFunc(display); // Register display callback handler for window re-paint
 
-	/* Get Platform and Device Info */
+	/* Get Platform Info */
 	ret = clGetPlatformIDs(3, platform_id, &ret_num_platforms);
 	checkError(ret, "Couldn't get platform ids");
-	ret = clGetDeviceIDs(platform_id[2], CL_DEVICE_TYPE_GPU, 1, &device_id, &ret_num_devices);
+
+	/* Pick a platform */
+	printf("%i platforms found, which would you want to use? (0, 1, 2)\n", ret_num_platforms);
+	int plat = (int)getchar() - '0';
+
+	/* Get Device Info */
+	ret = clGetDeviceIDs(platform_id[plat], CL_DEVICE_TYPE_GPU, 1, &device_id, &ret_num_devices);
 	checkError(ret, "Couldn't get device ids");
 	ret = clGetDeviceInfo(device_id, CL_DEVICE_NAME, 0, NULL, &infoSize);
 	checkError(ret, "Couldn't get device info size");
@@ -218,6 +228,7 @@ int main(int argc, char** argv) {
 	checkError(ret, "Couldn't create kernel");
 
 	/* Enter the display function */
+	now, previous = glutGet(GLUT_ELAPSED_TIME);
 	glutMainLoop();
 
 	/* Finalization */
