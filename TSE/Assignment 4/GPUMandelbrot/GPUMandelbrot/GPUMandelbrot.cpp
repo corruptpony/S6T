@@ -143,7 +143,7 @@ int main(int argc, char** argv) {
 	cl_device_id device_id = NULL;
 	cl_context context = NULL;
 	cl_program program = NULL;
-	cl_platform_id platform_id = NULL;
+	cl_platform_id platform_id[3];
 	
 	cl_uint ret_num_devices;
 	cl_uint ret_num_platforms;
@@ -156,26 +156,26 @@ int main(int argc, char** argv) {
 	/* Create the colortable and fill it with colors */
 	create_colortable();
 
+	/* Get Platform and Device Info */
+	ret = clGetPlatformIDs(3, platform_id, &ret_num_platforms);
+	checkError(ret, "Couldn't get platform ids");
+	ret = clGetDeviceIDs(platform_id[2], CL_DEVICE_TYPE_GPU, 1, &device_id, &ret_num_devices);
+	checkError(ret, "Couldn't get device ids");
+	ret = clGetDeviceInfo(device_id, CL_DEVICE_NAME, 0, NULL, &infoSize);
+	checkError(ret, "Couldn't get device info size");
+	info = (char*)malloc(infoSize);
+	ret = clGetDeviceInfo(device_id, CL_DEVICE_NAME, infoSize, info, NULL);
+	checkError(ret, "Couldn't get device info value");
+	printf("Running on %s\n\n", info);
+
 	/* Create texture in OpenGL using OpenGL_functions */
 	g_texture = init_gl(WIDTH, HEIGHT);
 
 	/* Create OpenCL Context properties */
-	cl_context_properties properties[] = { 
-		CL_GL_CONTEXT_KHR, reinterpret_cast<cl_context_properties>(wglGetCurrentContext()),
+	cl_context_properties properties[] = {
+		CL_GL_CONTEXT_KHR, reinterpret_cast<cl_context_properties>(wglGetCurrentContext()),
 		CL_WGL_HDC_KHR, reinterpret_cast<cl_context_properties>(wglGetCurrentDC()),
 		0 };
-
-	/* Get Platform and Device Info */
-	ret = clGetPlatformIDs(1, &platform_id, &ret_num_platforms);
-	checkError(ret, "Couldn't get platform ids");
-	ret = clGetDeviceIDs(platform_id, CL_DEVICE_TYPE_DEFAULT, 1, &device_id, &ret_num_devices);
-	checkError(ret, "Couldn't get device ids");
-	ret = clGetPlatformInfo(platform_id, CL_PLATFORM_NAME, 1, NULL, &infoSize);
-	checkError(ret, "Couldn't get platform info");
-	info = (char*)malloc(infoSize);
-	ret = clGetPlatformInfo(platform_id, CL_PLATFORM_NAME, infoSize, info, NULL);
-	checkError(ret, "Couldn't get platform attribute value");
-	printf("Running on %s\n\n", info);
 
 	/* Create context */
 	context = clCreateContext(properties, 1, &device_id, NULL, NULL, &ret);
