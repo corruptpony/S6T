@@ -15,7 +15,7 @@ int main() {
 	cl_command_queue command_queue = NULL;
 	cl_program program = NULL;
 	cl_kernel kernel = NULL;
-	cl_platform_id platform_id = NULL;
+	cl_platform_id platform_id[3];
 	
 	/* return values for extra info */
 	cl_uint ret_num_devices;
@@ -27,45 +27,43 @@ int main() {
 	cl_mem dev_sdata;
 
 	/* Parameters for testing */
-	char fileName[] = "./kernel1.cl";
-	const int DATA_SIZE = 200000;
-	const int GLOBAL_SIZE = 8192; /* 16 * 512 */
+	char fileName[] = "./kernel2.cl";
+	const int GLOBAL_SIZE = 512 * 512 * 512;
 	const int LOCAL_SIZE = 512;
-	const int NR_OF_GROUPS = GLOBAL_SIZE / LOCAL_SIZE;
 
 	/* Fill array with test data */
-	int dataArray[DATA_SIZE];
-	for (int i = 0; i < DATA_SIZE; i++)
+	int* dataArray = (int*)malloc(sizeof(int) * GLOBAL_SIZE);
+
+	for (int i = 0; i < GLOBAL_SIZE; i++)
 	{
-		dataArray[i] = (i % 10);
+		dataArray[i] = i % 10;
 	}
 
 	/* Get current time before calculating the array with CPU */
-	LARGE_INTEGER freqCPU, startCPU;
+	LARGE_INTEGER freqCPU, startCPU, endCPU;
 	QueryPerformanceFrequency(&freqCPU);
 	QueryPerformanceCounter(&startCPU);
 
 	int sum = 0;
-	for (int i = 0; i < DATA_SIZE; i++)
+	for (int i = 0; i < GLOBAL_SIZE; i++)
 	{
 		sum += dataArray[i];
 	}
 
 	/* Get current time after calculating the array with CPU */
-	LARGE_INTEGER endCPU;
 	QueryPerformanceCounter(&endCPU);
 
 	/* Get Platform and Device Info */
 	char* info;
 	size_t infoSize;
-	ret = clGetPlatformIDs(1, &platform_id, &ret_num_platforms);
+	ret = clGetPlatformIDs(3, platform_id, &ret_num_platforms);
 	checkError(ret, "Couldn't get platform ids");
-	ret = clGetDeviceIDs(platform_id, CL_DEVICE_TYPE_DEFAULT, 1, &device_id, &ret_num_devices);
+	ret = clGetDeviceIDs(platform_id[2], CL_DEVICE_TYPE_DEFAULT, 1, &device_id, &ret_num_devices);
 	checkError(ret, "Couldn't get device ids");
-	ret = clGetPlatformInfo(platform_id, CL_PLATFORM_NAME, 0, NULL, &infoSize);
+	ret = clGetPlatformInfo(platform_id[2], CL_PLATFORM_NAME, 0, NULL, &infoSize);
 	checkError(ret, "Couldn't get platform info");
 	info = (char*)malloc(infoSize);
-	ret = clGetPlatformInfo(platform_id, CL_PLATFORM_NAME, infoSize, info, NULL);
+	ret = clGetPlatformInfo(platform_id[2], CL_PLATFORM_NAME, infoSize, info, NULL);
 	checkError(ret, "Couldn't get platform attribute value");
 	printf("Running on %s\n\n", info);
 
@@ -78,7 +76,7 @@ int main() {
 	checkError(ret, "Couldn't create commandqueue");
 
 	/* Allocate memory for arrays on the Compute Device */
-	dev_gdata = clCreateBuffer(context, CL_MEM_READ_ONLY, GLOBAL_SIZE * sizeof(int), NULL, &ret);
+	dev_gdata = clCreateBuffer(context, CL_MEM_READ_ONLY, GLOBAL_SIZE * sizeof(cl_int), NULL, &ret);
 	checkError(ret, "Couldn't create gdata on device");
 	
 	/* Create kernel program */
@@ -98,105 +96,37 @@ int main() {
 	QueryPerformanceFrequency(&freq);
 	QueryPerformanceCounter(&start);
 
-	for (int i = 0; i * GLOBAL_SIZE <= DATA_SIZE; i++)
+	/* Write new bit of data to GPU */
+	ret = clEnqueueWriteBuffer(command_queue, dev_gdata, CL_TRUE, 0, GLOBAL_SIZE * sizeof(cl_int), dataArray, 0, NULL, NULL);
+	checkError(ret, "Couldn't write array on device");
+
+	size_t globalSize[] = { GLOBAL_SIZE };
+	size_t localSize[] = { LOCAL_SIZE };
+
+	/* Set local size */
+	ret = clSetKernelArg(kernel, 1, localSize[0] * sizeof(cl_int), NULL);
+	checkError(ret, "Couldn't set arg sdata");
+
+	for (int i = 0; i < 3; i++)
 	{
-		/* Set global en local size */
-		size_t globalSize[] = { GLOBAL_SIZE };
-		size_t localSize[] = { LOCAL_SIZE };
-
-		/* Copy arrays from host memory to Compute Devive */
-		int* startPoint = &dataArray[i * GLOBAL_SIZE];
-		size_t memSize = GLOBAL_SIZE;
+		/* Activate OpenCL kernel on the Compute Device */
+		ret = clEnqueueNDRangeKernel(command_queue,
+			kernel,
+			1,			// 1D array 
+			NULL,
+			globalSize,
+			localSize,
+			0,
+			NULL,
+			NULL);
+		checkError(ret, "Could not activate kernel");
 		
-		/* adjust global and local size for rest values in array */
-		if (GLOBAL_SIZE > (DATA_SIZE - (i * GLOBAL_SIZE)))
-		{
-			/* Deze sleep is nodig om het programma werkend te maken, het is een probleem in de synchronisatie */
-			/* We konden niet vinden waar het probleem zit. */
-			Sleep(1000);
-
-			memSize = (DATA_SIZE % GLOBAL_SIZE);
-			globalSize[0] = memSize;
-
-			if (memSize > 512)
-				localSize[0] = memSize / NR_OF_GROUPS;
-			else
-				localSize[0] = memSize;
-		}	
-
-		/* Write new bit of data to GPU */
-		ret = clEnqueueWriteBuffer(command_queue, dev_gdata, CL_TRUE, 0, memSize * sizeof(int), startPoint, 0, NULL, NULL);
-		checkError(ret, "Couldn't write array on device");
-
-		for (int j = 0; j < globalSize[0]/localSize[0]; j++)
-		{
-			/* First calculation was NR_OF_GROUPS calculations, therefore we need to add the results together */
-			if (j > 0)
-			{
-				globalSize[0] = NR_OF_GROUPS;
-				localSize[0] = NR_OF_GROUPS;
-			}
-
-			/* Set local size */
-			ret = clSetKernelArg(kernel, 1, localSize[0] * sizeof(int), NULL);
-			checkError(ret, "Couldn't set arg sdata");
-
-			/* Activate OpenCL kernel on the Compute Device */
-			ret = clEnqueueNDRangeKernel(command_queue,
-				kernel,
-				1,			// 1D array 
-				NULL,
-				globalSize,
-				localSize,		// local size (NULL = auto) 
-				0,
-				NULL,
-				NULL);
-			checkError(ret, "Could not activate kernel");
-
-			clFinish(command_queue);
-		}
-
-		/* Transfer result back to host */
-		ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, globalSize[0] * sizeof(int), &dataArray[i], 0, NULL, NULL);
-		checkError(ret, "Couldn't get data from host");
-
 		clFinish(command_queue);
-
-		/* If this was the last itteration, make a final addition for the result */
-		if (((i+1) * GLOBAL_SIZE >= DATA_SIZE))
-		{
-			/* Write new bit of data to GPU */
-			ret = clEnqueueWriteBuffer(command_queue, dev_gdata, CL_TRUE, 0, (i + 1) * sizeof(int), dataArray, 0, NULL, NULL);
-			checkError(ret, "Couldn't write array on device");
-
-			/* Size of final calculation */
-			globalSize[0] = i + 1;
-			localSize[0] = i + 1;
-
-			/* Set local size */
-			ret = clSetKernelArg(kernel, 1, localSize[0] * sizeof(int), NULL);
-			checkError(ret, "Couldn't set arg sdata");
-
-			/* Activate OpenCL kernel on the Compute Device */
-			ret = clEnqueueNDRangeKernel(command_queue,
-				kernel,
-				1,			// 1D array 
-				NULL,
-				globalSize,
-				localSize,		// local size (NULL = auto) 
-				0,
-				NULL,
-				NULL);
-			checkError(ret, "Could not activate kernel");
-
-			/* Transfer result back to host */
-			ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, sizeof(int), &dataArray[0], 0, NULL, NULL);
-			checkError(ret, "Couldn't get data from host");
-		}
 	}
-
-	/* Add blocking element */
-	clFinish(command_queue);
+	
+	/* Transfer result back to host */
+	ret = clEnqueueReadBuffer(command_queue, dev_gdata, CL_TRUE, 0, sizeof(int), dataArray, 0, NULL, NULL);
+	checkError(ret, "Couldn't get data from host");
 
 	/* Get current time after calculating the array on GPU */
 	LARGE_INTEGER end;
@@ -217,6 +147,7 @@ int main() {
 	ret = clReleaseMemObject(dev_gdata);
 	ret = clReleaseCommandQueue(command_queue);
 	ret = clReleaseContext(context);
+	free(dataArray);
 
 	/* Blocking to show result */
 	printf("Press ENTER to continue...\n");
