@@ -77,9 +77,14 @@ void create_colortable()
 }
 
 void display() {
-	// Wait for gl to finish before starting a new frame
+
+	/* Clear all pixels */
+	glFlush();
+
+	/* Wait for gl to finish before starting a new frame */
 	glFinish();
 
+	/* Calculate stepsize from frame duration */
 	now = glutGet(GLUT_ELAPSED_TIME);
 	stepsize *= pow(0.95, (now - previous) / 100);
 	previous = now;
@@ -132,29 +137,30 @@ void display() {
 }
 
 int main(int argc, char** argv) {
-	// Create window
-	glutInit(&argc, argv); // Initialize GLUT
-	//glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION);
-	glutCreateWindow("Mandelbrot"); // Create a window with the given title
-	glutInitWindowSize(WIDTH, HEIGHT); // Set the window's initial width & height
-	glutDisplayFunc(display); // Register display callback handler for window re-paint
-
 	/* Define GPU parameters */
 	cl_device_id device_id = NULL;
 	cl_context context = NULL;
 	cl_program program = NULL;
 	cl_platform_id platform_id[3];
 	
+	/* Variables for info */
 	cl_uint ret_num_devices;
 	cl_uint ret_num_platforms;
-
 	size_t infoSize;
-
 	char* info;
+
+	/* Name of Kernel to use */
 	char fileName[] = "./mandelbrot.cl";
 
 	/* Create the colortable and fill it with colors */
 	create_colortable();
+
+	/* Create window and glut parameters */
+	glutInit(&argc, argv); // Initialize GLUT
+	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION); // Continues the main if window is closed
+	glutCreateWindow("Mandelbrot"); // Create a window with the given title
+	glutInitWindowSize(WIDTH, HEIGHT); // Set the window's initial width & height
+	glutDisplayFunc(display); // Register display callback handler for window re-paint
 
 	/* Get Platform and Device Info */
 	ret = clGetPlatformIDs(3, platform_id, &ret_num_platforms);
@@ -211,7 +217,8 @@ int main(int argc, char** argv) {
 	kernel = clCreateKernel(program, "mandelbrot", &ret);
 	checkError(ret, "Couldn't create kernel");
 
-	glutMainLoop(); // Enter the event-processing loop
+	/* Enter the display function */
+	glutMainLoop();
 
 	/* Finalization */
 	ret = clFlush(command_queue);
