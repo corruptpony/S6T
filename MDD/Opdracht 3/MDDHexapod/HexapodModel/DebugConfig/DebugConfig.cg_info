@@ -1,0 +1,104 @@
+I-Logix-RPY-Archive version 8.1.4 * 1367309
+
+- m_fileModifyTime = { IRPYRawContainer 
+	- size = 24;
+	- value = "HexapodModel/DebugConfig/Brain.cpp" 3.12.2014::23:20:39
+	"HexapodModel/DebugConfig/Brain.h" 3.12.2014::23:20:39
+	"HexapodModel/DebugConfig/Design.cpp" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/Design.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/Hexapod.cpp" 3.12.2014::20:9:30
+	"HexapodModel/DebugConfig/Hexapod.h" 3.12.2014::20:9:30
+	"HexapodModel/DebugConfig/HexapodFirmware.cpp" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/HexapodFirmware.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/ILeg.cpp" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/ILeg.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/ILegCB.cpp" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/ILegCB.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/ILegControl.cpp" 3.12.2014::20:9:30
+	"HexapodModel/DebugConfig/ILegControl.h" 3.12.2014::20:9:30
+	"HexapodModel/DebugConfig/ILegStatus.cpp" 3.12.2014::20:9:30
+	"HexapodModel/DebugConfig/ILegStatus.h" 3.12.2014::20:9:30
+	"HexapodModel/DebugConfig/ISensorCB.cpp" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/ISensorCB.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/ISensorStatus.cpp" 3.12.2014::20:9:30
+	"HexapodModel/DebugConfig/ISensorStatus.h" 3.12.2014::20:9:30
+	"HexapodModel/DebugConfig/Leg.cpp" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/Leg.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/Sensor.cpp" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/Sensor.h" 4.7.2017::9:12:0
+	
+}
+- size = 8;
+- hElement = { IHandle 
+	- _m2Class = "ICodeGenConfigInfo";
+	- _filename = "HexapodModel.cmp";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "HexapodModel\\DebugConfig";
+	- _id = GUID 9393688e-eeb3-419e-9b56-4c0151ceb5b1;
+}
+- genTime = 4.7.2017::9:18:20;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "Design.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "Design";
+	- _id = GUID a0b2e9c6-ed76-4d4a-a4f8-0ab04eee642a;
+}
+- genTime = 4.7.2017::9:12:0;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "Leg";
+	- _id = GUID e6bcd463-1669-4f56-9402-923de4e1cbb3;
+}
+- genTime = 4.7.2017::9:12:0;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "Sensor";
+	- _id = GUID 1453805f-6e3a-47e8-b5cb-cb11328160ec;
+}
+- genTime = 4.7.2017::9:12:0;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "ILeg";
+	- _id = GUID 4850fa7b-7367-4e8d-8223-cda6d2374e8e;
+}
+- genTime = 4.7.2017::9:12:0;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "ILegCB";
+	- _id = GUID ca73442b-2ade-4e1a-970c-c1e98be11614;
+}
+- genTime = 4.7.2017::9:12:0;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "ISensorCB";
+	- _id = GUID b610c3d6-0513-46e2-886b-74dbdb717ea7;
+}
+- genTime = 4.7.2017::9:12:0;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Test.sbs";
+	- _subsystem = "Test";
+	- _class = "";
+	- _name = "HexapodFirmware";
+	- _id = GUID d1566748-d326-4df1-9ec5-1a63fec968d7;
+}
+- genTime = 4.7.2017::9:12:0;
+

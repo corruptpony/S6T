@@ -1,0 +1,190 @@
+I-Logix-RPY-Archive version 8.1.4 C++ 1367309
+{ IComponent 
+	- _id = GUID a1243dea-fb70-40b0-8da4-29e0ce6917f9;
+	- _myState = 139264;
+	- _properties = { IPropertyContainer 
+		- Subjects = { IRPYRawContainer 
+			- size = 1;
+			- value = 
+			{ IPropertySubject 
+				- _Name = "CPP_CG";
+				- Metaclasses = { IRPYRawContainer 
+					- size = 1;
+					- value = 
+					{ IPropertyMetaclass 
+						- _Name = "Class";
+						- Properties = { IRPYRawContainer 
+							- size = 2;
+							- value = 
+							{ IProperty 
+								- _Name = "SpecIncludes";
+								- _Value = "<string>,<iostream>,<fstream>,<vector>";
+								- _Type = String;
+							}
+							{ IProperty 
+								- _Name = "SpecificationProlog";
+								- _Value = "";
+								- _Type = MultiLine;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	- _name = "HexapodModel";
+	- _lastID = 2;
+	- m_buildType = Executable;
+	- m_libraries = "";
+	- m_additionalSources = "";
+	- m_standardHeaders = "";
+	- m_includePath = "";
+	- m_initializationCode = "";
+	- m_folder = { IFolder 
+		- _id = GUID ef408e88-9cb7-4a18-8479-4d51321b6fe7;
+		- _myState = 73728;
+		- _name = "Files";
+		- _lastID = 4;
+		- m_path = "";
+		- Elements = { IRPYRawContainer 
+			- size = 0;
+		}
+		- Files = { IRPYRawContainer 
+			- size = 0;
+		}
+	}
+	- m_configActive = { ICodeGenConfigInfoHandle 
+		- _m2Class = "ICodeGenConfigInfo";
+		- _id = GUID 9393688e-eeb3-419e-9b56-4c0151ceb5b1;
+	}
+	- Configs = { IRPYRawContainer 
+		- size = 1;
+		- value = 
+		{ ICodeGenConfigInfo 
+			- _id = GUID 9393688e-eeb3-419e-9b56-4c0151ceb5b1;
+			- _myState = 8192;
+			- _properties = { IPropertyContainer 
+				- Subjects = { IRPYRawContainer 
+					- size = 2;
+					- value = 
+					{ IPropertySubject 
+						- _Name = "CG";
+						- Metaclasses = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertyMetaclass 
+								- _Name = "Configuration";
+								- Properties = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IProperty 
+										- _Name = "UseDescriptionTemplates";
+										- _Value = "False";
+										- _Type = Bool;
+									}
+								}
+							}
+						}
+					}
+					{ IPropertySubject 
+						- _Name = "CPP_CG";
+						- Metaclasses = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertyMetaclass 
+								- _Name = "Class";
+								- Properties = { IRPYRawContainer 
+									- size = 2;
+									- value = 
+									{ IProperty 
+										- _Name = "SpecIncludes";
+										- _Value = "<string>,<iostream>,<fstream>,<vector>";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "SpecificationProlog";
+										- _Value = "";
+										- _Type = MultiLine;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			- _name = "DebugConfig";
+			- HyperLinks = { IRPYRawContainer 
+				- size = 2;
+				- value = 
+				{ IMHyperLink 
+					- _id = GUID 30c1c11e-9fba-4731-afbe-51a61a8ecf42;
+					- _dependsOn = { INObjectHandle 
+						- _m2Class = "";
+					}
+					- _linkDispName = "Edit Makefile";
+					- _linkType = "FREE";
+					- _linkTarget = "C:/Documents and Settings/User/My Documents/Rhapsody/MDDTacho/TachoTest/DebugConfig/TachoTest.mak";
+					- isConfigurationFileHyperLink = 1;
+				}
+				{ IMHyperLink 
+					- _id = GUID 3441876f-ba31-473d-89cd-5f642a43d049;
+					- _dependsOn = { INObjectHandle 
+						- _m2Class = "";
+					}
+					- _linkDispName = "Edit Main File";
+					- _linkType = "FREE";
+					- _linkTarget = "C:/Documents and Settings/User/My Documents/Rhapsody/MDDTacho/TachoTest/DebugConfig/MainTachoTest";
+					- isConfigurationFileHyperLink = 1;
+				}
+			}
+			- _scopeType = Derived;
+			- _libraries = "";
+			- _additionalSources = "";
+			- _standardHeaders = "";
+			- _includePath = "";
+			- _targetMain = "";
+			- _instrumentation = None;
+			- _timeModel = RealTime;
+			- m_generateActors = 0;
+			- _statechartImplementation = Flat;
+			- _initializationCode = "";
+			- _checksList = 0 ;
+			- ScopeElements = { IRPYRawContainer 
+				- size = 0;
+			}
+			- InitialInstances = { IRPYRawContainer 
+				- size = 1;
+				- value = 
+				{ IHandle 
+					- _m2Class = "IClass";
+					- _filename = "Test.sbs";
+					- _subsystem = "Test";
+					- _class = "";
+					- _name = "HexapodFirmware";
+					- _id = GUID d1566748-d326-4df1-9ec5-1a63fec968d7;
+				}
+			}
+			- _root = { IFolder 
+				- _id = GUID 9d1cb4c8-8dce-4750-a3ac-9c263f694e8e;
+				- _myState = 8192;
+				- _name = "DebugConfig";
+				- m_path = "";
+				- Elements = { IRPYRawContainer 
+					- size = 0;
+				}
+				- Files = { IRPYRawContainer 
+					- size = 0;
+				}
+			}
+			- weakCGTime = 2.28.2012::16:23:7;
+			- strongCGTime = 2.28.2012::16:23:7;
+			- AnimScopeElements = { IRPYRawContainer 
+				- size = 0;
+			}
+			- m_allInAnimScope = 1;
+		}
+	}
+	- weakCGTime = 3.13.2014::0:3:6;
+	- strongCGTime = 2.28.2012::17:0:14;
+}
+
