@@ -1,6 +1,10 @@
-/*
- * sysfs2.c - create a "subdir" with a "file" in /sys
- * modified for peek and poke assignment
+/*  chardev.c: Creates a read-only char device that says how many times
+ *  you've read from the dev file
+ *
+ *  Copyright (C) 2001 by Peter Jay Salzman
+ *	Modified for pwm assignment
+ *
+ *  08/02/2006 - Updated by Rodrigo Rubira Branco <rodrigo@kernelhacking.com>
  */
 #include <linux/kernel.h>    /* We're doing kernel work */
 #include <linux/module.h>    /* Specifically, a module */
@@ -8,55 +12,82 @@
 #include <linux/device.h>
 #include <linux/fs.h>
 #include <linux/io.h>
-#include <mach/hardware.h>
+#include <asm/uaccess.h>  /* for put_user */
+#include <asm/errno.h>
+//#include <mach/hardware.h>
 
-#define sysfs_dir  "ES6"
-#define sysfs_file "hw"
-#define FILE_NAME hw
+/* Defines */ 
+#define SUCCESS 0
+#define DEVICE_NAME "pwm" /* Dev name as it appears in /proc/devices   */
+#define BUF_LEN 80            /* Max length of the message from the device */
 
-#define sysfs_max_data_size 1024 /* due to limitations of sysfs, you mustn't go above PAGE_SIZE, 1k is already a *lot* of information for sysfs! */
-static char sysfs_buffer[sysfs_max_data_size+1] = ""; /* an extra byte for the '\0' terminator */
-static ssize_t used_buffer_size = 0;
+/* Global variables */
+static int Device_Open = 0;  /* Is device open?  Used to prevent multiple access to the device */
+static char msg[BUF_LEN];    /* The msg the device will give when asked    */
+static char *msg_Ptr;
 
-static ssize_t
-sysfs_show(struct device *dev,
-           struct device_attribute *attr,
-           char *buffer)
+/* Called when a process tries to open the device file, like
+ * "cat /dev/mycharfile"
+ */
+static int device_open(struct inode *inode, struct file *file)
 {
-    printk(KERN_INFO "sysfile_read (/sys/kernel/%s/%s) called\n", sysfs_dir, sysfs_file);
-    return sprintf(buffer, "%s", sysfs_buffer);
+   if (Device_Open) return -EBUSY;
+
+   Device_Open++;
+   msg_Ptr = msg;
+
+   return SUCCESS;
 }
 
-static ssize_t
-sysfs_store(struct device *dev,
-            struct device_attribute *attr,
-            const char *buffer,
-            size_t count)
+
+/* Called when a process closes the device file */
+static int device_release(struct inode *inode, struct file *file)
 {
-    used_buffer_size = count > sysfs_max_data_size ? sysfs_max_data_size : count; /* handle MIN(used_buffer_size, count) bytes */
-    printk(KERN_INFO "sysfile_write (/sys/kernel/%s/%s) called\nbuffer: %s\n", sysfs_dir, sysfs_file, buffer);
+   Device_Open --;     /* We're now ready for our next caller */
 
-    memcpy(sysfs_buffer, buffer, used_buffer_size);
-    sysfs_buffer[used_buffer_size] = '\0'; /* this is correct, the buffer is declared to be sysfs_max_data_size+1 bytes! */
-
-    return used_buffer_size;
+   return 0;
 }
 
-static ssize_t device_read();
-static ssize_t device_write();
-static ssize_t device_open();
-static ssize_t device_release();
+/* Called when a process, which already opened the dev file, attempts to
+   read from it.
+*/
+static ssize_t device_read(struct file *filp,
+   char *buffer,    /* The buffer to fill with data */
+   size_t length,   /* The length of the buffer     */
+   loff_t *offset)  /* Our offset in the file       */
+{
+   /* Number of bytes actually written to the buffer */
+   int bytes_read = 0;
 
-static DEVICE_ATTR(FILE_NAME, S_IWUGO | S_IRUGO, sysfs_show, sysfs_store);
+   /* If we're at the end of the message, return 0 signifying end of file */
+   if (*msg_Ptr == 0) return 0;
 
-static struct attribute *attrs[] = {
-    &dev_attr_FILE_NAME.attr,
-    NULL   /* need to NULL terminate the list of attributes */
-};
-static struct attribute_group attr_group = {
-    .attrs = attrs,
-};
-static struct kobject *pwm_obj = NULL;
+   /* Actually put the data into the buffer */
+   while (length && *msg_Ptr)  {
+
+        /* The buffer is in the user data segment, not the kernel segment;
+         * assignment won't work.  We have to use put_user which copies data from
+         * the kernel data segment to the user data segment. */
+         put_user(*(msg_Ptr++), buffer++);
+
+         length--;
+         bytes_read++;
+   }
+
+   /* Most read functions return the number of bytes put into the buffer */
+   return bytes_read;
+}
+
+
+/*  Called when a process writes to dev file: echo "hi" > /dev/hello */
+static ssize_t device_write(struct file *filp,
+   const char *buff,
+   size_t len,
+   loff_t *off)
+{
+   printk ("<1>Sorry, this operation isn't supported.\n");
+   return -EINVAL;
+}
 
 static struct file_operations Fops = {
 	.read = device_read,
@@ -65,42 +96,24 @@ static struct file_operations Fops = {
 	.release = device_release,
 };
 
-
 int __init sysfs_init(void)
 {
 	int rtnval = 0;
 	int result = 0;
 
-	rtnval = register_chrdev(99, "/dev/pwm1_enable", &Fops);
+	rtnval = register_chrdev(99, DEVICE_NAME, &Fops);
 	if(rtnval < 0)
 	{
+		printk("Error registering device");
 		return rtnval;
 	}
 
-    pwm_obj = kobject_create_and_add(sysfs_dir, kernel_kobj);
-    if (pwm_obj == NULL)
-    {
-        printk (KERN_INFO "%s module failed to load: kobject_create_and_add failed\n", sysfs_file);
-        return -ENOMEM;
-    }
-
-    result = sysfs_create_group(pwm_obj, &attr_group);
-    if (result != 0)
-    {
-        /* creating files failed, thus we must remove the created directory! */
-        printk (KERN_INFO "%s module failed to load: sysfs_create_group failed with result %d\n", sysfs_file, result);
-        kobject_put(pwm_obj);
-        return -ENOMEM;
-    }
-
-    printk(KERN_INFO "/sys/kernel/%s/%s created\n", sysfs_dir, sysfs_file);
     return result;
 }
 
 void __exit sysfs_exit(void)
 {
-    kobject_put(pwm_obj);
-    printk (KERN_INFO "/sys/kernel/%s/%s removed\n", sysfs_dir, sysfs_file);
+	unregister_chrdev(99, DEVICE_NAME);
 }
 
 module_init(sysfs_init);
