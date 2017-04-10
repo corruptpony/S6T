@@ -10,11 +10,11 @@
 
 float* dataMatrix;
 float* dataMatrixGPU;
-bool printDebug = false;
+bool printDebug = true;
 
 /* Parameters for testing */
 char fileName[] = "./kernel2.cl";
-const int MATRIX_SIZE = 4; /* Matrix needs to be square */
+const int MATRIX_SIZE = 8; /* Matrix needs to be square */
 int LOCAL_SIZE = MATRIX_SIZE; /* Matrix operations happen per row, therefor we chose a matrix size equal to row size */
 
 float getLocation(int y, int x)
@@ -68,24 +68,6 @@ void printMatrix(bool print)
 		printf("\n");
 	}
 }
-
-void printMatrixGPU(bool print)
-{
-	/* Print matrix */
-	if (print)
-	{
-		printf("Matrix:\n");
-		for (int i = 1; i < (MATRIX_SIZE * MATRIX_SIZE) + 1; i++)
-		{
-			printf("%f ", dataMatrixGPU[i - 1]);
-			if (i % MATRIX_SIZE == 0)
-				printf("\n");
-
-		}
-		printf("\n");
-	}
-}
-
 
 int main() {
 	/* Define GPU parameters */
@@ -243,7 +225,7 @@ int main() {
 	LARGE_INTEGER end;
 	QueryPerformanceCounter(&end);
 	
-	printMatrixGPU(printDebug);
+	printMatrix(printDebug);
 
 	/* Print elapsed time */
 	printf("Elapsed time CPU: %f msec\n", (double)(endCPU.QuadPart - startCPU.QuadPart) / freqCPU.QuadPart * 1000.0);
