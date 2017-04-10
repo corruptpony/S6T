@@ -9,12 +9,13 @@
 #include <stdlib.h>
 
 float* dataMatrix;
+float* dataMatrixGPU;
 bool printDebug = false;
 
 /* Parameters for testing */
-char fileName[] = "./kernel1.cl";
-const int MATRIX_SIZE = 8; /* Matrix needs to be square */
-const int LOCAL_SIZE = MATRIX_SIZE;
+char fileName[] = "./kernel2.cl";
+const int MATRIX_SIZE = 4; /* Matrix needs to be square */
+int LOCAL_SIZE = MATRIX_SIZE; /* Matrix operations happen per row, therefor we chose a matrix size equal to row size */
 
 float getLocation(int y, int x)
 {
@@ -62,6 +63,24 @@ void printMatrix(bool print)
 			printf("%f ", dataMatrix[i - 1]);
 			if (i % MATRIX_SIZE == 0)
 				printf("\n");
+				
+		}
+		printf("\n");
+	}
+}
+
+void printMatrixGPU(bool print)
+{
+	/* Print matrix */
+	if (print)
+	{
+		printf("Matrix:\n");
+		for (int i = 1; i < (MATRIX_SIZE * MATRIX_SIZE) + 1; i++)
+		{
+			printf("%f ", dataMatrixGPU[i - 1]);
+			if (i % MATRIX_SIZE == 0)
+				printf("\n");
+
 		}
 		printf("\n");
 	}
@@ -87,11 +106,14 @@ int main() {
 
 	/* declare mem for matrix */
 	dataMatrix = (float*)malloc(sizeof(float) * MATRIX_SIZE * MATRIX_SIZE);
+	dataMatrixGPU = (float*)malloc(sizeof(float) * MATRIX_SIZE * MATRIX_SIZE);
 
 	/* Fill matrix with test data */
 	for (int i = 0; i < MATRIX_SIZE * MATRIX_SIZE; i++)
 	{
-		dataMatrix[i] = (float)(rand() % 9) + 1.0;
+		float value = (float)(rand() % 9) + 1.0;
+		dataMatrix[i] = value;
+		dataMatrixGPU[i] = value;
 	}
 	
 	printMatrix(printDebug);
@@ -118,8 +140,6 @@ int main() {
 				divideRow(diagNr, division);
 			}
 
-			printMatrix(printDebug);
-
 			float multiply = 1;
 			if (getLocation(diagNr, diagNr) != getLocation(diagNr + rowNr, diagNr))
 			{
@@ -127,19 +147,13 @@ int main() {
 				multiplyRow(diagNr, multiply);
 			}
 
-			printMatrix(printDebug);
-
 			substractRow(diagNr, diagNr + rowNr);
-
-			printMatrix(printDebug);
 
 			/* Restore the row to it's original form */
 			if (multiply != 1)
 				divideRow(diagNr, multiply);
 			if (division != 1)
 				multiplyRow(diagNr, division);
-
-			printMatrix(printDebug);
 		}
 	}
 
@@ -147,6 +161,11 @@ int main() {
 	QueryPerformanceCounter(&endCPU);
 
 	printMatrix(printDebug);
+
+	/* Get current time before calculating the array with GPU */
+	LARGE_INTEGER freq, start;
+	QueryPerformanceFrequency(&freq);
+	QueryPerformanceCounter(&start);
 
 	/* Get Platform and Device Info */
 	char* info;
@@ -187,18 +206,21 @@ int main() {
 	ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&dev_matrix_in);
 	checkError(ret, "Couldn't set arg dev_matrix_in");
 
-	/* Get current time before calculating the array with GPU */
-	LARGE_INTEGER freq, start;
-	QueryPerformanceFrequency(&freq);
-	QueryPerformanceCounter(&start);
-
 	/* Write new bit of data to GPU */
-	ret = clEnqueueWriteBuffer(command_queue, dev_matrix_in, CL_TRUE, 0, MATRIX_SIZE * MATRIX_SIZE * sizeof(cl_float), dataMatrix, 0, NULL, NULL);
+	ret = clEnqueueWriteBuffer(command_queue, dev_matrix_in, CL_TRUE, 0, MATRIX_SIZE * MATRIX_SIZE * sizeof(cl_float), dataMatrixGPU, 0, NULL, NULL);
 	checkError(ret, "Couldn't write array on device");
 
 	size_t globalSize[] = { MATRIX_SIZE * MATRIX_SIZE };
 	size_t localSize[] = { LOCAL_SIZE };
-		
+	
+	//char fileName[] = "./kernel1.cl";
+	if (fileName[8] == '2')
+	{
+		/* Set local size */
+		ret = clSetKernelArg(kernel, 1, localSize[0] * sizeof(cl_float), NULL);
+		checkError(ret, "Couldn't set arg matRow");
+	}
+
 	/* Activate OpenCL kernel on the Compute Device */
 	ret = clEnqueueNDRangeKernel(command_queue,
 		kernel,
@@ -214,14 +236,14 @@ int main() {
 	clFinish(command_queue);	
 
 	/* Transfer result back to host */
-	ret = clEnqueueReadBuffer(command_queue, dev_matrix_in, CL_TRUE, 0, MATRIX_SIZE * MATRIX_SIZE * sizeof(float), dataMatrix, 0, NULL, NULL);
+	ret = clEnqueueReadBuffer(command_queue, dev_matrix_in, CL_TRUE, 0, MATRIX_SIZE * MATRIX_SIZE * sizeof(float), dataMatrixGPU, 0, NULL, NULL);
 	checkError(ret, "Couldn't get matrix from host");
 
 	/* Get current time after calculating the array on GPU */
 	LARGE_INTEGER end;
 	QueryPerformanceCounter(&end);
 	
-	printMatrix(false);
+	printMatrixGPU(printDebug);
 
 	/* Print elapsed time */
 	printf("Elapsed time CPU: %f msec\n", (double)(endCPU.QuadPart - startCPU.QuadPart) / freqCPU.QuadPart * 1000.0);
@@ -240,6 +262,7 @@ int main() {
 	ret = clReleaseCommandQueue(command_queue);
 	ret = clReleaseContext(context);
 	free(dataMatrix);
+	free(dataMatrixGPU);
 
 	return 0;
 }
