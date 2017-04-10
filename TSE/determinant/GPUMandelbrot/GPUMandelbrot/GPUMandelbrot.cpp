@@ -12,9 +12,9 @@ float* dataMatrix;
 bool printDebug = false;
 
 /* Parameters for testing */
-char fileName[] = "./kernel1.cl";
-const int MATRIX_SIZE = 4; /* Matrix needs to be square */
-const int LOCAL_SIZE = 4;
+char fileName[] = "./kernel2.cl";
+const int MATRIX_SIZE = 512; /* Matrix needs to be square */
+const int LOCAL_SIZE = MATRIX_SIZE;
 
 float getLocation(int y, int x)
 {
@@ -51,12 +51,12 @@ void substractRow(int substractRow, int fromRow)
 	}
 }
 
-float getDet()
+long long getDet()
 {
-	float det = 0.0;
+	long long det = 1.0;
 	for (int diag = 0; diag < MATRIX_SIZE; diag++)
 	{
-		det += getLocation(diag, diag);
+		det *= (long long)getLocation(diag, diag);
 	}
 	return det;
 }
@@ -75,7 +75,6 @@ void printMatrix(bool print)
 		}
 		printf("\n");
 	}
-	
 }
 
 
@@ -103,10 +102,10 @@ int main() {
 	/* Fill matrix with test data */
 	for (int i = 0; i < MATRIX_SIZE * MATRIX_SIZE; i++)
 	{
-		dataMatrix[i] = (float)(rand() % 10);
+		dataMatrix[i] = (float)(rand() % 9) + 1.0;
 	}
 	
-	printMatrix(true);
+	printMatrix(printDebug);
 
 	/* Get current time before calculating the array with CPU */
 	LARGE_INTEGER freqCPU, startCPU, endCPU;
@@ -121,7 +120,7 @@ int main() {
 		for (int rowNr = 1; rowNr < (MATRIX_SIZE - diagNr); rowNr++)
 		{
 			if (getLocation(diagNr + rowNr, diagNr) == 0)
-				break;
+				continue;
 
 			float division = 1;
 			if (getLocation(diagNr, diagNr) != 1)
@@ -155,11 +154,13 @@ int main() {
 		}
 	}
 
+	long long det = getDet();
+
 	/* Get current time after calculating the array with CPU */
 	QueryPerformanceCounter(&endCPU);
 
-	printMatrix(true);
-	printf("Determinant of matrix: %f\n\n", getDet());
+	printMatrix(false);
+	printf("Determinant of matrix: %lli\n\n", det);
 
 	/* Get Platform and Device Info */
 	char* info;
@@ -184,9 +185,9 @@ int main() {
 	checkError(ret, "Couldn't create commandqueue");
 
 	/* Allocate memory for arrays on the Compute Device */
-	dev_matrix_in = clCreateBuffer(context, CL_MEM_READ_ONLY, MATRIX_SIZE * MATRIX_SIZE * sizeof(cl_int), NULL, &ret);
+	dev_matrix_in = clCreateBuffer(context, CL_MEM_READ_WRITE, MATRIX_SIZE * MATRIX_SIZE * sizeof(cl_float), NULL, &ret);
 	checkError(ret, "Couldn't create dev_matrix_in on device");
-	dev_det = clCreateBuffer(context, CL_MEM_READ_WRITE, sizeof(cl_int), NULL, &ret);
+	dev_det = clCreateBuffer(context, CL_MEM_READ_WRITE, sizeof(long long), NULL, &ret);
 	checkError(ret, "Couldn't create dev_matrix_out on device");
 	
 	/* Create kernel program */
@@ -209,7 +210,7 @@ int main() {
 	QueryPerformanceCounter(&start);
 
 	/* Write new bit of data to GPU */
-	ret = clEnqueueWriteBuffer(command_queue, dev_matrix_in, CL_TRUE, 0, MATRIX_SIZE * MATRIX_SIZE * sizeof(cl_int), dataMatrix, 0, NULL, NULL);
+	ret = clEnqueueWriteBuffer(command_queue, dev_matrix_in, CL_TRUE, 0, MATRIX_SIZE * MATRIX_SIZE * sizeof(cl_float), dataMatrix, 0, NULL, NULL);
 	checkError(ret, "Couldn't write array on device");
 
 	size_t globalSize[] = { MATRIX_SIZE * MATRIX_SIZE };
@@ -229,14 +230,21 @@ int main() {
 		
 	clFinish(command_queue);	
 
+	long long result = 0;
+
 	/* Transfer result back to host */
-	ret = clEnqueueReadBuffer(command_queue, dev_det, CL_TRUE, 0, sizeof(int), dataMatrix, 0, NULL, NULL);
-	checkError(ret, "Couldn't get data from host");
+	ret = clEnqueueReadBuffer(command_queue, dev_matrix_in, CL_TRUE, 0, MATRIX_SIZE * MATRIX_SIZE * sizeof(float), dataMatrix, 0, NULL, NULL);
+	checkError(ret, "Couldn't get matrix from host");
+	ret = clEnqueueReadBuffer(command_queue, dev_det, CL_TRUE, 0, sizeof(long long), &result, 0, NULL, NULL);
+	checkError(ret, "Couldn't get determinant from host");
 
 	/* Get current time after calculating the array on GPU */
 	LARGE_INTEGER end;
 	QueryPerformanceCounter(&end);
 	
+	printMatrix(false);
+	printf("Determinant of matrix: %lli\n\n", result);
+
 	/* Print elapsed time */
 	printf("Elapsed time CPU: %f msec\n", (double)(endCPU.QuadPart - startCPU.QuadPart) / freqCPU.QuadPart * 1000.0);
 	printf("Elapsed time GPU: %f msec\n\n", (double)(end.QuadPart - start.QuadPart) / freq.QuadPart * 1000.0);

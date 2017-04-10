@@ -1,23 +1,27 @@
-__kernel void reduction(__global int *gdata, __local int *sdata) {
-	unsigned int tid = get_local_id(0);
-	unsigned int gid = get_global_id(0);
+__kernel void determinant(__global float *mat,
+						__global long long *determinant) {
+	*determinant = 1;
+	unsigned int ls = get_local_size(0);
+	unsigned int lid = get_local_id(0);
+	unsigned int gid = get_group_id(0);
 
-	// copy int’s from Global to Local memory
-	sdata[tid] = gdata[gid];
-
-	barrier(CLK_LOCAL_MEM_FENCE);
-
-	// do reduction in Local memory
-	for (unsigned int s = 1; s < get_local_size(0); s *= 2)
+	for (int diagNr = 0; diagNr < ls - 1; diagNr++)
 	{
-		int index = 2 * s*tid;
-		if (index < get_local_size(0))
+		for (int rowNr = 1; rowNr < (ls - diagNr); rowNr++)
 		{
-			sdata[index] += sdata[index + s];
-		}
-		barrier(CLK_LOCAL_MEM_FENCE);
-	}
+			if (mat[((diagNr + rowNr) * ls) + diagNr] == 0)
+				continue;
 
-	// write result for this block to global mem
-	if (tid == 0) gdata[get_group_id(0)] = sdata[0];
+			float division = mat[(diagNr * ls) + diagNr];
+			mat[(gid * ls) + lid] = mat[(gid * ls) + lid] / division;
+
+			float multiply = mat[((diagNr + rowNr) * ls) + diagNr];
+			mat[(gid * ls) + lid] = mat[(gid * ls) + lid] * multiply;
+
+			mat[((diagNr + rowNr) * ls)] = mat[((diagNr + rowNr) * ls)] - mat[(gid * ls) + lid];
+
+			mat[(gid * ls) + lid] = mat[(gid * ls) + lid] / multiply;
+			mat[(gid * ls) + lid] = mat[(gid * ls) + lid] * division;
+		}
+	}
 }
