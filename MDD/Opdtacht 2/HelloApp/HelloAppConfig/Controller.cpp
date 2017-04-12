@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Controller
-//!	Generated Date	: Mon, 27, Mar 2017  
+//!	Generated Date	: Tue, 11, Apr 2017  
 	File Path	: HelloApp/HelloAppConfig/Controller.cpp
 *********************************************************************/
 
@@ -431,11 +431,6 @@ Controller::Controller(IOxfActive* theActiveContext) : count(0) {
 Controller::~Controller() {
     cleanUpRelations();
     cancelTimeouts();
-}
-
-void Controller::Display() {
-    //#[ operation Display()
-    //#]
 }
 
 Controller::dsp1_C* Controller::getDsp1() const {

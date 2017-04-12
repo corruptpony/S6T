@@ -4,7 +4,7 @@
 	Component	: HelloApp 
 	Configuration 	: HelloAppConfig
 	Model Element	: Controller
-//!	Generated Date	: Mon, 20, Mar 2017  
+//!	Generated Date	: Tue, 11, Apr 2017  
 	File Path	: HelloApp/HelloAppConfig/Controller.h
 *********************************************************************/
 
@@ -372,9 +372,6 @@ public :
     ~Controller();
     
     ////    Operations    ////
-    
-    //## operation Display()
-    void Display();
     
     ////    Additional operations    ////
     

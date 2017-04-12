@@ -4,8 +4,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- size = 16;
 	- value = "HelloApp/HelloAppConfig/Application.cpp" 2.14.2017::11:2:19
 	"HelloApp/HelloAppConfig/Application.h" 2.14.2017::11:2:19
-	"HelloApp/HelloAppConfig/Controller.cpp" 3.27.2017::9:13:15
-	"HelloApp/HelloAppConfig/Controller.h" 3.27.2017::8:58:44
+	"HelloApp/HelloAppConfig/Controller.cpp" 4.11.2017::10:22:39
+	"HelloApp/HelloAppConfig/Controller.h" 4.11.2017::10:22:39
 	"HelloApp/HelloAppConfig/Design.cpp" 3.20.2017::8:24:46
 	"HelloApp/HelloAppConfig/Design.h" 3.20.2017::8:24:46
 	"HelloApp/HelloAppConfig/Display.cpp" 3.27.2017::9:11:58
@@ -29,7 +29,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "HelloApp\\HelloAppConfig";
 	- _id = GUID 9393688e-eeb3-419e-9b56-4c0151ceb5b1;
 }
-- genTime = 3.27.2017::9:13:15;
+- genTime = 4.11.2017::10:22:39;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -47,7 +47,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Test";
 	- _id = GUID 8e3b0c46-0e6d-4f16-8e06-e24aebfcc0e1;
 }
-- genTime = 3.27.2017::9:2:17;
+- genTime = 4.11.2017::10:22:39;
 - hElement = { IHandle 
 	- _m2Class = "ISubsystem";
 	- _filename = "Design.sbs";
@@ -56,7 +56,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Design";
 	- _id = GUID a0b2e9c6-ed76-4d4a-a4f8-0ab04eee642a;
 }
-- genTime = 3.27.2017::9:2:17;
+- genTime = 4.11.2017::10:22:39;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -65,7 +65,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Controller";
 	- _id = GUID 9a7e3843-04d6-4e9b-9af9-a9032a4432d0;
 }
-- genTime = 3.27.2017::9:13:15;
+- genTime = 4.11.2017::10:22:39;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Analyse.sbs";
@@ -101,5 +101,5 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "DistributedHelloTestSystem";
 	- _id = GUID c9c6d68c-2e25-4b05-ae6f-51ee202141bc;
 }
-- genTime = 3.20.2017::9:17:57;
+- genTime = 4.11.2017::9:56:43;
 

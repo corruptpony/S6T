@@ -4,7 +4,7 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: Design
-//!	Generated Date	: Fri, 7, Apr 2017  
+//!	Generated Date	: Mon, 10, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/Design.h
 *********************************************************************/
 
@@ -17,6 +17,9 @@
 #include <../Profiles/SysML/SIDefinitions.h>
 //## auto_generated
 #include <oxf/event.h>
+//## auto_generated
+class Body;
+
 //## auto_generated
 class ILeg;
 

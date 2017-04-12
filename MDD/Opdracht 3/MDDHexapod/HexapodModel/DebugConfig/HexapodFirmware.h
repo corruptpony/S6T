@@ -4,7 +4,7 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: HexapodFirmware
-//!	Generated Date	: Fri, 7, Apr 2017  
+//!	Generated Date	: Tue, 11, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/HexapodFirmware.h
 *********************************************************************/
 
@@ -16,12 +16,16 @@
 //## auto_generated
 #include <../Profiles/SysML/SIDefinitions.h>
 //## auto_generated
+#include "Test.h"
+//## auto_generated
 #include <oxf/omreactive.h>
 //## auto_generated
 #include <oxf/state.h>
 //## auto_generated
 #include <oxf/event.h>
-//## classInstance itsLeg
+//## classInstance itsBody
+#include "Body.h"
+//## classInstance itsLeg_1
 #include "Leg.h"
 //## classInstance itsSensor
 #include "Sensor.h"
@@ -50,7 +54,25 @@ public :
     ////    Additional operations    ////
     
     //## auto_generated
-    Leg* getItsLeg() const;
+    Body* getItsBody() const;
+    
+    //## auto_generated
+    Leg* getItsLeg_1() const;
+    
+    //## auto_generated
+    Leg* getItsLeg_2() const;
+    
+    //## auto_generated
+    Leg* getItsLeg_3() const;
+    
+    //## auto_generated
+    Leg* getItsLeg_4() const;
+    
+    //## auto_generated
+    Leg* getItsLeg_5() const;
+    
+    //## auto_generated
+    Leg* getItsLeg_6() const;
     
     //## auto_generated
     Sensor* getItsSensor() const;
@@ -62,7 +84,19 @@ public :
 
 protected :
 
-    Leg itsLeg;		//## classInstance itsLeg
+    Body itsBody;		//## classInstance itsBody
+    
+    Leg itsLeg_1;		//## classInstance itsLeg_1
+    
+    Leg itsLeg_2;		//## classInstance itsLeg_2
+    
+    Leg itsLeg_3;		//## classInstance itsLeg_3
+    
+    Leg itsLeg_4;		//## classInstance itsLeg_4
+    
+    Leg itsLeg_5;		//## classInstance itsLeg_5
+    
+    Leg itsLeg_6;		//## classInstance itsLeg_6
     
     Sensor itsSensor;		//## classInstance itsSensor
     

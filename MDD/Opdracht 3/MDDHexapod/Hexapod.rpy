@@ -116,7 +116,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 		- value = 
 		{ IMultiplicityItem 
 			- _name = "1";
-			- _count = 12;
+			- _count = 35;
 		}
 		{ IMultiplicityItem 
 			- _name = "*";

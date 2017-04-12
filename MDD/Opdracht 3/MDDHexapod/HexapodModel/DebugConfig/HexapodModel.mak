@@ -58,6 +58,8 @@ OBJS= \
   ILegCB.o \
   Sensor.o \
   ISensorCB.o \
+  Body.o \
+  Test.o \
   Design.o
 
 
@@ -110,7 +112,7 @@ endif
 
 
 
-HexapodFirmware.o : HexapodFirmware.cpp HexapodFirmware.h    Leg.h Sensor.h ILeg.h 
+HexapodFirmware.o : HexapodFirmware.cpp HexapodFirmware.h    Test.h Leg.h Sensor.h Body.h ILeg.h ILegCB.h 
 	@echo Compiling HexapodFirmware.cpp
 	@$(CC) $(ConfigurationCPPCompileSwitches)  -o HexapodFirmware.o HexapodFirmware.cpp
 
@@ -152,7 +154,21 @@ ISensorCB.o : ISensorCB.cpp ISensorCB.h    Design.h
 
 
 
-Design.o : Design.cpp Design.h    Leg.h Sensor.h ISensorCB.h ILeg.h ILegCB.h 
+Body.o : Body.cpp Body.h    Design.h ILegCB.h ILeg.h 
+	@echo Compiling Body.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Body.o Body.cpp
+
+
+
+
+Test.o : Test.cpp Test.h    HexapodFirmware.h Leg.h 
+	@echo Compiling Test.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Test.o Test.cpp
+
+
+
+
+Design.o : Design.cpp Design.h    Leg.h Sensor.h ISensorCB.h ILeg.h ILegCB.h Body.h 
 	@echo Compiling Design.cpp
 	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Design.o Design.cpp
 
@@ -193,6 +209,8 @@ clean:
 	$(RM) ILegCB.o
 	$(RM) Sensor.o
 	$(RM) ISensorCB.o
+	$(RM) Body.o
+	$(RM) Test.o
 	$(RM) Design.o
 	$(RM) $(TARGET_MAIN)$(OBJ_EXT) $(ADDITIONAL_OBJS)
 	$(RM) $(TARGET_NAME)$(LIB_EXT)

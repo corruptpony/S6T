@@ -4,12 +4,14 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: Design
-//!	Generated Date	: Fri, 7, Apr 2017  
+//!	Generated Date	: Mon, 10, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/Design.cpp
 *********************************************************************/
 
 //## auto_generated
 #include "Design.h"
+//## auto_generated
+#include "Body.h"
 //## auto_generated
 #include "ILeg.h"
 //## auto_generated

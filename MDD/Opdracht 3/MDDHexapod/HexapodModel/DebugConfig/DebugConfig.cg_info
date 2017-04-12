@@ -1,15 +1,17 @@
 I-Logix-RPY-Archive version 8.1.4 * 1367309
 
 - m_fileModifyTime = { IRPYRawContainer 
-	- size = 24;
-	- value = "HexapodModel/DebugConfig/Brain.cpp" 3.12.2014::23:20:39
+	- size = 28;
+	- value = "HexapodModel/DebugConfig/Body.cpp" 4.11.2017::10:43:52
+	"HexapodModel/DebugConfig/Body.h" 4.11.2017::10:41:35
+	"HexapodModel/DebugConfig/Brain.cpp" 3.12.2014::23:20:39
 	"HexapodModel/DebugConfig/Brain.h" 3.12.2014::23:20:39
-	"HexapodModel/DebugConfig/Design.cpp" 4.7.2017::9:12:0
-	"HexapodModel/DebugConfig/Design.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/Design.cpp" 4.10.2017::8:14:22
+	"HexapodModel/DebugConfig/Design.h" 4.10.2017::8:14:22
 	"HexapodModel/DebugConfig/Hexapod.cpp" 3.12.2014::20:9:30
 	"HexapodModel/DebugConfig/Hexapod.h" 3.12.2014::20:9:30
-	"HexapodModel/DebugConfig/HexapodFirmware.cpp" 4.7.2017::9:12:0
-	"HexapodModel/DebugConfig/HexapodFirmware.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/HexapodFirmware.cpp" 4.11.2017::10:41:35
+	"HexapodModel/DebugConfig/HexapodFirmware.h" 4.11.2017::10:41:35
 	"HexapodModel/DebugConfig/ILeg.cpp" 4.7.2017::9:12:0
 	"HexapodModel/DebugConfig/ILeg.h" 4.7.2017::9:12:0
 	"HexapodModel/DebugConfig/ILegCB.cpp" 4.7.2017::9:12:0
@@ -26,9 +28,11 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	"HexapodModel/DebugConfig/Leg.h" 4.7.2017::9:12:0
 	"HexapodModel/DebugConfig/Sensor.cpp" 4.7.2017::9:12:0
 	"HexapodModel/DebugConfig/Sensor.h" 4.7.2017::9:12:0
+	"HexapodModel/DebugConfig/Test.cpp" 4.11.2017::10:41:35
+	"HexapodModel/DebugConfig/Test.h" 4.11.2017::10:41:35
 	
 }
-- size = 8;
+- size = 10;
 - hElement = { IHandle 
 	- _m2Class = "ICodeGenConfigInfo";
 	- _filename = "HexapodModel.cmp";
@@ -37,7 +41,16 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "HexapodModel\\DebugConfig";
 	- _id = GUID 9393688e-eeb3-419e-9b56-4c0151ceb5b1;
 }
-- genTime = 4.7.2017::9:18:20;
+- genTime = 4.11.2017::10:43:52;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "Test.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "Test";
+	- _id = GUID 8e3b0c46-0e6d-4f16-8e06-e24aebfcc0e1;
+}
+- genTime = 4.11.2017::10:41:35;
 - hElement = { IHandle 
 	- _m2Class = "ISubsystem";
 	- _filename = "Design.sbs";
@@ -46,7 +59,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Design";
 	- _id = GUID a0b2e9c6-ed76-4d4a-a4f8-0ab04eee642a;
 }
-- genTime = 4.7.2017::9:12:0;
+- genTime = 4.11.2017::10:41:35;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -56,6 +69,15 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _id = GUID e6bcd463-1669-4f56-9402-923de4e1cbb3;
 }
 - genTime = 4.7.2017::9:12:0;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "Body";
+	- _id = GUID 3991de9d-c691-4bcd-9485-07df59c650e6;
+}
+- genTime = 4.11.2017::10:43:52;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";
@@ -100,5 +122,5 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "HexapodFirmware";
 	- _id = GUID d1566748-d326-4df1-9ec5-1a63fec968d7;
 }
-- genTime = 4.7.2017::9:12:0;
+- genTime = 4.11.2017::10:41:35;
 
