@@ -113,8 +113,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "";
 				- _id = GUID 5b4b51c8-293b-40be-8dcc-8f4cf3814917;
 			}
-			- _UpLeft = 0 0 ;
-			- _DownRight = 1282 487 ;
+			- _UpLeft = 0 63 ;
+			- _DownRight = 1282 550 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 2;
 		}
@@ -169,8 +169,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "TestSystem";
 				- _id = GUID 08ca1f6a-c02c-41cc-995d-690125b595e1;
 			}
-			- _UpLeft = 0 60 ;
-			- _DownRight = 352 353 ;
+			- _UpLeft = 0 30 ;
+			- _DownRight = 352 323 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 4;
 		}

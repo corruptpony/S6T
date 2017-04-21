@@ -116,11 +116,11 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 		- value = 
 		{ IMultiplicityItem 
 			- _name = "1";
-			- _count = 35;
+			- _count = 42;
 		}
 		{ IMultiplicityItem 
 			- _name = "*";
-			- _count = -1;
+			- _count = 0;
 		}
 		{ IMultiplicityItem 
 			- _name = "0,1";
@@ -128,7 +128,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 		}
 		{ IMultiplicityItem 
 			- _name = "1..*";
-			- _count = -1;
+			- _count = 0;
 		}
 	}
 	- Subsystems = { IRPYRawContainer 

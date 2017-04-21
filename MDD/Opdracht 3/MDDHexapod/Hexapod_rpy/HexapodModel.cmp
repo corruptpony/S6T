@@ -176,15 +176,15 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- size = 0;
 				}
 			}
-			- weakCGTime = 2.28.2012::16:23:7;
-			- strongCGTime = 2.28.2012::16:23:7;
+			- weakCGTime = 4.21.2017::9:34:34;
+			- strongCGTime = 4.21.2017::9:34:34;
 			- AnimScopeElements = { IRPYRawContainer 
 				- size = 0;
 			}
 			- m_allInAnimScope = 1;
 		}
 	}
-	- weakCGTime = 3.13.2014::0:3:6;
+	- weakCGTime = 4.21.2017::9:32:20;
 	- strongCGTime = 2.28.2012::17:0:14;
 }
 

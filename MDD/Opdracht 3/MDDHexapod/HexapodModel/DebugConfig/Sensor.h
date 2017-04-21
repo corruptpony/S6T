@@ -4,7 +4,7 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: Sensor
-//!	Generated Date	: Fri, 7, Apr 2017  
+//!	Generated Date	: Fri, 21, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/Sensor.h
 *********************************************************************/
 
@@ -17,12 +17,8 @@
 #include <../Profiles/SysML/SIDefinitions.h>
 //## auto_generated
 #include "Design.h"
-//## auto_generated
-#include <oxf/omreactive.h>
-//## auto_generated
-#include <oxf/state.h>
-//## auto_generated
-#include <oxf/event.h>
+//## class Sensor
+#include "ISensorCB.h"
 //## auto_generated
 #include <string>
 //## auto_generated
@@ -31,12 +27,10 @@
 #include <fstream>
 //## auto_generated
 #include <vector>
-//## class OutBound
-#include "ISensorCB.h"
 //## package Design
 
 //## class Sensor
-class Sensor : public OMReactive {
+class Sensor : public ISensorCB {
 public :
 
 //#[ ignore
