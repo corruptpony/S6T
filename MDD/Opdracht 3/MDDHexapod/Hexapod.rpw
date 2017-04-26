@@ -4,7 +4,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 		- size = 0;
 	}
 	- myViewsWithID = { IRPYRawContainer 
-		- size = 7;
+		- size = 12;
 		- value = 
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -32,7 +32,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 			- _UpLeft = 0 0 ;
 			- _DownRight = 612 428 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 6;
+			- m_nDiagramIndex = 11;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -60,7 +60,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 			- _UpLeft = 0 0 ;
 			- _DownRight = 480 297 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 5;
+			- m_nDiagramIndex = 10;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -85,10 +85,38 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "";
 				- _id = GUID 4c23dbe8-80ab-4960-88c2-1023fc5b4e5a;
 			}
-			- _UpLeft = 0 0 ;
-			- _DownRight = 1282 487 ;
+			- _UpLeft = 127 20 ;
+			- _DownRight = 1409 506 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 1;
+			- m_nDiagramIndex = 6;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 110;
+				- m_nTop = 110;
+				- m_nRight = 1258;
+				- m_nBottom = 463;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "Body";
+				- _name = "";
+				- _id = GUID 4c23dbe8-80ab-4960-88c2-1023fc5b4e5a;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1120 306 ;
+			- _instanceName = "HexapodFirmware[0]->itsBody";
+			- m_nDiagramIndex = 4;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -116,7 +144,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 			- _UpLeft = 0 40 ;
 			- _DownRight = 945 267 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 4;
+			- m_nDiagramIndex = 9;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -141,10 +169,94 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "";
 				- _id = GUID 94900a1d-4dd4-45db-ae21-f18a4eb1733f;
 			}
-			- _UpLeft = 0 210 ;
-			- _DownRight = 507 511 ;
+			- _UpLeft = 0 170 ;
+			- _DownRight = 507 471 ;
 			- _instanceName = "";
+			- m_nDiagramIndex = 7;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 132;
+				- m_nTop = 132;
+				- m_nRight = 1280;
+				- m_nBottom = 485;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "Leg";
+				- _name = "";
+				- _id = GUID 94900a1d-4dd4-45db-ae21-f18a4eb1733f;
+			}
+			- _UpLeft = 0 100 ;
+			- _DownRight = 1120 406 ;
+			- _instanceName = "HexapodFirmware[0]->itsLeg_1";
+			- m_nDiagramIndex = 3;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 154;
+				- m_nTop = 154;
+				- m_nRight = 1302;
+				- m_nBottom = 507;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "Leg";
+				- _name = "";
+				- _id = GUID 94900a1d-4dd4-45db-ae21-f18a4eb1733f;
+			}
+			- _UpLeft = 0 70 ;
+			- _DownRight = 1120 376 ;
+			- _instanceName = "HexapodFirmware[0]->itsLeg_4";
 			- m_nDiagramIndex = 2;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 22;
+				- m_nTop = 22;
+				- m_nRight = 1170;
+				- m_nBottom = 374;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "Leg";
+				- _name = "";
+				- _id = GUID 94900a1d-4dd4-45db-ae21-f18a4eb1733f;
+			}
+			- _UpLeft = 0 70 ;
+			- _DownRight = 1120 375 ;
+			- _instanceName = "HexapodFirmware[0]->itsLeg_6";
+			- m_nDiagramIndex = 0;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -172,7 +284,35 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 			- _UpLeft = 0 0 ;
 			- _DownRight = 1211 527 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 3;
+			- m_nDiagramIndex = 8;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 0;
+				- m_nTop = 0;
+				- m_nRight = 1148;
+				- m_nBottom = 353;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "Sensor";
+				- _name = "";
+				- _id = GUID a8bc92e0-b98d-42e4-a325-71dfa4d68a76;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1120 306 ;
+			- _instanceName = "HexapodFirmware[0]->itsSensor";
+			- m_nDiagramIndex = 1;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -197,10 +337,10 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "TestSystem";
 				- _id = GUID 08ca1f6a-c02c-41cc-995d-690125b595e1;
 			}
-			- _UpLeft = 0 110 ;
-			- _DownRight = 891 337 ;
+			- _UpLeft = 0 120 ;
+			- _DownRight = 891 347 ;
 			- _instanceName = "";
-			- m_nDiagramIndex = 0;
+			- m_nDiagramIndex = 5;
 		}
 	}
 	- _fullName = "Z:\\MDD\\Opdracht 3\\MDDHexapod\\Hexapod";

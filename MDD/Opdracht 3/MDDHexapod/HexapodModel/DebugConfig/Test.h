@@ -4,7 +4,7 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: Test
-//!	Generated Date	: Tue, 11, Apr 2017  
+//!	Generated Date	: Fri, 21, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/Test.h
 *********************************************************************/
 
@@ -16,36 +16,13 @@
 //## auto_generated
 #include <../Profiles/SysML/SIDefinitions.h>
 //## auto_generated
+#include <aom/aom.h>
+//## auto_generated
 class HexapodFirmware;
-
-//## classInstance itsLeg
-class Leg;
 
 //## package Test
 
 
-//## auto_generated
-void Test_initRelations();
-
-//## classInstance itsLeg
-extern Leg itsLeg;
-
-//## auto_generated
-bool Test_startBehavior();
-
-//#[ ignore
-class Test_OMInitializer {
-    ////    Constructors and destructors    ////
-    
-public :
-
-    //## auto_generated
-    Test_OMInitializer();
-    
-    //## auto_generated
-    ~Test_OMInitializer();
-};
-//#]
 
 #endif
 /*********************************************************************

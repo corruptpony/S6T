@@ -4,7 +4,7 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: HexapodFirmware
-//!	Generated Date	: Tue, 11, Apr 2017  
+//!	Generated Date	: Fri, 21, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/HexapodFirmware.h
 *********************************************************************/
 
@@ -15,8 +15,6 @@
 #include <oxf/oxf.h>
 //## auto_generated
 #include <../Profiles/SysML/SIDefinitions.h>
-//## auto_generated
-#include "Test.h"
 //## auto_generated
 #include <oxf/omreactive.h>
 //## auto_generated
@@ -79,11 +77,14 @@ public :
     
     //## auto_generated
     virtual bool startBehavior();
-    
-    ////    Relations and components    ////
 
 protected :
 
+    //## auto_generated
+    void initRelations();
+    
+    ////    Relations and components    ////
+    
     Body itsBody;		//## classInstance itsBody
     
     Leg itsLeg_1;		//## classInstance itsLeg_1

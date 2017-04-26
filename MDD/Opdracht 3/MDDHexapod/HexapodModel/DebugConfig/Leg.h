@@ -4,7 +4,7 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: Leg
-//!	Generated Date	: Fri, 7, Apr 2017  
+//!	Generated Date	: Fri, 21, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/Leg.h
 *********************************************************************/
 
@@ -19,6 +19,8 @@
 #include "Design.h"
 //## class Leg
 #include "ILeg.h"
+//## class Leg
+#include "ILegCB.h"
 //## auto_generated
 #include <string>
 //## auto_generated
@@ -27,12 +29,10 @@
 #include <fstream>
 //## auto_generated
 #include <vector>
-//## class OutBound
-#include "ILegCB.h"
 //## package Design
 
 //## class Leg
-class Leg : public ILeg {
+class Leg : public ILeg, public ILegCB {
 public :
 
 //#[ ignore

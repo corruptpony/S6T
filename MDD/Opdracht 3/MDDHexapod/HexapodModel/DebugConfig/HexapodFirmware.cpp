@@ -4,7 +4,7 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: HexapodFirmware
-//!	Generated Date	: Tue, 11, Apr 2017  
+//!	Generated Date	: Fri, 21, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/HexapodFirmware.cpp
 *********************************************************************/
 
@@ -54,6 +54,7 @@ HexapodFirmware::HexapodFirmware(IOxfActive* theActiveContext) : itsLeg_1(1), it
         }
         itsLeg_6.setActiveContext(theActiveContext, false);
     }
+    initRelations();
 }
 
 HexapodFirmware::~HexapodFirmware() {
@@ -103,6 +104,68 @@ bool HexapodFirmware::startBehavior() {
     done &= itsSensor.startBehavior();
     done &= OMReactive::startBehavior();
     return done;
+}
+
+void HexapodFirmware::initRelations() {
+    {
+    	
+    	itsBody.get_LegPort_1()->setItsILeg(itsLeg_1.get_b()->getItsILeg());
+    	
+    }{
+    	
+    	itsLeg_1.get_b()->setItsILegCB(itsBody.get_LegPort_1()->getItsILegCB());
+    	
+    }
+    {
+    	
+    	itsBody.get_LegPort_2()->setItsILeg(itsLeg_2.get_b()->getItsILeg());
+    	
+    }{
+    	
+    	itsLeg_2.get_b()->setItsILegCB(itsBody.get_LegPort_2()->getItsILegCB());
+    	
+    }
+    {
+    	
+    	itsBody.get_LegPort_3()->setItsILeg(itsLeg_3.get_b()->getItsILeg());
+    	
+    }{
+    	
+    	itsLeg_3.get_b()->setItsILegCB(itsBody.get_LegPort_3()->getItsILegCB());
+    	
+    }
+    {
+    	
+    	itsBody.get_LegPort_6()->setItsILeg(itsLeg_6.get_b()->getItsILeg());
+    	
+    }{
+    	
+    	itsLeg_6.get_b()->setItsILegCB(itsBody.get_LegPort_6()->getItsILegCB());
+    	
+    }
+    {
+    	
+    	itsBody.get_LegPort_5()->setItsILeg(itsLeg_5.get_b()->getItsILeg());
+    	
+    }{
+    	
+    	itsLeg_5.get_b()->setItsILegCB(itsBody.get_LegPort_5()->getItsILegCB());
+    	
+    }
+    {
+    	
+    	itsBody.get_LegPort_4()->setItsILeg(itsLeg_4.get_b()->getItsILeg());
+    	
+    }{
+    	
+    	itsLeg_4.get_b()->setItsILegCB(itsBody.get_LegPort_4()->getItsILegCB());
+    	
+    }
+    {
+    	
+    	itsSensor.get_b()->setItsISensorCB(itsBody.get_sensorPort()->getItsISensorCB());
+    	
+    }
 }
 
 void HexapodFirmware::destroy() {

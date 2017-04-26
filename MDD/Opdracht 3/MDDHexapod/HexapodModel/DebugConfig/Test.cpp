@@ -4,45 +4,29 @@
 	Component	: HexapodModel 
 	Configuration 	: DebugConfig
 	Model Element	: Test
-//!	Generated Date	: Tue, 11, Apr 2017  
+//!	Generated Date	: Fri, 21, Apr 2017  
 	File Path	: HexapodModel/DebugConfig/Test.cpp
 *********************************************************************/
 
+//#[ ignore
+#define NAMESPACE_PREFIX
+//#]
+
 //## auto_generated
 #include "Test.h"
-//## classInstance itsLeg
-#include "Leg.h"
 //## auto_generated
 #include "HexapodFirmware.h"
 //## package Test
 
 
-void Test_initRelations() {
-    {
-        {
-            itsLeg.setShouldDelete(false);
-        }
-    }
-}
+#ifdef _OMINSTRUMENT
+static void serializeGlobalVars(AOMSAttributes* aomsAttributes);
 
-//## classInstance itsLeg
-Leg itsLeg;
+IMPLEMENT_META_PACKAGE(Test, Test)
 
-bool Test_startBehavior() {
-    bool done = true;
-    done &= itsLeg.startBehavior();
-    return done;
+static void serializeGlobalVars(AOMSAttributes* aomsAttributes) {
 }
-
-//#[ ignore
-Test_OMInitializer::Test_OMInitializer() {
-    Test_initRelations();
-    Test_startBehavior();
-}
-
-Test_OMInitializer::~Test_OMInitializer() {
-}
-//#]
+#endif // _OMINSTRUMENT
 
 /*********************************************************************
 	File Path	: HexapodModel/DebugConfig/Test.cpp
