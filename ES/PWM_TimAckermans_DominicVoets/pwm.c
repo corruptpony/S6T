@@ -27,6 +27,7 @@
 #define LCD_DISABLE_BIT 0x00000000
 
 #define PWM_ENABLE_BIT 0x80000000
+#define PWM_DISABLE_BIT 0x00000000
 #define PWM_DUTY_CYCLE_BITS 0x000000FF
 #define PWM_FREQUENCY_BITS 0x0000FF00
 #define PWM_DUTY_CYCLE_END_POSITION 8
@@ -34,13 +35,13 @@
 #define PWM_1_CTRL 0x4005C000
 #define PWM_2_CTRL 0x4005C004
 
-#define MIN_PWM_INPUT 0
-#define MAX_PWM_INPUT 100
-#define MIN_PWM_OUTPUT 255
-#define MAX_PWM_OUTPUT 0
+#define MIN_DUTY_INPUT 0
+#define MAX_DUTY_INPUT 100
+#define MIN_DUTY_OUTPUT 255
+#define MAX_DUTY_OUTPUT 0
 
-#define MIN_FREQ_INPUT 1
-#define MAX_FREQ_INPUT 128
+#define MIN_FREQ_INPUT 30
+#define MAX_FREQ_INPUT 60
 #define MIN_FREQ_OUTPUT 256
 #define MAX_FREQ_OUTPUT 0
 
@@ -63,44 +64,65 @@ char pwm1Duty[BUF_LEN];
 char pwm2Enable[BUF_LEN];
 char pwm2Freq[BUF_LEN];
 char pwm2Duty[BUF_LEN];
-
-/* The msg the device will give when asked    */
-static char *msg_Ptr;
-
+char *msg_Ptr;
 int minorNr = 0;
 
-long map(long x, long in_min, long in_max, long out_min, long out_max)
+// Convert the number in a char[] to an integer and capping it's value to be within usuable range
+int convert(char value[], int minValue, int maxValue)
 {
-    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+	char *dataPntr;
+	int valInt;
+	dataPntr = (char*)&value;
+    valInt = simple_strtol(value,&dataPntr,10);
+    if(valInt < minValue)
+    	valInt = minValue;
+   	else if(valInt > maxValue)
+   		valInt = maxValue;
+   	return valInt;
 }
 
-void pwm(void)
+// Map the input ranging between in_min and in_max to an output ranging between out_min and out_max
+uint32_t map(int x, int in_min, int in_max, int out_min, int out_max)
 {
-	uint32_t regValue;
-    uint32_t PWM1_regValue;
-    uint32_t offregValue;
-    int mappedValue;
-    int inputValue;
-    uint32_t mask;
+    return (uint32_t)((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);
+}
 
-    //PWM1_enable:
-    regValue = PWM1_regValue | PWM_ENABLE_BIT;
-    iowrite32(regValue,io_p2v(PWM_1_CTRL));
+// Make value for PWM register based on the user input
+uint32_t pwm(char enable[], char freq[], char duty[])
+{
+    uint32_t RegValue;
+    uint32_t mappedValue;
+    int valInt;
 
-    // PWM1_duty_cycle:
-    offregValue = PWM1_regValue & ~(PWM_DUTY_CYCLE_BITS);
-    mappedValue = map(inputValue, MIN_PWM_INPUT , MAX_PWM_INPUT , MIN_PWM_OUTPUT, MAX_PWM_OUTPUT);
+    //PWM Enable:
+    if(enable[0] == '1')
+    {
+    	RegValue = PWM_ENABLE_BIT;
+    }
+    else
+    {
+    	RegValue = PWM_DISABLE_BIT;
+    }
 
-    regValue = offregValue | (mappedValue);
-    iowrite32(regValue, io_p2v(PWM_1_CTRL));   
-    
-    // PWM1_frequency:
-    offregValue = PWM1_regValue & ~(PWM_FREQUENCY_BITS);
-    
-    mappedValue = map(inputValue, MIN_FREQ_INPUT, MAX_FREQ_INPUT, MIN_FREQ_OUTPUT, MAX_FREQ_OUTPUT);
-    mask = mappedValue << PWM_DUTY_CYCLE_END_POSITION;
-    regValue = offregValue | (mask);
-    iowrite32(regValue, io_p2v(PWM_1_CTRL));   
+    printk("value: %u\n", RegValue);
+
+    // PWM Duty Cycle:
+    valInt = convert(duty, MIN_DUTY_INPUT, MAX_DUTY_INPUT);
+    mappedValue = map(valInt, MIN_DUTY_INPUT , MAX_DUTY_INPUT , MIN_DUTY_OUTPUT, MAX_DUTY_OUTPUT);
+    RegValue = RegValue | mappedValue;
+
+    printk("value: %u\n", RegValue);
+
+    // PWM frequency:
+    valInt = convert(freq, MIN_FREQ_INPUT, MAX_FREQ_INPUT);
+    mappedValue = map(valInt, MIN_FREQ_INPUT , MAX_FREQ_INPUT , MIN_FREQ_OUTPUT, MAX_FREQ_OUTPUT);
+    mappedValue = mappedValue << PWM_DUTY_CYCLE_END_POSITION;
+    RegValue = RegValue | mappedValue;
+
+    printk("value: %u\n", RegValue);
+
+    // Write to register
+    return RegValue;
 }
 
 /* Called when a process tries to open the device file, like
@@ -187,6 +209,8 @@ static ssize_t device_write(struct file *fp,
 	size_t length,
 	loff_t *off)
 {
+	int i;
+
 	if(fp->private_data != NULL)
 	{
 		minorNr = *(unsigned int*)fp->private_data;
@@ -212,13 +236,16 @@ static ssize_t device_write(struct file *fp,
 				break;
 		}
 	}
-
-	int i;
+	
 	for (i = 0; i < length && i < BUF_LEN; i++)
 	{
 		get_user(msg_Ptr[i], buffer + i);
 	}
 	
+	
+	iowrite32(pwm(pwm1Enable, pwm1Freq, pwm1Duty), io_p2v(PWM_1_CTRL));
+	iowrite32(pwm(pwm2Enable, pwm2Freq, pwm2Duty), io_p2v(PWM_2_CTRL));
+
 	return i;
 }
 
@@ -241,12 +268,12 @@ int __init sysfs_init(void)
 		return rtnval;
 	}
 
-	 return result;
-
-	 //disable lcd
+	//disable lcd
     iowrite32(LCD_DISABLE_BIT,io_p2v(LCD_BIT));
     //enable timer
     iowrite32(CLOCK_ENABLE_BIT,io_p2v(PWM_CLOCK_SIGN));
+
+	 return result;
 }
 
 void __exit sysfs_exit(void)
