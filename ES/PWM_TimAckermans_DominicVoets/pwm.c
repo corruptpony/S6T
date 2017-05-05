@@ -2,25 +2,17 @@
  *  you've read from the dev file
  *
  *  Copyright (C) 2001 by Peter Jay Salzman
- *	Modified for pwm assignment
+ *	Modified for pwm assignment by Tim and Dominic
  *
- *  08/02/2006 - Updated by Rodrigo Rubira Branco <rodrigo@kernelhacking.com>
  */
-#include <linux/kernel.h>    /* We're doing kernel work */
-#include <linux/module.h>    /* Specifically, a module */
-#include <linux/kobject.h>   /* Necessary because we use sysfs */
-#include <linux/device.h>
+#include <linux/kernel.h> 
+#include <linux/module.h>
 #include <linux/fs.h>
 #include <linux/io.h>
-#include <asm/uaccess.h>  /* for put_user */
-#include <asm/errno.h>
-#include <asm/io.h>
+#include <asm/uaccess.h>
 #include <mach/hardware.h>
 
 /* Defines */ 
-
-//#define mappedValue 0x00007D00
-
 #define PWM_CLOCK_SIGN 0x400040B8 
 #define CLOCK_ENABLE_BIT 0x0000011F
 #define LCD_BIT 0x40004054
@@ -28,9 +20,7 @@
 
 #define PWM_ENABLE_BIT 0x80000000
 #define PWM_DISABLE_BIT 0x00000000
-#define PWM_DUTY_CYCLE_BITS 0x000000FF
-#define PWM_FREQUENCY_BITS 0x0000FF00
-#define PWM_DUTY_CYCLE_END_POSITION 8
+#define PWM_DUTY_CYCLE_SHIFT 8
 
 #define PWM_1_CTRL 0x4005C000
 #define PWM_2_CTRL 0x4005C004
@@ -45,8 +35,8 @@
 #define MIN_FREQ_OUTPUT 256
 #define MAX_FREQ_OUTPUT 0
 
-#define DEVICE_NAME "pwm" /* Dev name as it appears in /proc/devices   */
-#define BUF_LEN 80        /* Max length of the message from the device */
+#define DEVICE_NAME "pwm"
+#define BUF_LEN 80
 
 /* Minor numbers */
 #define PWM1_ENABLE 0
@@ -104,30 +94,22 @@ uint32_t pwm(char enable[], char freq[], char duty[])
     	RegValue = PWM_DISABLE_BIT;
     }
 
-    printk("value: %u\n", RegValue);
-
     // PWM Duty Cycle:
     valInt = convert(duty, MIN_DUTY_INPUT, MAX_DUTY_INPUT);
     mappedValue = map(valInt, MIN_DUTY_INPUT , MAX_DUTY_INPUT , MIN_DUTY_OUTPUT, MAX_DUTY_OUTPUT);
     RegValue = RegValue | mappedValue;
 
-    printk("value: %u\n", RegValue);
-
-    // PWM frequency:
+    // PWM Frequency:
     valInt = convert(freq, MIN_FREQ_INPUT, MAX_FREQ_INPUT);
     mappedValue = map(valInt, MIN_FREQ_INPUT , MAX_FREQ_INPUT , MIN_FREQ_OUTPUT, MAX_FREQ_OUTPUT);
-    mappedValue = mappedValue << PWM_DUTY_CYCLE_END_POSITION;
+    mappedValue = mappedValue << PWM_DUTY_CYCLE_SHIFT;
     RegValue = RegValue | mappedValue;
 
-    printk("value: %u\n", RegValue);
-
-    // Write to register
+    // Return value to write in the register
     return RegValue;
 }
 
-/* Called when a process tries to open the device file, like
- * "cat /dev/mycharfile"
- */
+/* Called when a process tries to open the device file, like */
 static int device_open(struct inode *inode, struct file *fp)
 {
 	if (Device_Open) return -EBUSY;
@@ -170,26 +152,22 @@ static int device_open(struct inode *inode, struct file *fp)
 /* Called when a process closes the device file */
 static int device_release(struct inode *inode, struct file *fp)
 {
-	Device_Open --;     /* We're now ready for our next caller */
+	Device_Open --;
 	fp->private_data = NULL;
 	return 0;
 }
 
-/* Called when a process, which already opened the dev file, attempts to
-	read from it.
+/* Called when a process, which already opened, attempts to read.
 */
 static ssize_t device_read(struct file *fp,
 	char *buffer,    /* The buffer to fill with data */
 	size_t length,   /* The length of the buffer     */
 	loff_t *offset)  /* Our offset in the file       */
 {
-	/* Number of bytes actually written to the buffer */
 	int bytes_read = 0;
 
-	/* If we're at the end of the message, return 0 signifying end of file */
 	if (*msg_Ptr == 0) return 0;
 
-	/* Actually put the data into the buffer */
 	while (length && *msg_Ptr)  
 	{
 			put_user(*(msg_Ptr++), buffer++);
@@ -198,12 +176,10 @@ static ssize_t device_read(struct file *fp,
 			bytes_read++;
 	}
 
-	/* Most read functions return the number of bytes put into the buffer */
 	return bytes_read;
 }
 
-
-/*  Called when a process writes to dev file: echo "hi" > /dev/hello */
+/* Called when a process, which is already opened, attemps to write. */
 static ssize_t device_write(struct file *fp,
 	const char *buffer,
 	size_t length,
