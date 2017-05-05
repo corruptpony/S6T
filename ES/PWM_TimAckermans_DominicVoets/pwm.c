@@ -55,7 +55,6 @@ char pwm2Enable[BUF_LEN];
 char pwm2Freq[BUF_LEN];
 char pwm2Duty[BUF_LEN];
 char *msg_Ptr;
-int minorNr = 0;
 
 // Convert the number in a char[] to an integer and capping it's value to be within usuable range
 int convert(char value[], int minValue, int maxValue)
@@ -112,37 +111,32 @@ uint32_t pwm(char enable[], char freq[], char duty[])
 /* Called when a process tries to open the device file, like */
 static int device_open(struct inode *inode, struct file *fp)
 {
+	int minorNr;
 	if (Device_Open) return -EBUSY;
 
 	Device_Open++;
-
 	minorNr = MINOR(inode->i_rdev);
-	fp->private_data = &minorNr;
 
-	if(fp->private_data != NULL)
+	switch(minorNr)
 	{
-		minorNr = *(unsigned int*)fp->private_data;
-		switch(minorNr)
-		{
-			case PWM1_ENABLE:
-			msg_Ptr = pwm1Enable;
-				break;
-			case PWM1_FREQ:
-			msg_Ptr = pwm1Freq;
-				break;
-			case PWM1_DUTY:
-			msg_Ptr = pwm1Duty;
-				break;
-			case PWM2_ENABLE:
-			msg_Ptr = pwm2Enable;
-				break;
-			case PWM2_FREQ:
-			msg_Ptr = pwm2Freq;
-				break;
-			case PWM2_DUTY:
-			msg_Ptr = pwm2Duty;
-				break;
-		}
+		case PWM1_ENABLE:
+		msg_Ptr = pwm1Enable;
+			break;
+		case PWM1_FREQ:
+		msg_Ptr = pwm1Freq;
+			break;
+		case PWM1_DUTY:
+		msg_Ptr = pwm1Duty;
+			break;
+		case PWM2_ENABLE:
+		msg_Ptr = pwm2Enable;
+			break;
+		case PWM2_FREQ:
+		msg_Ptr = pwm2Freq;
+			break;
+		case PWM2_DUTY:
+		msg_Ptr = pwm2Duty;
+			break;
 	}
 
 	return 0;
@@ -153,7 +147,6 @@ static int device_open(struct inode *inode, struct file *fp)
 static int device_release(struct inode *inode, struct file *fp)
 {
 	Device_Open --;
-	fp->private_data = NULL;
 	return 0;
 }
 
@@ -184,39 +177,11 @@ static ssize_t device_write(struct file *fp,
 	size_t length,   	/* The length of the buffer     */
 	loff_t *offset)  	/* Our offset in the file       */
 {
-	int i;
-
-	if(fp->private_data != NULL)
-	{
-		minorNr = *(unsigned int*)fp->private_data;
-		switch(minorNr)
-		{
-			case PWM1_ENABLE:
-			msg_Ptr = pwm1Enable;
-				break;
-			case PWM1_FREQ:
-			msg_Ptr = pwm1Freq;
-				break;
-			case PWM1_DUTY:
-			msg_Ptr = pwm1Duty;
-				break;
-			case PWM2_ENABLE:
-			msg_Ptr = pwm2Enable;
-				break;
-			case PWM2_FREQ:
-			msg_Ptr = pwm2Freq;
-				break;
-			case PWM2_DUTY:
-			msg_Ptr = pwm2Duty;
-				break;
-		}
-	}
-	
+	int i;	
 	for (i = 0; i < length && i < BUF_LEN; i++)
 	{
 		get_user(msg_Ptr[i], buffer + i);
 	}
-	
 	
 	iowrite32(pwm(pwm1Enable, pwm1Freq, pwm1Duty), io_p2v(PWM_1_CTRL));
 	iowrite32(pwm(pwm2Enable, pwm2Freq, pwm2Duty), io_p2v(PWM_2_CTRL));
