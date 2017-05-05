@@ -171,7 +171,6 @@ static ssize_t device_read(struct file *fp,
 	while (length && *msg_Ptr)  
 	{
 			put_user(*(msg_Ptr++), buffer++);
-
 			length--;
 			bytes_read++;
 	}
@@ -181,9 +180,9 @@ static ssize_t device_read(struct file *fp,
 
 /* Called when a process, which is already opened, attemps to write. */
 static ssize_t device_write(struct file *fp,
-	const char *buffer,
-	size_t length,
-	loff_t *off)
+	const char *buffer, /* The buffer to read the data from */
+	size_t length,   	/* The length of the buffer     */
+	loff_t *offset)  	/* Our offset in the file       */
 {
 	int i;
 
