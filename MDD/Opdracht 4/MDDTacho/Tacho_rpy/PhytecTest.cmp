@@ -231,8 +231,13 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							{ IPropertyMetaclass 
 								- _Name = "Class";
 								- Properties = { IRPYRawContainer 
-									- size = 2;
+									- size = 3;
 									- value = 
+									{ IProperty 
+										- _Name = "ImpIncludes";
+										- _Value = "<fstream>";
+										- _Type = String;
+									}
 									{ IProperty 
 										- _Name = "SpecIncludes";
 										- _Value = "<string>,<iostream>,<fstream>,<vector>";
@@ -313,8 +318,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- size = 0;
 				}
 			}
-			- weakCGTime = 12.5.2011::20:27:46;
-			- strongCGTime = 12.5.2011::20:27:46;
+			- weakCGTime = 5.8.2017::8:57:40;
+			- strongCGTime = 5.8.2017::8:57:40;
 			- AnimScopeElements = { IRPYRawContainer 
 				- size = 0;
 			}
@@ -349,8 +354,20 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					{ IPropertySubject 
 						- _Name = "CPP_CG";
 						- Metaclasses = { IRPYRawContainer 
-							- size = 1;
+							- size = 2;
 							- value = 
+							{ IPropertyMetaclass 
+								- _Name = "Class";
+								- Properties = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IProperty 
+										- _Name = "ImpIncludes";
+										- _Value = "<fstream>";
+										- _Type = String;
+									}
+								}
+							}
 							{ IPropertyMetaclass 
 								- _Name = "Configuration";
 								- Properties = { IRPYRawContainer 
@@ -432,8 +449,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- size = 0;
 				}
 			}
-			- weakCGTime = 12.5.2011::20:27:39;
-			- strongCGTime = 12.5.2011::20:27:39;
+			- weakCGTime = 5.8.2017::9:5:5;
+			- strongCGTime = 5.8.2017::9:5:5;
 			- AnimScopeElements = { IRPYRawContainer 
 				- size = 0;
 			}
@@ -444,7 +461,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _myState = 8192;
 			- _properties = { IPropertyContainer 
 				- Subjects = { IRPYRawContainer 
-					- size = 1;
+					- size = 2;
 					- value = 
 					{ IPropertySubject 
 						- _Name = "CG";
@@ -460,6 +477,25 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 										- _Name = "UseDescriptionTemplates";
 										- _Value = "False";
 										- _Type = Bool;
+									}
+								}
+							}
+						}
+					}
+					{ IPropertySubject 
+						- _Name = "CPP_CG";
+						- Metaclasses = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertyMetaclass 
+								- _Name = "Class";
+								- Properties = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IProperty 
+										- _Name = "ImpIncludes";
+										- _Value = "<fstream>";
+										- _Type = String;
 									}
 								}
 							}
@@ -531,15 +567,15 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- size = 0;
 				}
 			}
-			- weakCGTime = 12.5.2011::20:27:54;
-			- strongCGTime = 12.5.2011::20:27:54;
+			- weakCGTime = 5.8.2017::9:36:4;
+			- strongCGTime = 5.8.2017::9:36:4;
 			- AnimScopeElements = { IRPYRawContainer 
 				- size = 0;
 			}
 			- m_allInAnimScope = 1;
 		}
 	}
-	- weakCGTime = 5.8.2017::7:53:36;
+	- weakCGTime = 5.8.2017::9:28:51;
 	- strongCGTime = 3.13.2012::22:12:35;
 }
 

@@ -1,0 +1,92 @@
+I-Logix-RPY-Archive version 8.1.4 * 1367309
+
+- m_fileModifyTime = { IRPYRawContainer 
+	- size = 12;
+	- value = "PhytecTest/VirtualConfig/Design.cpp" 5.8.2017::9:36:6
+	"PhytecTest/VirtualConfig/Design.h" 5.8.2017::9:36:6
+	"PhytecTest/VirtualConfig/PhytecTestSystem.cpp" 5.8.2017::9:40:56
+	"PhytecTest/VirtualConfig/PhytecTestSystem.h" 5.8.2017::9:38:18
+	"PhytecTest/VirtualConfig/Tacho.cpp" 5.8.2017::9:40:5
+	"PhytecTest/VirtualConfig/Tacho.h" 5.8.2017::9:36:6
+	"PhytecTest/VirtualConfig/Test.cpp" 5.8.2017::9:28:54
+	"PhytecTest/VirtualConfig/Test.h" 5.8.2017::9:28:54
+	"PhytecTest/VirtualConfig/iTacho.cpp" 5.8.2017::9:36:6
+	"PhytecTest/VirtualConfig/iTacho.h" 5.8.2017::9:36:6
+	"PhytecTest/VirtualConfig/iTachoCB.cpp" 5.8.2017::9:36:6
+	"PhytecTest/VirtualConfig/iTachoCB.h" 5.8.2017::9:36:6
+	
+}
+- size = 8;
+- hElement = { IHandle 
+	- _m2Class = "ICodeGenConfigInfo";
+	- _filename = "PhytecTest.cmp";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "PhytecTest\\VirtualConfig";
+	- _id = GUID 130b4e0e-3779-4552-8cdc-ede77f852955;
+}
+- genTime = 5.8.2017::9:40:56;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "Test.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "Test";
+	- _id = GUID 8e3b0c46-0e6d-4f16-8e06-e24aebfcc0e1;
+}
+- genTime = 5.8.2017::9:35:42;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "Design.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "Design";
+	- _id = GUID a0b2e9c6-ed76-4d4a-a4f8-0ab04eee642a;
+}
+- genTime = 5.8.2017::9:36:6;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "Tacho";
+	- _id = GUID 3500a5f0-1813-4293-9043-5aeda6773b0d;
+}
+- genTime = 5.8.2017::9:40:5;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Test.sbs";
+	- _subsystem = "Test";
+	- _class = "PhytecTestSystem";
+	- _name = "TachoTester";
+	- _id = GUID d076696d-1dad-4db7-8f45-bb36c5e82d39;
+}
+- genTime = 5.8.2017::9:40:56;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "iTacho";
+	- _id = GUID 388f63b1-b166-4052-b544-293def1a49f1;
+}
+- genTime = 5.8.2017::9:36:6;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Test.sbs";
+	- _subsystem = "Test";
+	- _class = "";
+	- _name = "PhytecTestSystem";
+	- _id = GUID d1566748-d326-4df1-9ec5-1a63fec968d7;
+}
+- genTime = 5.8.2017::9:40:56;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "iTachoCB";
+	- _id = GUID f0bfbd16-459d-4609-9d3f-eaee23dd7a1b;
+}
+- genTime = 5.8.2017::9:36:6;
+

@@ -85,8 +85,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "";
 				- _id = GUID 4c23dbe8-80ab-4960-88c2-1023fc5b4e5a;
 			}
-			- _UpLeft = 127 20 ;
-			- _DownRight = 1409 506 ;
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1282 487 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 6;
 		}
@@ -113,8 +113,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "";
 				- _id = GUID 4c23dbe8-80ab-4960-88c2-1023fc5b4e5a;
 			}
-			- _UpLeft = 0 0 ;
-			- _DownRight = 1120 306 ;
+			- _UpLeft = 83 16 ;
+			- _DownRight = 1203 322 ;
 			- _instanceName = "HexapodFirmware[0]->itsBody";
 			- m_nDiagramIndex = 4;
 		}
@@ -198,7 +198,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _id = GUID 94900a1d-4dd4-45db-ae21-f18a4eb1733f;
 			}
 			- _UpLeft = 0 100 ;
-			- _DownRight = 1120 406 ;
+			- _DownRight = 2666 828 ;
 			- _instanceName = "HexapodFirmware[0]->itsLeg_1";
 			- m_nDiagramIndex = 3;
 		}
@@ -309,8 +309,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "";
 				- _id = GUID a8bc92e0-b98d-42e4-a325-71dfa4d68a76;
 			}
-			- _UpLeft = 0 0 ;
-			- _DownRight = 1120 306 ;
+			- _UpLeft = 0 16 ;
+			- _DownRight = 1120 322 ;
 			- _instanceName = "HexapodFirmware[0]->itsSensor";
 			- m_nDiagramIndex = 1;
 		}
