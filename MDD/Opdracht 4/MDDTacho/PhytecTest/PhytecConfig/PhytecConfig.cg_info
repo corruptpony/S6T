@@ -68,7 +68,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "PhytecTest\\PhytecConfig";
 	- _id = GUID a48922f9-459a-4af1-8e93-a7bd3f75cc83;
 }
-- genTime = 5.8.2017::9:56:27;
+- genTime = 5.8.2017::11:32:31;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";

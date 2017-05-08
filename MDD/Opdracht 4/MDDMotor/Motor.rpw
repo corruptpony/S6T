@@ -29,10 +29,38 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "Design";
 				- _id = GUID d7b7175c-2eda-4a61-9b9e-4acb59688b3e;
 			}
-			- _UpLeft = 0 17 ;
-			- _DownRight = 569 234 ;
+			- _UpLeft = 0 0 ;
+			- _DownRight = 569 217 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 2;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 2;
+				- m_showCmd = 3;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 88;
+				- m_nTop = 88;
+				- m_nRight = 1213;
+				- m_nBottom = 441;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "Motor";
+				- _name = "";
+				- _id = GUID 0cf2e645-f4a0-4921-9c92-992b1b010930;
+			}
+			- _UpLeft = 0 20 ;
+			- _DownRight = 1282 507 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 1;
 		}
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
@@ -43,50 +71,22 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -4;
 				- m_ptMaxPositionY = -23;
-				- m_nLeft = 66;
-				- m_nTop = 66;
-				- m_nRight = 1191;
-				- m_nBottom = 419;
-			}
-			- _wasOpenedOnCloseProject = 1;
-			- _theDiagram = { IHandle 
-				- _m2Class = "IStateChart";
-				- _filename = "Design.sbs";
-				- _subsystem = "Design";
-				- _class = "Tacho";
-				- _name = "";
-				- _id = GUID 23fb53be-8b9e-4884-8946-df1e37a977d2;
-			}
-			- _UpLeft = 0 110 ;
-			- _DownRight = 1097 416 ;
-			- _instanceName = "";
-			- m_nDiagramIndex = 1;
-		}
-		{ CGEMdiDiagramParams 
-			- _placement = { CCommon_WINDOWPLACEMENT 
-				- m_nLength = 44;
-				- m_nFlags = 0;
-				- m_showCmd = 1;
-				- m_ptMinPositionX = 0;
-				- m_ptMinPositionY = 483;
-				- m_ptMaxPositionX = -4;
-				- m_ptMaxPositionY = -23;
-				- m_nLeft = 88;
-				- m_nTop = 88;
-				- m_nRight = 1236;
-				- m_nBottom = 441;
+				- m_nLeft = 110;
+				- m_nTop = 110;
+				- m_nRight = 1258;
+				- m_nBottom = 463;
 			}
 			- _wasOpenedOnCloseProject = 1;
 			- _theDiagram = { IHandle 
 				- _m2Class = "IStateChart";
 				- _filename = "Test.sbs";
 				- _subsystem = "Test";
-				- _class = "PhytecTestSystem.TachoTester";
+				- _class = "PhytecTestSystem.MotorTester";
 				- _name = "";
-				- _id = GUID bcb1c5b3-cb24-4951-978e-31abc204e840;
+				- _id = GUID 5b8cfd67-abce-48f8-8c70-e243fb8ce11f;
 			}
-			- _UpLeft = 0 0 ;
-			- _DownRight = 37333 10200 ;
+			- _UpLeft = 16 30 ;
+			- _DownRight = 1136 336 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 0;
 		}
@@ -119,7 +119,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 			- m_nDiagramIndex = 3;
 		}
 	}
-	- _fullName = "Z:\\MDD\\Opdracht 4\\MDDTacho\\Tacho";
+	- _fullName = "Z:\\MDD\\Opdracht 4\\MDDMotor\\Motor";
 	- m_SearchScopeList = { IRPYRawContainer 
 		- size = 0;
 	}
