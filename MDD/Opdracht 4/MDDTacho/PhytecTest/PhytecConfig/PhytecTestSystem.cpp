@@ -2,10 +2,10 @@
 	Rhapsody	: 7.4 
 	Login		: User
 	Component	: PhytecTest 
-	Configuration 	: VirtualConfig
+	Configuration 	: PhytecConfig
 	Model Element	: PhytecTestSystem
 //!	Generated Date	: Mon, 8, May 2017  
-	File Path	: PhytecTest/VirtualConfig/PhytecTestSystem.cpp
+	File Path	: PhytecTest/PhytecConfig/PhytecTestSystem.cpp
 *********************************************************************/
 
 //## auto_generated
@@ -450,5 +450,5 @@ void PhytecTestSystem::destroy() {
 }
 
 /*********************************************************************
-	File Path	: PhytecTest/VirtualConfig/PhytecTestSystem.cpp
+	File Path	: PhytecTest/PhytecConfig/PhytecTestSystem.cpp
 *********************************************************************/

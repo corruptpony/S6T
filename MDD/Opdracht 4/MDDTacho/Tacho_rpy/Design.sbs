@@ -177,7 +177,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 6c142614-3349-49e9-8c6b-0236be5f6b61;
 				}
 			}
-			- _lastModifiedTime = "5.8.2017::9:40:56";
+			- _lastModifiedTime = "5.8.2017::9:56:27";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID f612b27a-6a74-4d8d-b225-7cd00c628141;
 				- m_type = 0;
