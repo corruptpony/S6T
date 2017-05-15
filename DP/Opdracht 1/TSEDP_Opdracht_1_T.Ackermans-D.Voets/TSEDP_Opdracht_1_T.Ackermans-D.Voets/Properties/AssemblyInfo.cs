@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Strategy_Pattern_D.Voets_T.Ackermans")]
+[assembly: AssemblyTitle("TSEDP_Opdracht_1_T.Ackermans-D.Voets")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Strategy_Pattern_D.Voets_T.Ackermans")]
+[assembly: AssemblyProduct("TSEDP_Opdracht_1_T.Ackermans-D.Voets")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("05096055-0319-4caa-ab15-6c998e01ea1d")]
+[assembly: Guid("0bf1a07b-9be7-4f13-b899-5bc109ee8799")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,0 +1,6 @@
+C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 1\TSEDP_Opdracht_1_T.Ackermans-D.Voets\TSEDP_Opdracht_1_T.Ackermans-D.Voets\bin\Debug\TSEDP_Opdracht_1_T.Ackermans-D.Voets.exe.config
+C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 1\TSEDP_Opdracht_1_T.Ackermans-D.Voets\TSEDP_Opdracht_1_T.Ackermans-D.Voets\bin\Debug\TSEDP_Opdracht_1_T.Ackermans-D.Voets.exe
+C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 1\TSEDP_Opdracht_1_T.Ackermans-D.Voets\TSEDP_Opdracht_1_T.Ackermans-D.Voets\bin\Debug\TSEDP_Opdracht_1_T.Ackermans-D.Voets.pdb
+C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 1\TSEDP_Opdracht_1_T.Ackermans-D.Voets\TSEDP_Opdracht_1_T.Ackermans-D.Voets\obj\Debug\TSEDP_Opdracht_1_T.Ackermans-D.Voets.csprojResolveAssemblyReference.cache
+C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 1\TSEDP_Opdracht_1_T.Ackermans-D.Voets\TSEDP_Opdracht_1_T.Ackermans-D.Voets\obj\Debug\TSEDP_Opdracht_1_T.Ackermans-D.Voets.exe
+C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 1\TSEDP_Opdracht_1_T.Ackermans-D.Voets\TSEDP_Opdracht_1_T.Ackermans-D.Voets\obj\Debug\TSEDP_Opdracht_1_T.Ackermans-D.Voets.pdb
