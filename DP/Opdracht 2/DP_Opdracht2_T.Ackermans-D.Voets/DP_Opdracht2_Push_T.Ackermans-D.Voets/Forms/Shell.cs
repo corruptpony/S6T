@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
-using DP_Opdracht2_Pull;
+using DP_Opdracht2_Push;
 
-namespace DP_Opdracht2_Pull_T.Ackermans_D.Voets.Forms
+namespace DP_Opdracht2_Push_T.Ackermans_D.Voets.Forms
 {
-    public partial class Apple : Form, iPullObserver
+    public partial class Shell : Form, iPushObserver
     {
-        private iPullSubject subject;
+        private iPushSubject subject;
         private int data;
 
-        public Apple(iPullSubject s)
+        public Shell(iPushSubject s)
         {
             InitializeComponent();
             subject = s;
@@ -27,9 +27,9 @@ namespace DP_Opdracht2_Pull_T.Ackermans_D.Voets.Forms
             }
         }
 
-        public void UpdateData()
+        public void UpdateData(int state)
         {
-            data = subject.GetState();
+            data = state;
         }
 
         private void tmUpdateTimer_Tick(object sender, EventArgs e)

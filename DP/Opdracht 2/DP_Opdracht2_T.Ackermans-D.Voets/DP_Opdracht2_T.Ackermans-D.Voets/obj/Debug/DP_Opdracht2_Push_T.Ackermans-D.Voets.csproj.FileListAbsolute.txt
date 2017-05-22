@@ -1,8 +1,0 @@
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\DP_Opdracht2_T.Ackermans-D.Voets\DP_Opdracht2_T.Ackermans-D.Voets\bin\Debug\DP_Opdracht2_T.Ackermans-D.Voets.exe.config
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\DP_Opdracht2_T.Ackermans-D.Voets\DP_Opdracht2_T.Ackermans-D.Voets\bin\Debug\DP_Opdracht2_T.Ackermans-D.Voets.exe
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\DP_Opdracht2_T.Ackermans-D.Voets\DP_Opdracht2_T.Ackermans-D.Voets\bin\Debug\DP_Opdracht2_T.Ackermans-D.Voets.pdb
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\DP_Opdracht2_T.Ackermans-D.Voets\DP_Opdracht2_T.Ackermans-D.Voets\obj\Debug\DP_Opdracht2_T.Ackermans_D.Voets.form_StockMarket.resources
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\DP_Opdracht2_T.Ackermans-D.Voets\DP_Opdracht2_T.Ackermans-D.Voets\obj\Debug\DP_Opdracht2_T.Ackermans_D.Voets.Properties.Resources.resources
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\DP_Opdracht2_T.Ackermans-D.Voets\DP_Opdracht2_T.Ackermans-D.Voets\obj\Debug\DP_Opdracht2_Push_T.Ackermans-D.Voets.csproj.GenerateResource.Cache
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\DP_Opdracht2_T.Ackermans-D.Voets\DP_Opdracht2_T.Ackermans-D.Voets\obj\Debug\DP_Opdracht2_T.Ackermans-D.Voets.exe
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\DP_Opdracht2_T.Ackermans-D.Voets\DP_Opdracht2_T.Ackermans-D.Voets\obj\Debug\DP_Opdracht2_T.Ackermans-D.Voets.pdb
