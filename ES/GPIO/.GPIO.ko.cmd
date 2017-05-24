@@ -1,1 +1,0 @@
-cmd_/home/student/Github/S6T/ES/GPIO/GPIO.ko := arm-linux-ld -EL -r  -T /home/student/felabs/sysdev/tinysystem/linux-2.6.34/scripts/module-common.lds --build-id -o /home/student/Github/S6T/ES/GPIO/GPIO.ko /home/student/Github/S6T/ES/GPIO/GPIO.o /home/student/Github/S6T/ES/GPIO/GPIO.mod.o
