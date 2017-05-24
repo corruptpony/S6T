@@ -1,0 +1,70 @@
+I-Logix-RPY-Archive version 8.1.4 * 1367309
+
+- m_fileModifyTime = { IRPYRawContainer 
+	- size = 8;
+	- value = "PhytecTest/VirtualConfig/Design.cpp" 5.8.2017::10:44:47
+	"PhytecTest/VirtualConfig/Design.h" 5.8.2017::10:44:47
+	"PhytecTest/VirtualConfig/Motor.cpp" 5.8.2017::10:48:5
+	"PhytecTest/VirtualConfig/Motor.h" 5.8.2017::10:44:47
+	"PhytecTest/VirtualConfig/PhytecTestSystem.cpp" 5.8.2017::10:44:47
+	"PhytecTest/VirtualConfig/PhytecTestSystem.h" 5.8.2017::10:44:47
+	"PhytecTest/VirtualConfig/iMotor.cpp" 5.8.2017::10:44:47
+	"PhytecTest/VirtualConfig/iMotor.h" 5.8.2017::10:44:47
+	
+}
+- size = 6;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "Motor";
+	- _id = GUID 7c6e72d0-1a25-4f5c-badd-d8d380788941;
+}
+- genTime = 5.8.2017::10:48:5;
+- hElement = { IHandle 
+	- _m2Class = "ICodeGenConfigInfo";
+	- _filename = "PhytecTest.cmp";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "PhytecTest\\VirtualConfig";
+	- _id = GUID 130b4e0e-3779-4552-8cdc-ede77f852955;
+}
+- genTime = 5.8.2017::10:48:5;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "Design.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "Design";
+	- _id = GUID a0b2e9c6-ed76-4d4a-a4f8-0ab04eee642a;
+}
+- genTime = 5.8.2017::10:48:5;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "iMotor";
+	- _id = GUID e408fd75-d7f1-43cd-804d-29514aae195c;
+}
+- genTime = 5.8.2017::10:44:47;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Test.sbs";
+	- _subsystem = "Test";
+	- _class = "";
+	- _name = "PhytecTestSystem";
+	- _id = GUID d1566748-d326-4df1-9ec5-1a63fec968d7;
+}
+- genTime = 5.8.2017::10:48:5;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Test.sbs";
+	- _subsystem = "Test";
+	- _class = "PhytecTestSystem";
+	- _name = "MotorTester";
+	- _id = GUID 980060de-d30e-41de-8701-05f0c2262bfa;
+}
+- genTime = 5.8.2017::10:48:5;
+

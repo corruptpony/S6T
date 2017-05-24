@@ -1,0 +1,149 @@
+I-Logix-RPY-Archive version 8.1.4 * 1367309
+
+- m_fileModifyTime = { IRPYRawContainer 
+	- size = 24;
+	- value = "PhytecTest/DebugConfig/Controller.cpp" 5.15.2017::10:24:34
+	"PhytecTest/DebugConfig/Controller.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/Design.cpp" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/Design.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/DesignMotor.cpp" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/DesignMotor.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/DesignTacho.cpp" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/DesignTacho.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/Key.cpp" 5.15.2017::10:24:34
+	"PhytecTest/DebugConfig/Key.h" 5.15.2017::10:24:34
+	"PhytecTest/DebugConfig/Motor.cpp" 5.15.2017::10:24:34
+	"PhytecTest/DebugConfig/Motor.h" 5.15.2017::10:24:34
+	"PhytecTest/DebugConfig/PhytecTestSystem.cpp" 5.15.2017::10:24:34
+	"PhytecTest/DebugConfig/PhytecTestSystem.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/Tacho.cpp" 5.15.2017::10:24:34
+	"PhytecTest/DebugConfig/Tacho.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/iKeyCB.cpp" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/iKeyCB.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/iMotor.cpp" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/iMotor.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/iTacho.cpp" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/iTacho.h" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/iTachoCB.cpp" 5.15.2017::8:36:57
+	"PhytecTest/DebugConfig/iTachoCB.h" 5.15.2017::8:36:57
+	
+}
+- size = 13;
+- hElement = { IHandle 
+	- _m2Class = "ICodeGenConfigInfo";
+	- _filename = "PhytecTest.cmp";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "PhytecTest\\DebugConfig";
+	- _id = GUID 9393688e-eeb3-419e-9b56-4c0151ceb5b1;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "DesignMotor.sbs";
+	- _subsystem = "DesignMotor";
+	- _class = "";
+	- _name = "Motor";
+	- _id = GUID 7c6e72d0-1a25-4f5c-badd-d8d380788941;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "Design.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "Design";
+	- _id = GUID a0b2e9c6-ed76-4d4a-a4f8-0ab04eee642a;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "Key";
+	- _id = GUID b232073f-10e6-4227-af05-fa081e3c5f62;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "DesignTacho.sbs";
+	- _subsystem = "DesignTacho";
+	- _class = "";
+	- _name = "Tacho";
+	- _id = GUID 3500a5f0-1813-4293-9043-5aeda6773b0d;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "DesignMotor.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "DesignMotor";
+	- _id = GUID ddfbbf49-3a8e-438f-a8fa-e2ef23bece37;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "ISubsystem";
+	- _filename = "DesignTacho.sbs";
+	- _subsystem = "";
+	- _class = "";
+	- _name = "DesignTacho";
+	- _id = GUID 550f0629-823e-40ae-9b9f-4f61e2bcc29c;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "DesignMotor.sbs";
+	- _subsystem = "DesignMotor";
+	- _class = "";
+	- _name = "iMotor";
+	- _id = GUID e408fd75-d7f1-43cd-804d-29514aae195c;
+}
+- genTime = 5.15.2017::8:36:58;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "iKeyCB";
+	- _id = GUID 1741c586-74e9-4772-bd1c-9e61f2917a7d;
+}
+- genTime = 5.15.2017::8:36:58;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "DesignTacho.sbs";
+	- _subsystem = "DesignTacho";
+	- _class = "";
+	- _name = "iTacho";
+	- _id = GUID 388f63b1-b166-4052-b544-293def1a49f1;
+}
+- genTime = 5.15.2017::8:36:58;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Test.sbs";
+	- _subsystem = "Test";
+	- _class = "";
+	- _name = "PhytecTestSystem";
+	- _id = GUID d1566748-d326-4df1-9ec5-1a63fec968d7;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "Design.sbs";
+	- _subsystem = "Design";
+	- _class = "";
+	- _name = "Controller";
+	- _id = GUID 7fa6a3df-441e-491f-ba63-bc74dded9833;
+}
+- genTime = 5.15.2017::10:24:34;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = "DesignTacho.sbs";
+	- _subsystem = "DesignTacho";
+	- _class = "";
+	- _name = "iTachoCB";
+	- _id = GUID f0bfbd16-459d-4609-9d3f-eaee23dd7a1b;
+}
+- genTime = 5.15.2017::8:36:58;
+

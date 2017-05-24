@@ -1,0 +1,215 @@
+I-Logix-RPY-Archive version 8.1.4 * 1367309
+{ CGEMdiWorkspace 
+	- stubList = { IRPYRawContainer 
+		- size = 0;
+	}
+	- myViewsWithID = { IRPYRawContainer 
+		- size = 7;
+		- value = 
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 2;
+				- m_showCmd = 3;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 154;
+				- m_nTop = 154;
+				- m_nRight = 1279;
+				- m_nBottom = 507;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "Controller";
+				- _name = "";
+				- _id = GUID 11b27823-37da-4aaf-9695-dce3394a5e63;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1258 487 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 0;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 22;
+				- m_nTop = 29;
+				- m_nRight = 574;
+				- m_nBottom = 276;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "";
+				- _name = "Design";
+				- _id = GUID d7b7175c-2eda-4a61-9b9e-4acb59688b3e;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 569 217 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 4;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 66;
+				- m_nTop = 66;
+				- m_nRight = 1191;
+				- m_nBottom = 419;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "Design.sbs";
+				- _subsystem = "Design";
+				- _class = "Key";
+				- _name = "";
+				- _id = GUID d2d6ee25-d503-4812-b691-b0469eb56c6a;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1097 306 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 3;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 110;
+				- m_nTop = 110;
+				- m_nRight = 1258;
+				- m_nBottom = 463;
+			}
+			- _wasOpenedOnCloseProject = 0;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IDiagram";
+				- _filename = "DesignMotor.sbs";
+				- _subsystem = "DesignMotor";
+				- _class = "";
+				- _name = "Design";
+				- _id = GUID 1ce7c550-8d95-4717-b28f-461c5f88be70;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1120 306 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 0;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 88;
+				- m_nTop = 88;
+				- m_nRight = 1236;
+				- m_nBottom = 441;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "DesignMotor.sbs";
+				- _subsystem = "DesignMotor";
+				- _class = "Motor";
+				- _name = "";
+				- _id = GUID 0cf2e645-f4a0-4921-9c92-992b1b010930;
+			}
+			- _UpLeft = 0 20 ;
+			- _DownRight = 1120 326 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 2;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 132;
+				- m_nTop = 132;
+				- m_nRight = 1280;
+				- m_nBottom = 485;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStateChart";
+				- _filename = "DesignTacho.sbs";
+				- _subsystem = "DesignTacho";
+				- _class = "Tacho";
+				- _name = "";
+				- _id = GUID 23fb53be-8b9e-4884-8946-df1e37a977d2;
+			}
+			- _UpLeft = 0 0 ;
+			- _DownRight = 1120 306 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 1;
+		}
+		{ CGEMdiDiagramParams 
+			- _placement = { CCommon_WINDOWPLACEMENT 
+				- m_nLength = 44;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
+				- m_ptMinPositionX = -1;
+				- m_ptMinPositionY = -1;
+				- m_ptMaxPositionX = -4;
+				- m_ptMaxPositionY = -23;
+				- m_nLeft = 44;
+				- m_nTop = 58;
+				- m_nRight = 519;
+				- m_nBottom = 305;
+			}
+			- _wasOpenedOnCloseProject = 1;
+			- _theDiagram = { IHandle 
+				- _m2Class = "IStructureDiagram";
+				- _filename = "Test.sbs";
+				- _subsystem = "Test";
+				- _class = "";
+				- _name = "TestSystem";
+				- _id = GUID 08ca1f6a-c02c-41cc-995d-690125b595e1;
+			}
+			- _UpLeft = 0 30 ;
+			- _DownRight = 447 230 ;
+			- _instanceName = "";
+			- m_nDiagramIndex = 5;
+		}
+	}
+	- _fullName = "Z:\\MDD\\Opdracht 5\\MDDMotorControlSystem";
+	- m_SearchScopeList = { IRPYRawContainer 
+		- size = 0;
+	}
+	- m_favoritesList = { IRPYRawContainer 
+		- size = 0;
+	}
+	- m_browseContext = ;
+}
+
