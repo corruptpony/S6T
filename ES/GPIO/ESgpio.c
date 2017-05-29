@@ -1,4 +1,4 @@
-#include "GPIO.h"
+#include "ESgpio.h"
 
 #define sysfs_max_data_size 1024 /* due to limitations of sysfs, you mustn't go above PAGE_SIZE, 1k is already a *lot* of information for sysfs! */
 static char sysfs_buffer[sysfs_max_data_size+1] = ""; /* an extra byte for the '\0' terminator */
@@ -19,6 +19,7 @@ sysfs_store(struct device *dev,
             const char *buffer,
             size_t count)
 {
+	Pinfo pinInfo;
 	int err;
     char connector[10];
     int pin = -1;
@@ -33,8 +34,6 @@ sysfs_store(struct device *dev,
     	printk(KERN_INFO "Invalid input. Please use \"<connector> <pin nummer> <0/1>\" eg \"J1 15 1\"\n");
     	return used_buffer_size;
     }
-
-    Pinfo pinInfo;
 
     if (connector[1] == '1')
     {
@@ -54,7 +53,7 @@ sysfs_store(struct device *dev,
     	return used_buffer_size;
     }
 
-    if(pinInfo.bitNr == -1 || reg || 0x0)
+    if(pinInfo.bitNr == -1 || pinInfo.reg == 0x0)
     {
     	printk(KERN_INFO "The requested pin is not GPIO");
     	return used_buffer_size;
@@ -62,11 +61,11 @@ sysfs_store(struct device *dev,
 
     if (IO == 0) // configure as output
     {
-    	iowrite32(0x1 << bitNr, io_p2v(reg)); 
+    	iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.reg)); 
     }
     else if (IO == 1) // configure as input
     {
-    	iowrite32(0x1 << bitNr, io_p2v(reg + 4)); // Shift 4 bytes for the clear register
+    	iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.reg + 4)); // Shift 4 bytes for the clear register
     }
 
     memcpy(sysfs_buffer, buffer, used_buffer_size);
@@ -110,10 +109,10 @@ int __init sysfs_init(void)
     printk(KERN_INFO "/sys/kernel/%s/%s created\n", sysfs_dir, sysfs_file);
 
     //Enable all GPIO available
-    iowrite32(P0_GPIO, P0_MUX_CLR);
-    iowrite32(P1_GPIO, P1_MUX_SET);
-    iowrite32(P2_GPIO, P2_MUX_SET);
-    iowrite32(P3_GPIO, P2_MUX_CLR);
+    iowrite32(P0_GPIO, io_p2v(P0_MUX_CLR));
+    iowrite32(P1_GPIO, io_p2v(P1_MUX_SET));
+    iowrite32(P2_GPIO, io_p2v(P2_MUX_SET));
+    iowrite32(P3_GPIO, io_p2v(P2_MUX_CLR));
 
     return result;
 }
@@ -124,14 +123,14 @@ void __exit sysfs_exit(void)
     printk (KERN_INFO "/sys/kernel/%s/%s removed\n", sysfs_dir, sysfs_file);
 
     //Enable all GPIO available
-    iowrite32(P0_GPIO, P0_MUX_SET);
-    iowrite32(P1_GPIO, P0_MUX_CLR);
-    iowrite32(P2_GPIO, P2_MUX_CLR);
-    iowrite32(P2_GPIO, P2_MUX_SET);
+    iowrite32(P0_GPIO, io_p2v(P0_MUX_SET));
+    iowrite32(P1_GPIO, io_p2v(P0_MUX_CLR));
+    iowrite32(P2_GPIO, io_p2v(P2_MUX_CLR));
+    iowrite32(P3_GPIO, io_p2v(P2_MUX_SET));
 }
 
 module_init(sysfs_init);
 module_exit(sysfs_exit);
 MODULE_LICENSE("Dual BSD/GPL");
 MODULE_AUTHOR("Tim en Dominic ");
-MODULE_DESCRIPTION("read and write");
+MODULE_DESCRIPTION("GPIO");
