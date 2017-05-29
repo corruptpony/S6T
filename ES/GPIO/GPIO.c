@@ -28,44 +28,37 @@ sysfs_store(struct device *dev,
             const char *buffer,
             size_t count)
 {
+	int err;
     char connector[10];
-    char pin[10];
-    unsigned int IO = 0;
+    int pin = -1;
+    int IO = -1;
 
     used_buffer_size = count > sysfs_max_data_size ? sysfs_max_data_size : count; /* handle MIN(used_buffer_size, count) bytes */
     printk(KERN_INFO "sysfile_write (/sys/kernel/%s/%s) called\nbuffer: %s\n", sysfs_dir, sysfs_file, buffer);
 
-    sscanf(buffer, "%s %s %i", connector, pin, &IO);
-
-    printk("%s %s %i", connector, pin, IO);
-
-    /* Check for a valid addres */
-    /*if(addr == 0)
+    err = sscanf(buffer, "%s %i %i", connector, &pin, &IO);
+    if(err < 0 || pin == -1 || (IO != 0 && IO != 1))
     {
-            printk(KERN_INFO "Invalid register addres: %x\n", addr);
-            return used_buffer_size;
+    	printk("Invalid input. Please use \"<connector> <pin nummer> <0/1>\" eg \"J1 15 1\"\n");
+    	return used_buffer_size;
     }
 
-    if(command == 'r')
+    if(connector[1] == '1')
     {
-        printk(KERN_INFO "reading from %x", addr);
-        
-        for(i = 0; i < value; i++)
-        {
-            unsigned int* regValueAddr = (unsigned int*)io_p2v(addr + (i * sizeof(unsigned int)));
-            printk(KERN_INFO "addres: %p, value: %x\n", regValueAddr, *regValueAddr);
-        }
+    	printk("J1");
     }
-    else if(command == 'w')
+    else if(connector[1] == '2')
     {
-        printk(KERN_INFO "write %x to %x\n", value, (unsigned int)io_p2v(addr));
-        memcpy(io_p2v(addr), &value, sizeof(unsigned int));
+    	printk("J2");
+    }
+    else if(connector[1] == '3')
+    {
+    	printk("J3");
     }
     else
     {
-        printk(KERN_INFO "Invalid command: %c\n", command);
-        return used_buffer_size;
-    }*/
+    	printk("Invalid connector");
+    }
 
     memcpy(sysfs_buffer, buffer, used_buffer_size);
     sysfs_buffer[used_buffer_size] = '\0'; /* The buffer is declared to be sysfs_max_data_size+1 bytes! */

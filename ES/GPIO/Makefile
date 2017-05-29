@@ -1,10 +1,7 @@
 GCC=arm-linux-gcc
 
-source=GPIO
-MAIN_SOURCES=$(source).c
-MAIN_OBJECTS=$(MAIN_SOURCES:.c=.o)
-ALL_OBJECTS = MAIN_SOURCES
-obj-m += $(source).o
+obj-m += GPIO.o
+#GPIO-objs := switcheroni.o
 
 .PHONY: kernel, clean
 
