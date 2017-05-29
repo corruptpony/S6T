@@ -1,13 +1,4 @@
-#include <linux/kernel.h>    /* We're doing kernel work */
-#include <linux/module.h>    /* Specifically, a module */
-#include <linux/kobject.h>   /* Necessary because we use sysfs */
-#include <linux/device.h>
-#include <linux/io.h>
-#include <mach/hardware.h>
-
-#define sysfs_dir  "GPIO"
-#define sysfs_file "config"
-#define FILE_NAME config
+#include "GPIO.h"
 
 #define sysfs_max_data_size 1024 /* due to limitations of sysfs, you mustn't go above PAGE_SIZE, 1k is already a *lot* of information for sysfs! */
 static char sysfs_buffer[sysfs_max_data_size+1] = ""; /* an extra byte for the '\0' terminator */
@@ -39,25 +30,43 @@ sysfs_store(struct device *dev,
     err = sscanf(buffer, "%s %i %i", connector, &pin, &IO);
     if(err < 0 || pin == -1 || (IO != 0 && IO != 1))
     {
-    	printk("Invalid input. Please use \"<connector> <pin nummer> <0/1>\" eg \"J1 15 1\"\n");
+    	printk(KERN_INFO "Invalid input. Please use \"<connector> <pin nummer> <0/1>\" eg \"J1 15 1\"\n");
     	return used_buffer_size;
     }
 
-    if(connector[1] == '1')
+    Pinfo pinInfo;
+
+    if (connector[1] == '1')
     {
-    	printk("J1");
+    	pinInfo = checkConnectorJ1(pin);
     }
-    else if(connector[1] == '2')
+    else if (connector[1] == '2')
     {
-    	printk("J2");
+    	pinInfo = checkConnectorJ2(pin);
     }
-    else if(connector[1] == '3')
+    else if (connector[1] == '3')
     {
-    	printk("J3");
+    	pinInfo = checkConnectorJ3(pin);
     }
     else
     {
-    	printk("Invalid connector");
+    	printk(KERN_INFO "Invalid connector");
+    	return used_buffer_size;
+    }
+
+    if(pinInfo.bitNr == -1 || reg || 0x0)
+    {
+    	printk(KERN_INFO "The requested pin is not GPIO");
+    	return used_buffer_size;
+    }
+
+    if (IO == 0) // configure as output
+    {
+    	iowrite32(0x1 << bitNr, io_p2v(reg)); 
+    }
+    else if (IO == 1) // configure as input
+    {
+    	iowrite32(0x1 << bitNr, io_p2v(reg + 4)); // Shift 4 bytes for the clear register
     }
 
     memcpy(sysfs_buffer, buffer, used_buffer_size);
@@ -99,6 +108,13 @@ int __init sysfs_init(void)
     }
 
     printk(KERN_INFO "/sys/kernel/%s/%s created\n", sysfs_dir, sysfs_file);
+
+    //Enable all GPIO available
+    iowrite32(P0_GPIO, P0_MUX_CLR);
+    iowrite32(P1_GPIO, P1_MUX_SET);
+    iowrite32(P2_GPIO, P2_MUX_SET);
+    iowrite32(P3_GPIO, P2_MUX_CLR);
+
     return result;
 }
 
@@ -106,6 +122,12 @@ void __exit sysfs_exit(void)
 {
     kobject_put(hello_obj);
     printk (KERN_INFO "/sys/kernel/%s/%s removed\n", sysfs_dir, sysfs_file);
+
+    //Enable all GPIO available
+    iowrite32(P0_GPIO, P0_MUX_SET);
+    iowrite32(P1_GPIO, P0_MUX_CLR);
+    iowrite32(P2_GPIO, P2_MUX_CLR);
+    iowrite32(P2_GPIO, P2_MUX_SET);
 }
 
 module_init(sysfs_init);

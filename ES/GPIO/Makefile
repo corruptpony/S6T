@@ -1,7 +1,7 @@
 GCC=arm-linux-gcc
 
 obj-m += GPIO.o
-#GPIO-objs := switcheroni.o
+GPIO-objs := pincheck.o
 
 .PHONY: kernel, clean
 
