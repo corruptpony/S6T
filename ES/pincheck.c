@@ -8,56 +8,89 @@ typedef struct PinInfo {
    uint32_t reg;
 } Pinfo;
 
-
-
 Pinfo checkConnectorJ1(int pinNumber)
 {
-	return new Pinfo{1, P0_REG};
-	/*switch(pinNumber)
+	Pinfo p = {-1, 0x0};
+	
+	switch(pinNumber)
 	{
-		case :
+		case 27:
+			p.bitNr = 7;
+			p.reg = P0_REG;
 			break;
-		case :
+		case 49:
+			p.bitNr = 8;
+			p.reg = P2_REG;
 			break;
-		default:
-			return false;
-	}*/
+		case 50:
+			p.bitNr = 9;
+			p.reg = P2_REG
+			break;
+		case 51:
+			p.bitNr = 10;
+			p.reg = P2_REG;
+			break;
+		case 52:
+			p.bitNr = 11;
+			p.reg = P2_REG;
+			break;
+		case 53:
+			p.bitNr = 12;
+			p.reg = P2_REG;
+			break;
+		case 24:
+			p.bitNr = 5;
+			p.reg = P3_REG;
+			break;
+
+	}
+	return p;
 }
 
 Pinfo checkConnectorJ2(int pinNumber)
 {
-	return new Pinfo{1, P0_REG};/*
+	Pinfo p = {-1, 0x0};
+	
 	switch(pinNumber)
 	{
-		case 15:
+		case 11:
+			p.bitNr = 2;
+			p.reg = P0_REG;
 			break;
-		case :
+		case 12:
+			p.bitNr = 3;
+			p.reg = P0_REG;
 			break;
-		default:
-			return false;
-	}*/
+		case 13:
+			p.bitNr = 4;
+			p.reg = P0_REG;
+			break;
+		case 14:
+			p.bitNr = 4;
+			p.reg = P0_REG;
+			break;
+		case 24:
+			p.bitNr = 1;
+			p.reg = P0_REG;
+			break;
+	}
+	return p;
 }
 
 Pinfo checkConnectorJ3(int pinNumber)
 {
-	return new Pinfo{1, P0_REG};/*
+	Pinfo p = {-1, 0x0};
+	
 	switch(pinNumber)
 	{
-		case 11:
+		case 40:
+			p.bitNr = 0;
+			p.reg = P0_REG;
 			break;
-		case 12:
+		case 33:
+			p.bitNr = 6;
+			p.reg = P0_REG;
 			break;
-		case 13:
-			break;
-		case 14:
-			break;
-		case 15:
-			break;
-		case 16:
-			break;
-		case 17:
-			break;
-		default:
-			return false;
-	}*/
+	}
+	return p;
 }
