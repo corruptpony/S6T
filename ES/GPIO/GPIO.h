@@ -25,11 +25,9 @@
 #define P2_GPIO 0x8
 
 #define P3_MUX_SET 0x40028110
-
-
-
-
 #define P3_MUX_CLR 0x40028114
+#define P3_GPIO 0x33
+
 
 #define P0_REG 0x40028044
 #define P1_REG 0x40028070
