@@ -1,16 +1,14 @@
-#ifndef GPIO_H
-#define GPIO_H
+#ifndef ESGPIO_H
+#define ESGPIO_H
 
-#include <linux/kernel.h>    /* We're doing kernel work */
-#include <linux/module.h>    /* Specifically, a module */
-#include <linux/kobject.h>   /* Necessary because we use sysfs */
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/fs.h>
+#include <linux/kobject.h>
 #include <linux/device.h>
+#include <asm/uaccess.h>
 #include <linux/io.h>
 #include <mach/hardware.h>
-
-#define sysfs_dir  "GPIO"
-#define sysfs_file "config"
-#define FILE_NAME config
 
 #define P0_MUX_SET 0x40028120
 #define P0_MUX_CLR 0x40028124
@@ -33,9 +31,20 @@
 #define P2_REG 0x40028010
 #define P3_REG 0x40028010
 
+#define sysfs_dir  "gpio"
+#define sysfs_file "config"
+#define FILE_NAME config
+
+#define DEVICE_NAME "gpio"
+#define BUF_LEN 80
+#define MAYOR 65
+
+#define sysfs_max_data_size 1024
+
 typedef struct Pinfo {
    int bitNr;
    uint32_t reg;
+   int minor;
 } Pinfo;
 
 Pinfo checkConnectorJ1(int pinNumber)

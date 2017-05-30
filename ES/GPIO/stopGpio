@@ -1,0 +1,32 @@
+rmmod ESgpio.ko
+
+#Port 0
+rm /dev/J3_40
+rm /dev/J2_24
+rm /dev/J2_11
+rm /dev/J2_12
+rm /dev/J2_13
+rm /dev/J2_14
+rm /dev/J3_33
+rm /dev/J1_27
+
+#Port 2
+rm /dev/J3_47
+rm /dev/J3_56
+rm /dev/J3_48
+rm /dev/J3_57
+rm /dev/J3_49
+rm /dev/J3_58
+rm /dev/J3_50
+rm /dev/J3_45
+rm /dev/J1_49
+rm /dev/J1_50
+rm /dev/J1_51
+rm /dev/J1_52
+rm /dev/J1_53
+
+#Port 3
+rm /dev/J3_54
+rm /dev/J3_46
+rm /dev/J3_36
+rm /dev/J1_24

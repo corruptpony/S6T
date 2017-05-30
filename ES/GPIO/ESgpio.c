@@ -1,8 +1,68 @@
 #include "ESgpio.h"
 
-#define sysfs_max_data_size 1024 /* due to limitations of sysfs, you mustn't go above PAGE_SIZE, 1k is already a *lot* of information for sysfs! */
 static char sysfs_buffer[sysfs_max_data_size+1] = ""; /* an extra byte for the '\0' terminator */
 static ssize_t used_buffer_size = 0;
+
+int deviceOpen = 0;
+char msg[BUF_LEN];
+char *msg_Ptr;
+
+char permbuf[256];
+int errPerm;
+
+/* Called when a process tries to open the device file, like */
+static int device_open(struct inode *inode, struct file *fp)
+{
+    if (deviceOpen) return -EBUSY;
+    deviceOpen++;
+
+    fp->private_data = (void*)MINOR(inode->i_rdev);
+
+    return 0;
+}
+
+
+/* Called when a process closes the device file */
+static int device_release(struct inode *inode, struct file *fp)
+{
+    deviceOpen --;
+    return 0;
+}
+
+/* Called when a process, which already opened, attempts to read. */
+static ssize_t device_read(struct file *fp,
+    char *buffer,    /* The buffer to fill with data */
+    size_t length,   /* The length of the buffer     */
+    loff_t *offset)  /* Our offset in the file       */
+{
+    int bytes_read = 0;
+
+    if (*msg_Ptr == 0) return 0;
+
+    while (length && *msg_Ptr)  
+    {
+            put_user(*(msg_Ptr++), buffer++);
+            length--;
+            bytes_read++;
+    }
+
+    return bytes_read;
+}
+
+/* Called when a process, which is already opened, attemps to write. */
+static ssize_t device_write(struct file *fp,
+    const char *buffer, /* The buffer to read the data from */
+    size_t length,      /* The length of the buffer     */
+    loff_t *offset)     /* Our offset in the file       */
+{
+    int i;  
+    for (i = 0; i < length && i < BUF_LEN; i++)
+    {
+        get_user(msg_Ptr[i], buffer + i);
+    }
+
+    return i;
+}
 
 static ssize_t
 sysfs_show(struct device *dev,
@@ -83,27 +143,40 @@ static struct attribute *attrs[] = {
 static struct attribute_group attr_group = {
     .attrs = attrs,
 };
-static struct kobject *hello_obj = NULL;
+static struct kobject *gpio_obj = NULL;
 
+static struct file_operations Fops = {
+    .read = device_read,
+    .write = device_write,
+    .open = device_open,
+    .release = device_release,
+};
 
 int __init sysfs_init(void)
 {
     int result = 0;
 
-    hello_obj = kobject_create_and_add(sysfs_dir, kernel_kobj);
-    if (hello_obj == NULL)
+    gpio_obj = kobject_create_and_add(sysfs_dir, kernel_kobj);
+    if (gpio_obj == NULL)
     {
         printk (KERN_INFO "%s module failed to load: kobject_create_and_add failed\n", sysfs_file);
         return -ENOMEM;
     }
 
-    result = sysfs_create_group(hello_obj, &attr_group);
+    result = sysfs_create_group(gpio_obj, &attr_group);
     if (result != 0)
     {
         /* creating files failed, thus we must remove the created directory! */
         printk (KERN_INFO "%s module failed to load: sysfs_create_group failed with result %d\n", sysfs_file, result);
-        kobject_put(hello_obj);
+        kobject_put(gpio_obj);
         return -ENOMEM;
+    }
+
+    result = register_chrdev(MAYOR, DEVICE_NAME, &Fops);
+    if(result < 0)
+    {
+        printk("Error registering device");
+        return result;
     }
 
     printk(KERN_INFO "/sys/kernel/%s/%s created\n", sysfs_dir, sysfs_file);
@@ -119,8 +192,10 @@ int __init sysfs_init(void)
 
 void __exit sysfs_exit(void)
 {
-    kobject_put(hello_obj);
+    kobject_put(gpio_obj);
     printk (KERN_INFO "/sys/kernel/%s/%s removed\n", sysfs_dir, sysfs_file);
+
+    unregister_chrdev(MAYOR, DEVICE_NAME);
 
     //Enable all GPIO available
     iowrite32(P0_GPIO, io_p2v(P0_MUX_SET));

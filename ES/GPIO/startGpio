@@ -1,0 +1,32 @@
+insmod ESgpio.ko
+
+#Port 0
+mknod /dev/J3_40 c 65 0
+mknod /dev/J2_24 c 65 1
+mknod /dev/J2_11 c 65 2
+mknod /dev/J2_12 c 65 3
+mknod /dev/J2_13 c 65 4
+mknod /dev/J2_14 c 65 5
+mknod /dev/J3_33 c 65 6
+mknod /dev/J1_27 c 65 7
+
+#Port 2
+mknod /dev/J3_47 c 65 8
+mknod /dev/J3_56 c 65 9
+mknod /dev/J3_48 c 65 10
+mknod /dev/J3_57 c 65 11
+mknod /dev/J3_49 c 65 12
+mknod /dev/J3_58 c 65 13
+mknod /dev/J3_50 c 65 14
+mknod /dev/J3_45 c 65 15
+mknod /dev/J1_49 c 65 16
+mknod /dev/J1_50 c 65 17
+mknod /dev/J1_51 c 65 18
+mknod /dev/J1_52 c 65 19
+mknod /dev/J1_53 c 65 20
+
+#Port 3
+mknod /dev/J3_54 c 65 21
+mknod /dev/J3_46 c 65 22
+mknod /dev/J3_36 c 65 23
+mknod /dev/J1_24 c 65 24
