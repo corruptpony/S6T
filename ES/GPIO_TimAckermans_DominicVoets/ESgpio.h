@@ -10,6 +10,9 @@
 #include <linux/io.h>
 #include <mach/hardware.h>
 
+#define LCD_DISABLE_BIT 0x00000000
+#define LCD_REG 0x40004054
+
 #define P0_MUX_SET 0x40028120
 #define P0_MUX_CLR 0x40028124
 #define P0_GPIO 0xFF
@@ -25,7 +28,6 @@
 #define P0_IN_STATE 0x40028040
 #define P0_OUT_SET 0x40028044
 #define P0_OUT_CLR 0x40028048
-//#define P0_OUT_STATE 0x4002804C
 #define P0_DIR_SET 0x40028050
 #define P0_DIR_CLR 0x40028054
 #define P0_DIR_STATE 0x40028058
@@ -40,7 +42,6 @@
 #define P3_IN_STATE 0x40028000
 #define P3_OUT_SET 0x40028004
 #define P3_OUT_CLR 0x40028008
-//#define P3_OUT_STATE 0x4002800C
 
 #define sysfs_dir  "gpio"
 #define sysfs_file "config"
@@ -57,7 +58,6 @@ typedef struct Pinfo {
    uint32_t in_state;
    uint32_t out_set;
    uint32_t out_clr;
-   //uint32_t out_state;
    uint32_t dir_set;
    uint32_t dir_clr;
    uint32_t dir_state;

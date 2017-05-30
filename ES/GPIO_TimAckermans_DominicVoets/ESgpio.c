@@ -36,10 +36,11 @@ static ssize_t device_read(struct file *fp,
     size_t length,   /* The length of the buffer     */
     loff_t *offset)  /* Our offset in the file       */
 {
-    int bytes_read = 0;
     int minor = -1;
     int connector = -1;
     int pin = -1;
+    uint32_t value;
+    uint32_t mask;
     Pinfo pinInfo;
 
     minor = (int)fp->private_data;
@@ -63,19 +64,24 @@ static ssize_t device_read(struct file *fp,
     else
     {
         printk(KERN_INFO "That device is invalid\n");
+        return 0;
     }
 
-    sprintf(msg_Ptr, "%i", ioread32(io_p2v(pinInfo.in_state)));
-
-    if (msg_Ptr == 0) return 0;
-    while (length && *msg_Ptr)  
+    if(pinInfo.bitNr < 0 || pinInfo.in_state == 0x0)
     {
-            put_user(*(msg_Ptr++), buffer++);
-            length--;
-            bytes_read++;
+        printk(KERN_INFO "The requested pin is not GPIO\n");
+        return 0;
     }
 
-    return bytes_read;
+    // Get pin value (0/1)
+    value = ioread32(io_p2v(pinInfo.in_state));
+    mask = 0x1 << pinInfo.bitNr;
+    value &= mask;
+    value = value >> pinInfo.bitNr;
+
+    printk("%i\n", value);
+
+    return 0;
 }
 
 /* Called when a process, which is already opened, attemps to write. */
@@ -107,10 +113,21 @@ static ssize_t device_write(struct file *fp,
     {
         connector = 3;
         pinInfo = checkConnectorJ3(pin);
+
+        // Port 3 has a shift in bits when writing instead of reading 
+        if(pinInfo.bitNr == 24) { pinInfo.bitNr = 30; }
+        else { pinInfo.bitNr += 15; }
     }
     else
     {
         printk(KERN_INFO "That device is invalid\n");
+        return 0;
+    }
+
+    if(pinInfo.bitNr < 0 || pinInfo.in_state == 0x0)
+    {
+        printk(KERN_INFO "The requested pin is not GPIO\n");
+        return 0;
     }
 
     for (i = 0; i < length && i < BUF_LEN; i++)
@@ -118,16 +135,12 @@ static ssize_t device_write(struct file *fp,
         get_user(msg_Ptr[i], buffer + i);
     }
 
-    printk("%s", msg_Ptr);
-
     if(msg_Ptr[0] == '0')
     {
-        printk("set low");
         iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.out_clr));
     }
     else if(msg_Ptr[0] == '1')
     {
-        printk("set high");
         iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.out_set));
     }
 
@@ -183,7 +196,7 @@ sysfs_store(struct device *dev,
     	return used_buffer_size;
     }
 
-    if(pinInfo.bitNr == -1 || pinInfo.in_state == 0x0)
+    if(pinInfo.bitNr < 0 || pinInfo.in_state == 0x0)
     {
     	printk(KERN_INFO "The requested pin is not GPIO\n");
     	return used_buffer_size;
@@ -254,7 +267,10 @@ int __init sysfs_init(void)
     }
 
     printk(KERN_INFO "/sys/kernel/%s/%s created\n", sysfs_dir, sysfs_file);
-    printk(KERN_INFO "example to configure J2_24 as output: \"echo \"J2 24 0\" > sys/kernel/%s/%s\"\n", sysfs_dir, sysfs_file);
+    printk(KERN_INFO "example to configure J2_24 as output: \"echo \"J2 24 0\" > /sys/kernel/%s/%s\"\n", sysfs_dir, sysfs_file);
+
+    //disable lcd for Port 0
+    iowrite32(LCD_DISABLE_BIT,io_p2v(LCD_REG));
 
     //Enable all GPIO available
     iowrite32(P0_GPIO, io_p2v(P0_MUX_CLR));
