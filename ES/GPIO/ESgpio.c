@@ -16,6 +16,7 @@ static int device_open(struct inode *inode, struct file *fp)
     if (deviceOpen) return -EBUSY;
     deviceOpen++;
 
+    msg_Ptr = msg;
     fp->private_data = (void*)MINOR(inode->i_rdev);
 
     return 0;
@@ -36,9 +37,37 @@ static ssize_t device_read(struct file *fp,
     loff_t *offset)  /* Our offset in the file       */
 {
     int bytes_read = 0;
+    int minor = -1;
+    int connector = -1;
+    int pin = -1;
+    Pinfo pinInfo;
 
-    if (*msg_Ptr == 0) return 0;
+    minor = (int)fp->private_data;
 
+    pin = minor % 100;
+    connector = (minor - pin) / 100;
+    
+    if (connector == 1)
+    {
+        pinInfo = checkConnectorJ1(pin);
+    }
+    else if (connector == 2)
+    {
+        pinInfo = checkConnectorJ2(pin);
+    }
+    else if(connector == 0)  /* Could not register minor number above 255 therefor 0-99 represents J3*/
+    {
+        connector = 3;
+        pinInfo = checkConnectorJ3(pin);
+    }
+    else
+    {
+        printk(KERN_INFO "That device is invalid\n");
+    }
+
+    sprintf(msg_Ptr, "%i", ioread32(io_p2v(pinInfo.in_state)));
+
+    if (msg_Ptr == 0) return 0;
     while (length && *msg_Ptr)  
     {
             put_user(*(msg_Ptr++), buffer++);
@@ -56,9 +85,50 @@ static ssize_t device_write(struct file *fp,
     loff_t *offset)     /* Our offset in the file       */
 {
     int i;  
+    int minor = -1;
+    int connector = -1;
+    int pin = -1;
+    Pinfo pinInfo;
+
+    minor = (int)fp->private_data;
+
+    pin = minor % 100;
+    connector = (minor - pin) / 100;
+    
+    if (connector == 1)
+    {
+        pinInfo = checkConnectorJ1(pin);
+    }
+    else if (connector == 2)
+    {
+        pinInfo = checkConnectorJ2(pin);
+    }
+    else if(connector == 0)  /* Could not register minor number above 255 therefor 0-99 represents J3*/
+    {
+        connector = 3;
+        pinInfo = checkConnectorJ3(pin);
+    }
+    else
+    {
+        printk(KERN_INFO "That device is invalid\n");
+    }
+
     for (i = 0; i < length && i < BUF_LEN; i++)
     {
         get_user(msg_Ptr[i], buffer + i);
+    }
+
+    printk("%s", msg_Ptr);
+
+    if(msg_Ptr[0] == '0')
+    {
+        printk("set low");
+        iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.out_clr));
+    }
+    else if(msg_Ptr[0] == '1')
+    {
+        printk("set high");
+        iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.out_set));
     }
 
     return i;
@@ -109,23 +179,27 @@ sysfs_store(struct device *dev,
     }
     else
     {
-    	printk(KERN_INFO "Invalid connector");
+    	printk(KERN_INFO "Invalid connector\n");
     	return used_buffer_size;
     }
 
-    if(pinInfo.bitNr == -1 || pinInfo.reg == 0x0)
+    if(pinInfo.bitNr == -1 || pinInfo.in_state == 0x0)
     {
-    	printk(KERN_INFO "The requested pin is not GPIO");
+    	printk(KERN_INFO "The requested pin is not GPIO\n");
     	return used_buffer_size;
     }
 
     if (IO == 0) // configure as output
     {
-    	iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.reg)); 
+    	iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.dir_set));
+        printk(KERN_INFO "Configured J%c_%i as output\n", connector[1], pin);
+        printk(KERN_INFO "Use \"echo 0/1 > /dev/J%c_%i\" to write the pin\n", connector[1], pin);
     }
     else if (IO == 1) // configure as input
     {
-    	iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.reg + 4)); // Shift 4 bytes for the clear register
+    	iowrite32(0x1 << pinInfo.bitNr, io_p2v(pinInfo.dir_clr));
+        printk(KERN_INFO "Configured J%c_%i as input\n", connector[1], pin);
+        printk(KERN_INFO "Use \"cat /dev/J%c_%i\" to read the pin\n", connector[1], pin);
     }
 
     memcpy(sysfs_buffer, buffer, used_buffer_size);
@@ -180,10 +254,10 @@ int __init sysfs_init(void)
     }
 
     printk(KERN_INFO "/sys/kernel/%s/%s created\n", sysfs_dir, sysfs_file);
+    printk(KERN_INFO "example to configure J2_24 as output: \"echo \"J2 24 0\" > sys/kernel/%s/%s\"\n", sysfs_dir, sysfs_file);
 
     //Enable all GPIO available
     iowrite32(P0_GPIO, io_p2v(P0_MUX_CLR));
-    iowrite32(P1_GPIO, io_p2v(P1_MUX_SET));
     iowrite32(P2_GPIO, io_p2v(P2_MUX_SET));
     iowrite32(P3_GPIO, io_p2v(P2_MUX_CLR));
 
@@ -197,9 +271,8 @@ void __exit sysfs_exit(void)
 
     unregister_chrdev(MAYOR, DEVICE_NAME);
 
-    //Enable all GPIO available
+    //Disable all GPIO available
     iowrite32(P0_GPIO, io_p2v(P0_MUX_SET));
-    iowrite32(P1_GPIO, io_p2v(P0_MUX_CLR));
     iowrite32(P2_GPIO, io_p2v(P2_MUX_CLR));
     iowrite32(P3_GPIO, io_p2v(P2_MUX_SET));
 }
