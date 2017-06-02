@@ -127,7 +127,7 @@ static ssize_t device_write(struct file *fp,
     if(pinInfo.bitNr < 0 || pinInfo.in_state == 0x0)
     {
         printk(KERN_INFO "The requested pin is not GPIO\n");
-        return 0;
+        return length;
     }
 
     for (i = 0; i < length && i < BUF_LEN; i++)
@@ -259,7 +259,7 @@ int __init sysfs_init(void)
         return -ENOMEM;
     }
 
-    result = register_chrdev(MAYOR, DEVICE_NAME, &Fops);
+    result = register_chrdev(MAJORNR, DEVICE_NAME, &Fops);
     if(result < 0)
     {
         printk("Error registering device");
@@ -270,12 +270,12 @@ int __init sysfs_init(void)
     printk(KERN_INFO "example to configure J2_24 as output: \"echo \"J2 24 0\" > /sys/kernel/%s/%s\"\n", sysfs_dir, sysfs_file);
 
     //disable lcd for Port 0
-    iowrite32(LCD_DISABLE_BIT,io_p2v(LCD_REG));
+    iowrite32(LCD_DISABLE_BIT, io_p2v(LCD_REG));
 
     //Enable all GPIO available
-    iowrite32(P0_GPIO, io_p2v(P0_MUX_CLR));
+    //iowrite32(P0_GPIO, io_p2v(P0_MUX_CLR));
     iowrite32(P2_GPIO, io_p2v(P2_MUX_SET));
-    iowrite32(P3_GPIO, io_p2v(P2_MUX_CLR));
+    //iowrite32(P3_GPIO, io_p2v(P2_MUX_CLR));
 
     return result;
 }
@@ -285,12 +285,12 @@ void __exit sysfs_exit(void)
     kobject_put(gpio_obj);
     printk (KERN_INFO "/sys/kernel/%s/%s removed\n", sysfs_dir, sysfs_file);
 
-    unregister_chrdev(MAYOR, DEVICE_NAME);
+    unregister_chrdev(MAJORNR, DEVICE_NAME);
 
     //Disable all GPIO available
-    iowrite32(P0_GPIO, io_p2v(P0_MUX_SET));
+    //iowrite32(P0_GPIO, io_p2v(P0_MUX_SET));
     iowrite32(P2_GPIO, io_p2v(P2_MUX_CLR));
-    iowrite32(P3_GPIO, io_p2v(P2_MUX_SET));
+    //iowrite32(P3_GPIO, io_p2v(P2_MUX_SET));
 }
 
 module_init(sysfs_init);

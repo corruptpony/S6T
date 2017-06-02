@@ -49,7 +49,7 @@
 
 #define DEVICE_NAME "gpio"
 #define BUF_LEN 80
-#define MAYOR 65
+#define MAJORNR 65
 
 #define sysfs_max_data_size 1024
 
