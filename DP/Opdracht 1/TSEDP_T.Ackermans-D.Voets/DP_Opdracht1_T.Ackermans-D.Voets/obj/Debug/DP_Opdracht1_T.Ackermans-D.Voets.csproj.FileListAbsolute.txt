@@ -1,1 +1,2 @@
 C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\TSEDP_T.Ackermans-D.Voets\DP_Opdracht1_T.Ackermans-D.Voets\bin\Debug\DP_Opdracht1_T.Ackermans-D.Voets.exe.config
+C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 1\TSEDP_T.Ackermans-D.Voets\DP_Opdracht1_T.Ackermans-D.Voets\bin\Debug\DP_Opdracht1_T.Ackermans-D.Voets.exe.config
