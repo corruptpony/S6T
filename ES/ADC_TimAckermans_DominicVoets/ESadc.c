@@ -9,7 +9,14 @@
 #include <mach/irqs.h>
 
 #define DEVICE_NAME 		"adc"
+#define ADC_NAME            "adc"
+#define BUTTON_NAME           "eint0"
+#define MAJORNR             253
 #define ADC_NUMCHANNELS		3
+
+
+#define READ_REG(a)         (*(volatile unsigned int *)(a))
+#define WRITE_REG(b,a)      (*(volatile unsigned int *)(a) = (b))
 
 // adc registers
 #define	ADCLK_CTRL			io_p2v(0x400040B4)
@@ -19,8 +26,16 @@
 #define ADC_VALUE           io_p2v(0x40048048)
 #define SIC2_ATR            io_p2v(0x40010010)
 
-#define READ_REG(a)         (*(volatile unsigned int *)(a))
-#define WRITE_REG(b,a)      (*(volatile unsigned int *)(a) = (b))
+// Masks
+#define RTC_CLK_ADC             ~0x01ff
+#define ADC_CLR_REF             ~0x03c0
+#define ADC_SET_REF             0x0280
+#define ADC_START_MASK          BIT(2)
+#define ADC_CONVERSIE_MASK      BIT(1)
+#define ADC_VALUE_MASK          0x3FF
+#define GPIO_EDGE_MASK          BIT(23)
+#define HIGH_MASK               ~0x0
+#define LOW_MASK                0x0
 
 
 static unsigned char    adc_channel = 0;
@@ -31,35 +46,38 @@ static irqreturn_t      adc_interrupt (int irq, void * dev_id);
 static irqreturn_t      gp_interrupt (int irq, void * dev_id);
 
 
+void setNewRegValue(unsigned int* reg, unsigned long andVal, unsigned long orVal)
+{
+    unsigned long data;
+    data = READ_REG(reg);
+    if(andVal != HIGH_MASK) { data &= andVal; }
+    if(orVal != LOW_MASK) { data |= orVal; }
+    WRITE_REG(data, reg);
+}
+
 static void adc_init (void)
 {
-	unsigned long data;
-
 	// set 32 KHz RTC clock
-    data = READ_REG (ADCLK_CTRL);
-    data |= 0x1;
-    WRITE_REG (data, ADCLK_CTRL);
+    setNewRegValue(ADCLK_CTRL, HIGH_MASK, LPC32XX_CLKPWR_ADC32CLKCTRL_CLK_EN);
 
 	// rtc clock ADC & Display = from PERIPH_CLK
-    data = READ_REG (ADCLK_CTRL1);
-    data &= ~0x01ff;
-    WRITE_REG (data, ADCLK_CTRL1);
+    setNewRegValue(ADCLK_CTRL1, RTC_CLK_ADC, LOW_MASK);
 
 	// negatief & positieve referentie
-    data = READ_REG(ADC_SELECT);
-    data &= ~0x03c0;
-    data |=  0x0280;
-    WRITE_REG (data, ADC_SELECT);
+    setNewRegValue(ADC_SELECT, ADC_CLR_REF, ADC_SET_REF);
 
-	// aanzetten adc en reset
-    // TODO
+	// aanzetten adc en reset, bit 2 in ADC_CTRL
+    setNewRegValue(ADC_CTRL, HIGH_MASK, ADC_START_MASK);
+
+    // GPIO interrupt op edge detection zetten
+    setNewRegValue(SIC2_ATR, HIGH_MASK, GPIO_EDGE_MASK);
 
 	//IRQ init
-    if (request_irq (/* TODO */, adc_interrupt, IRQF_DISABLED, "", NULL) != 0)
+    if (request_irq (IRQ_LPC32XX_TS_IRQ, adc_interrupt, IRQF_DISABLED, ADC_NAME, NULL) != 0)
     {
         printk(KERN_ALERT "ADC IRQ request failed\n");
     }
-    if (request_irq (/* TODO */, gp_interrupt, IRQF_DISABLED, "", NULL) != 0)
+    if (request_irq (IRQ_LPC32XX_GPI_01, gp_interrupt, IRQF_DISABLED, BUTTON_NAME, NULL) != 0)
     {
         printk (KERN_ALERT "GP IRQ request failed\n");
     }
@@ -83,12 +101,12 @@ static void adc_start (unsigned char channel)
 	adc_channel = channel;
 
 	// start conversie
-    // TODO
+    setNewRegValue(ADC_CTRL, HIGH_MASK, ADC_CONVERSIE_MASK);
 }
 
 static irqreturn_t adc_interrupt (int irq, void * dev_id)
 {
-    adc_values[adc_channel] = /* TODO: read ADC */;
+    adc_values[adc_channel] = (READ_REG(ADC_VALUE) & ADC_VALUE_MASK);
     printk(KERN_WARNING "ADC(%d)=%d\n", adc_channel, adc_values[adc_channel]);
 
     // start the next channel:
@@ -104,14 +122,19 @@ static irqreturn_t gp_interrupt(int irq, void * dev_id)
 {
     adc_start (0);
 
+    printk(KERN_INFO "EINT0 interrupt triggered");
+
     return (IRQ_HANDLED);
 }
 
 
 static void adc_exit (void)
 {
-    free_irq (/* TODO */, NULL);
-    free_irq (/* TODO */, NULL);
+    free_irq (IRQ_LPC32XX_TS_IRQ, NULL);
+    free_irq (IRQ_LPC32XX_GPI_01, NULL);
+
+    // unset 32 KHz RTC clock
+    setNewRegValue(ADCLK_CTRL, ~LPC32XX_CLKPWR_ADC32CLKCTRL_CLK_EN, LOW_MASK);
 }
 
 
@@ -129,20 +152,14 @@ static ssize_t device_read (struct file * file, char __user * buf, size_t length
 
     adc_start (channel);
 
-    // TODO: wait for end-of-conversion,
-    // read adc and copy it into 'buf'
+    *buf = (READ_REG(ADC_VALUE) & ADC_VALUE_MASK);
 
     return (bytes_read);
 }
 
-
-
-
 static int device_open (struct inode * inode, struct file * file)
 {
-    // get channel from 'inode'
-    int channel = 0;
-
+    file->private_data = (void*)MINOR(inode->i_rdev);
 
     try_module_get(THIS_MODULE);
     return 0;
@@ -178,7 +195,7 @@ static struct chardev
 int adcdev_init (void)
 {
     // try to get a dynamically allocated major number
-	int error = alloc_chrdev_region(&adcdev.dev, 0, ADC_NUMCHANNELS, DEVICE_NAME);;
+	int error = alloc_chrdev_region(&adcdev.dev, 0, ADC_NUMCHANNELS, DEVICE_NAME);
 
 	if(error < 0)
 	{

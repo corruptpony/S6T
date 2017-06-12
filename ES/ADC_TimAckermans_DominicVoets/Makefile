@@ -1,6 +1,6 @@
 GCC=arm-linux-gcc
 
-obj-m += adc_stripped.o
+obj-m += ESadc.o
 
 .PHONY: kernel, clean
 
