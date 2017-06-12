@@ -3,6 +3,7 @@
 #include <linux/init.h>
 #include <linux/cdev.h>
 #include <linux/fs.h>
+#include <linux/wait.h>
 #include <linux/interrupt.h>
 #include <mach/hardware.h>
 #include <mach/platform.h>
@@ -10,7 +11,7 @@
 
 #define DEVICE_NAME 		"adc"
 #define ADC_NAME            "adc"
-#define BUTTON_NAME           "eint0"
+#define BUTTON_NAME         "eint0"
 #define MAJORNR             253
 #define ADC_NUMCHANNELS		3
 
@@ -45,6 +46,8 @@ static int              adc_values[ADC_NUMCHANNELS] = {0, 0, 0};
 static irqreturn_t      adc_interrupt (int irq, void * dev_id);
 static irqreturn_t      gp_interrupt (int irq, void * dev_id);
 
+wait_queue_head_t event;
+int conversionDone = 0;
 
 void setNewRegValue(unsigned int* reg, unsigned long andVal, unsigned long orVal)
 {
@@ -71,6 +74,8 @@ static void adc_init (void)
 
     // GPIO interrupt op edge detection zetten
     setNewRegValue(SIC2_ATR, HIGH_MASK, GPIO_EDGE_MASK);
+
+    init_waitqueue_head(&event);
 
 	//IRQ init
     if (request_irq (IRQ_LPC32XX_TS_IRQ, adc_interrupt, IRQF_DISABLED, ADC_NAME, NULL) != 0)
@@ -109,18 +114,15 @@ static irqreturn_t adc_interrupt (int irq, void * dev_id)
     adc_values[adc_channel] = (READ_REG(ADC_VALUE) & ADC_VALUE_MASK);
     printk(KERN_WARNING "ADC(%d)=%d\n", adc_channel, adc_values[adc_channel]);
 
-    // start the next channel:
-    adc_channel++;
-    if (adc_channel < ADC_NUMCHANNELS)
-    {
-        adc_start (adc_channel);
-    }
+    conversionDone = 1;
+    wake_up(&event);
+
     return (IRQ_HANDLED);
 }
 
 static irqreturn_t gp_interrupt(int irq, void * dev_id)
 {
-    adc_start (0);
+    adc_start (2);
 
     printk(KERN_INFO "EINT0 interrupt triggered");
 
@@ -151,6 +153,10 @@ static ssize_t device_read (struct file * file, char __user * buf, size_t length
     }
 
     adc_start (channel);
+
+    // Wait for interrupt to be done handling
+    wait_event_interruptible(event, conversionDone == 1);
+    conversionDone = 0;
 
     *buf = (READ_REG(ADC_VALUE) & ADC_VALUE_MASK);
 
