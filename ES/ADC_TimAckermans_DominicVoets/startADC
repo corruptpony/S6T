@@ -1,0 +1,7 @@
+insmod ESadc.ko
+
+mknod /dev/adc0 c 253 0
+mknod /dev/adc1 c 253 1
+mknod /dev/adc2 c 253 2
+
+chmod /dev/adc* 777

@@ -1,0 +1,5 @@
+rmmod ESadc.ko
+
+rm /dev/adc0
+rm /dev/adc1
+rm /dev/adc2
