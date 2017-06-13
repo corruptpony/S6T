@@ -9,8 +9,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
 				- m_nLength = 44;
-				- m_nFlags = 0;
-				- m_showCmd = 1;
+				- m_nFlags = 2;
+				- m_showCmd = 3;
 				- m_ptMinPositionX = -1;
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -4;
@@ -30,7 +30,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _id = GUID 11b27823-37da-4aaf-9695-dce3394a5e63;
 			}
 			- _UpLeft = 0 0 ;
-			- _DownRight = 36566 10200 ;
+			- _DownRight = 1258 487 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 0;
 		}
@@ -197,8 +197,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _name = "TestSystem";
 				- _id = GUID 08ca1f6a-c02c-41cc-995d-690125b595e1;
 			}
-			- _UpLeft = 0 30 ;
-			- _DownRight = 447 230 ;
+			- _UpLeft = 0 0 ;
+			- _DownRight = 2353 1053 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 5;
 		}

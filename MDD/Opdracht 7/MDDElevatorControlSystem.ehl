@@ -1,4 +1,7 @@
 [Op Calls]
 [Events]
+PhytecTestSystem[0]->itsController->GEN(evKey(2))`Controller
+PhytecTestSystem[0]->itsController->GEN(evKey(0))`Controller
+PhytecTestSystem[0]->itsController->GEN(evCount(50))`Controller
 [Active Breakpoints]
 [Inactive Breakpoints]

@@ -65,8 +65,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
 				- m_nLength = 44;
-				- m_nFlags = 2;
-				- m_showCmd = 3;
+				- m_nFlags = 0;
+				- m_showCmd = 1;
 				- m_ptMinPositionX = -1;
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -4;
@@ -86,7 +86,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _id = GUID 4c23dbe8-80ab-4960-88c2-1023fc5b4e5a;
 			}
 			- _UpLeft = 0 0 ;
-			- _DownRight = 1282 487 ;
+			- _DownRight = 15200 10033 ;
 			- _instanceName = "";
 			- m_nDiagramIndex = 6;
 		}
@@ -233,8 +233,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 		{ CGEMdiDiagramParams 
 			- _placement = { CCommon_WINDOWPLACEMENT 
 				- m_nLength = 44;
-				- m_nFlags = 0;
-				- m_showCmd = 1;
+				- m_nFlags = 2;
+				- m_showCmd = 3;
 				- m_ptMinPositionX = -1;
 				- m_ptMinPositionY = -1;
 				- m_ptMaxPositionX = -4;
@@ -254,7 +254,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 				- _id = GUID 94900a1d-4dd4-45db-ae21-f18a4eb1733f;
 			}
 			- _UpLeft = 0 70 ;
-			- _DownRight = 1120 375 ;
+			- _DownRight = 1258 557 ;
 			- _instanceName = "HexapodFirmware[0]->itsLeg_6";
 			- m_nDiagramIndex = 0;
 		}

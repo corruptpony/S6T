@@ -4,7 +4,7 @@
 	Component	: PhytecTest 
 	Configuration 	: VirtualConfig
 	Model Element	: Motor
-//!	Generated Date	: Mon, 12, Jun 2017  
+//!	Generated Date	: Tue, 13, Jun 2017  
 	File Path	: PhytecTest/VirtualConfig/Motor.cpp
 *********************************************************************/
 
@@ -12,8 +12,6 @@
 #include <oxf/omthread.h>
 //## auto_generated
 #include "Motor.h"
-//## auto_generated
-#include "fstream"
 //## package DesignMotor
 
 //## class Motor
@@ -201,7 +199,7 @@ void Motor::control_C::destroy() {
 }
 //#]
 
-Motor::Motor(IOxfActive* theActiveContext) : direction(0), duty(0) {
+Motor::Motor(IOxfActive* theActiveContext) : direction(0) {
     setActiveContext(theActiveContext, false);
     initRelations();
     initStatechart();
@@ -211,47 +209,12 @@ Motor::~Motor() {
     cleanUpRelations();
 }
 
-void Motor::init() {
-    //#[ operation init()
-    ofstream file;
-    file.open(MOTOR_PERIOD);
-    file << 3000;
-    file.close(); 
-    file.open(MOTOR_ACTIVE);
-    file << 1;
-    file.close();  
-    file.open(MOTOR_DIRECTION);
-    file << 0;
-    file.close(); 
-    file.open(MOTOR_DUTY);
-    file << 0;
-    file.close();
-    cout << "Motor Initialized" << endl;
-    //#]
-}
-
-void Motor::setDirection() {
-    //#[ operation setDirection()
-    ofstream file;
-    file.open(MOTOR_DIRECTION);
-    file << direction;   
-    file.close();
-    setSpeed(duty);
-    //#]
-}
-
 void Motor::setSpeed(int speed) {
     //#[ operation setSpeed(int)
     ofstream file;
     file.open(MOTOR_DUTY);
-    if(!direction)
-    {
-    	file << speed ;
-    }
-    else 
-    {
-    	file << (1000 - speed);   
-    }
+    if(!direction){file << speed ;}
+    else {file << (1000 - speed);}
     file.close();
     //#]
 }
@@ -261,7 +224,6 @@ void Motor::speedDown() {
     duty -= 100;
     if(duty < 0){duty = 0;}  
     setSpeed(duty);
-    cout << "Motor Speed Down" << endl;
     //#]
 }
 
@@ -269,24 +231,32 @@ void Motor::speedUp() {
     //#[ operation speedUp()
     duty += 100;
     if(duty > 1000){duty = 1000;}  
-    setSpeed(duty); 
-    cout << "Motor Speed Up" << endl;
+    setSpeed(duty);
     //#]
 }
 
 void Motor::startMotor() {
     //#[ operation startMotor()
-    duty = 0;
-    setSpeed(duty); 
-    cout << "Motor Started" << endl;
+    ofstream file;  
+    file.open(MOTOR_PERIOD);
+    file << 3000;
+    file.close();
+    file.open(MOTOR_DUTY);
+    if(!direction){ file << 0; }
+    else { file << 1000; }
+    file.close();
+    file.open(MOTOR_ACTIVE);
+    file << 1;
+    file.close();
     //#]
 }
 
 void Motor::stopMotor() {
     //#[ operation stopMotor()
-    duty = 0;
-    setSpeed(duty); 
-    cout << "Motor Stopped" << endl;
+    ofstream file;
+    file.open(MOTOR_ACTIVE);
+    file << 0;
+    file.close();
     //#]
 }
 
@@ -349,9 +319,6 @@ void Motor::cleanUpRelations() {
 
 void Motor::rootState_entDef() {
     {
-        //#[ transition 12 
-        init();
-        //#]
         rootState_subState = Idle;
         rootState_active = Idle;
     }
@@ -365,7 +332,7 @@ IOxfReactive::TakeEventStatus Motor::rootState_processEvent() {
             if(IS_EVENT_TYPE_OF(evSpeedDown_DesignMotor_id))
                 {
                     //#[ transition 4 
-                    cout << "Error! speeddown" << endl;
+                    cout << "Error: Cannot speeddown" << endl;
                     //#]
                     res = eventConsumed;
                 }
@@ -374,14 +341,13 @@ IOxfReactive::TakeEventStatus Motor::rootState_processEvent() {
                     OMSETPARAMS(evSetDirection);
                     //#[ transition 2 
                     direction = params->direction;
-                    setDirection();
                     //#]
                     res = eventConsumed;
                 }
             else if(IS_EVENT_TYPE_OF(evStopMotor_DesignMotor_id))
                 {
                     //#[ transition 6 
-                    cout << "Error! stopmotor" << endl;
+                    cout << "Error: Cannot Stopmotor" << endl;
                     //#]
                     res = eventConsumed;
                 }
@@ -398,14 +364,14 @@ IOxfReactive::TakeEventStatus Motor::rootState_processEvent() {
                 {
                     OMSETPARAMS(evSetSpeed);
                     //#[ transition 3 
-                    cout << "Error! setspeed" << endl;
+                    cout << "Error: Cannot setspeed" << endl;
                     //#]
                     res = eventConsumed;
                 }
             else if(IS_EVENT_TYPE_OF(evSpeedUp_DesignMotor_id))
                 {
                     //#[ transition 5 
-                    cout << "Error! speedup" << endl;
+                    cout << "Error: Cannot speedup" << endl;
                     //#]
                     res = eventConsumed;
                 }
@@ -425,7 +391,7 @@ IOxfReactive::TakeEventStatus Motor::rootState_processEvent() {
                 {
                     OMSETPARAMS(evSetDirection);
                     //#[ transition 11 
-                    cout << "Error!" << endl;
+                    cout << "Error: cannot set direction" << endl;
                     //#]
                     res = eventConsumed;
                 }
@@ -441,7 +407,7 @@ IOxfReactive::TakeEventStatus Motor::rootState_processEvent() {
             else if(IS_EVENT_TYPE_OF(evStartMotor_DesignMotor_id))
                 {
                     //#[ transition 10 
-                    cout << "Error!" << endl;
+                    cout << "Error: Motor already started" << endl;
                     //#]
                     res = eventConsumed;
                 }

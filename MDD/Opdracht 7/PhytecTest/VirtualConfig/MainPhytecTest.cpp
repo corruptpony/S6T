@@ -4,7 +4,7 @@
 	Component	: PhytecTest 
 	Configuration 	: VirtualConfig
 	Model Element	: VirtualConfig
-//!	Generated Date	: Fri, 2, Jun 2017  
+//!	Generated Date	: Mon, 12, Jun 2017  
 	File Path	: PhytecTest/VirtualConfig/MainPhytecTest.cpp
 *********************************************************************/
 
@@ -17,6 +17,7 @@ int main(int argc, char* argv[]) {
         {
             PhytecTestSystem * p_PhytecTestSystem;
             p_PhytecTestSystem = new PhytecTestSystem;
+            p_PhytecTestSystem->startBehavior();
             //#[ configuration PhytecTest::VirtualConfig 
             //#]
             OXF::start();

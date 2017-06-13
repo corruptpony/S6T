@@ -90,8 +90,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID 03cc57ae-4810-4bfb-a9ac-cc0c4a5e5995;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 6.2.2017::8:59:36;
-			- strongCGTime = 12.13.2011::14:23:27;
+			- weakCGTime = 6.2.2017::9:2:17;
+			- strongCGTime = 6.2.2017::9:2:17;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";

@@ -12,7 +12,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	"PhytecTest/VirtualConfig/DesignTacho.h" 5.15.2017::8:31:25
 	"PhytecTest/VirtualConfig/Key.cpp" 5.15.2017::8:52:26
 	"PhytecTest/VirtualConfig/Key.h" 5.15.2017::8:52:26
-	"PhytecTest/VirtualConfig/Motor.cpp" 5.15.2017::10:30:20
+	"PhytecTest/VirtualConfig/Motor.cpp" 6.12.2017::13:40:8
 	"PhytecTest/VirtualConfig/Motor.h" 5.15.2017::9:50:2
 	"PhytecTest/VirtualConfig/PhytecTestSystem.cpp" 5.15.2017::8:50:15
 	"PhytecTest/VirtualConfig/PhytecTestSystem.h" 5.15.2017::8:31:25
@@ -37,7 +37,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "Motor";
 	- _id = GUID 7c6e72d0-1a25-4f5c-badd-d8d380788941;
 }
-- genTime = 5.15.2017::10:30:20;
+- genTime = 6.12.2017::13:40:8;
 - hElement = { IHandle 
 	- _m2Class = "ICodeGenConfigInfo";
 	- _filename = "PhytecTest.cmp";
@@ -46,7 +46,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "PhytecTest\\VirtualConfig";
 	- _id = GUID 130b4e0e-3779-4552-8cdc-ede77f852955;
 }
-- genTime = 5.15.2017::10:32:19;
+- genTime = 6.12.2017::13:42:27;
 - hElement = { IHandle 
 	- _m2Class = "ISubsystem";
 	- _filename = "Design.sbs";
@@ -127,7 +127,7 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	- _name = "PhytecTestSystem";
 	- _id = GUID d1566748-d326-4df1-9ec5-1a63fec968d7;
 }
-- genTime = 5.15.2017::8:50:15;
+- genTime = 6.12.2017::13:40:8;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = "Design.sbs";

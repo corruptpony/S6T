@@ -1,23 +1,29 @@
-/*********************************************************************
+/********************************************************************
 	Rhapsody	: 7.4 
 	Login		: User
 	Component	: PhytecTest 
 	Configuration 	: VirtualConfig
-	Model Element	: VirtualConfig
+	Model Element	: iLed
 //!	Generated Date	: Mon, 12, Jun 2017  
-	File Path	: PhytecTest/VirtualConfig/MainPhytecTest.h
+	File Path	: PhytecTest/VirtualConfig/iLed.cpp
 *********************************************************************/
 
-#ifndef MainPhytecTest_H
-#define MainPhytecTest_H
+//## auto_generated
+#include <oxf/omthread.h>
+//## auto_generated
+#include "iLed.h"
+//## package Design
 
-//## auto_generated
-#include <oxf/oxf.h>
-//## auto_generated
-#include <../Profiles/SysML/SIDefinitions.h>
-//## auto_generated
-#include "VirtualDefs.h"
-#endif
+//## class iLed
+
+using namespace std;
+
+iLed::iLed() {
+}
+
+iLed::~iLed() {
+}
+
 /*********************************************************************
-	File Path	: PhytecTest/VirtualConfig/MainPhytecTest.h
+	File Path	: PhytecTest/VirtualConfig/iLed.cpp
 *********************************************************************/

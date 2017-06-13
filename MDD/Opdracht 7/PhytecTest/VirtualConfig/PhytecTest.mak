@@ -52,7 +52,21 @@ INCLUDE_PATH= \
 ADDITIONAL_OBJS=
 
 OBJS= \
-  PhytecTestSystem.o
+  PhytecTestSystem.o \
+  Controller.o \
+  iTachoCB.o \
+  iKeyCB.o \
+  iMotor.o \
+  iTacho.o \
+  iLed.o \
+  Led.o \
+  Key.o \
+  Motor.o \
+  Tacho.o \
+  Design.o \
+  DesignTacho.o \
+  DesignKey.o \
+  DesignMotor.o
 
 
 
@@ -104,9 +118,107 @@ endif
 
 
 
-PhytecTestSystem.o : PhytecTestSystem.cpp PhytecTestSystem.h    
+PhytecTestSystem.o : PhytecTestSystem.cpp PhytecTestSystem.h    Controller.h Led.h Key.h Motor.h Tacho.h iTachoCB.h iKeyCB.h iLed.h iMotor.h iTacho.h 
 	@echo Compiling PhytecTestSystem.cpp
 	@$(CC) $(ConfigurationCPPCompileSwitches)  -o PhytecTestSystem.o PhytecTestSystem.cpp
+
+
+
+
+Controller.o : Controller.cpp Controller.h    Design.h iMotor.h iTacho.h iLed.h DesignKey.h iTachoCB.h iKeyCB.h 
+	@echo Compiling Controller.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Controller.o Controller.cpp
+
+
+
+
+iTachoCB.o : iTachoCB.cpp iTachoCB.h    DesignTacho.h 
+	@echo Compiling iTachoCB.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o iTachoCB.o iTachoCB.cpp
+
+
+
+
+iKeyCB.o : iKeyCB.cpp iKeyCB.h    DesignKey.h 
+	@echo Compiling iKeyCB.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o iKeyCB.o iKeyCB.cpp
+
+
+
+
+iMotor.o : iMotor.cpp iMotor.h    DesignMotor.h 
+	@echo Compiling iMotor.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o iMotor.o iMotor.cpp
+
+
+
+
+iTacho.o : iTacho.cpp iTacho.h    DesignTacho.h 
+	@echo Compiling iTacho.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o iTacho.o iTacho.cpp
+
+
+
+
+iLed.o : iLed.cpp iLed.h    Design.h 
+	@echo Compiling iLed.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o iLed.o iLed.cpp
+
+
+
+
+Led.o : Led.cpp Led.h    Design.h iLed.h 
+	@echo Compiling Led.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Led.o Led.cpp
+
+
+
+
+Key.o : Key.cpp Key.h    DesignKey.h iKeyCB.h 
+	@echo Compiling Key.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Key.o Key.cpp
+
+
+
+
+Motor.o : Motor.cpp Motor.h    DesignMotor.h iMotor.h 
+	@echo Compiling Motor.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Motor.o Motor.cpp
+
+
+
+
+Tacho.o : Tacho.cpp Tacho.h    DesignTacho.h iTachoCB.h iTacho.h 
+	@echo Compiling Tacho.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Tacho.o Tacho.cpp
+
+
+
+
+Design.o : Design.cpp Design.h    Led.h iLed.h Controller.h 
+	@echo Compiling Design.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o Design.o Design.cpp
+
+
+
+
+DesignTacho.o : DesignTacho.cpp DesignTacho.h    Tacho.h iTacho.h iTachoCB.h 
+	@echo Compiling DesignTacho.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o DesignTacho.o DesignTacho.cpp
+
+
+
+
+DesignKey.o : DesignKey.cpp DesignKey.h    Key.h iKeyCB.h 
+	@echo Compiling DesignKey.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o DesignKey.o DesignKey.cpp
+
+
+
+
+DesignMotor.o : DesignMotor.cpp DesignMotor.h    Motor.h iMotor.h 
+	@echo Compiling DesignMotor.cpp
+	@$(CC) $(ConfigurationCPPCompileSwitches)  -o DesignMotor.o DesignMotor.cpp
 
 
 
@@ -140,6 +252,20 @@ $(TARGET_NAME)$(LIB_EXT) : $(OBJS) $(ADDITIONAL_OBJS) PhytecTest.mak
 clean:
 	@echo Cleanup
 	$(RM) PhytecTestSystem.o
+	$(RM) Controller.o
+	$(RM) iTachoCB.o
+	$(RM) iKeyCB.o
+	$(RM) iMotor.o
+	$(RM) iTacho.o
+	$(RM) iLed.o
+	$(RM) Led.o
+	$(RM) Key.o
+	$(RM) Motor.o
+	$(RM) Tacho.o
+	$(RM) Design.o
+	$(RM) DesignTacho.o
+	$(RM) DesignKey.o
+	$(RM) DesignMotor.o
 	$(RM) $(TARGET_MAIN)$(OBJ_EXT) $(ADDITIONAL_OBJS)
 	$(RM) $(TARGET_NAME)$(LIB_EXT)
 	$(RM) $(TARGET_NAME)$(EXE_EXT)
