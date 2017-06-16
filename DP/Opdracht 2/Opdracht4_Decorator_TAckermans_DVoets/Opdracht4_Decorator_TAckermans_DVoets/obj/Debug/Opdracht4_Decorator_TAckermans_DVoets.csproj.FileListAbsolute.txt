@@ -1,9 +1,0 @@
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\bin\Debug\Opdracht4_Decorator_TAckermans_DVoets.exe.config
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\bin\Debug\Opdracht4_Decorator_TAckermans_DVoets.exe
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\bin\Debug\Opdracht4_Decorator_TAckermans_DVoets.pdb
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\obj\Debug\Opdracht4_Decorator_TAckermans_DVoets.csprojResolveAssemblyReference.cache
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\obj\Debug\Opdracht4_Decorator_TAckermans_DVoets.Properties.Resources.resources
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\obj\Debug\Opdracht4_Decorator_TAckermans_DVoets.csproj.GenerateResource.Cache
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\obj\Debug\Opdracht4_Decorator_TAckermans_DVoets.exe
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\obj\Debug\Opdracht4_Decorator_TAckermans_DVoets.pdb
-C:\Users\Dominic\Desktop\ICTT\Jaar 3\S6T\DP\Opdracht 2\Opdracht4_Decorator_TAckermans_DVoets\Opdracht4_Decorator_TAckermans_DVoets\obj\Debug\Opdracht4_Decorator_TAckermans_DVoets.GUI.resources

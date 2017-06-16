@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Opdracht4_Decorator_TAckermans_DVoets
+﻿namespace Opdracht4_Decorator_TAckermans_DVoets
 {
     class Caramel : CondimentDecorator
     {
-        public Caramel(iBeverage b)
+        public Caramel(iBeverage b) : base(b)
         {
-            beverage = b;
         }
 
         public override double cost()
