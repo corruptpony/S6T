@@ -266,7 +266,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 38dfec39-1968-4f0a-87ef-c2fde9a5d5e1;
 				}
 			}
-			- _lastModifiedTime = "6.2.2017::10:23:35";
+			- _lastModifiedTime = "6.13.2017::8:29:53";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID cd36fd47-6607-45d1-94f1-78902653b9d3;
 				- m_type = 0;
@@ -898,7 +898,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.202914 0 0 0.419027 529.559 585.718 ;
+					- m_transform = 0.202914 0 0 0.419027 527.992 584.382 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -917,10 +917,108 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
 					- Attrs = { IRPYRawContainer 
-						- size = 0;
+						- size = 6;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "floorNr";
+							- _id = GUID 9d8d096c-e1e6-47a9-adec-d19f926a14a9;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "newFloor";
+							- _id = GUID 73d89e43-131a-4e4b-a63f-efe71be2445f;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "rampUpRotations";
+							- _id = GUID ecacbede-bdbb-416a-9042-9531b80329a3;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "counter";
+							- _id = GUID 14c4cef3-cfc2-4e15-91af-14439cb44967;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "rampCount";
+							- _id = GUID 224b488e-542f-44e5-9cbf-a16ffa60352c;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "fullSpeedRotations";
+							- _id = GUID a8cbb2f0-7f64-4c35-a6a5-f3fec8fa6764;
+						}
 					}
 					- Operations = { IRPYRawContainer 
-						- size = 0;
+						- size = 6;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "setLed(int)";
+							- _id = GUID 2da75247-dabe-49f2-aaa1-99b66d7716f3;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "init()";
+							- _id = GUID fc2bd979-8fc6-4df8-abe7-07711f90e340;
+						}
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "evKey()";
+							- _id = GUID 9c5df5d5-ac77-4d43-b5b1-3b2e40b8f498;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "setBlink()";
+							- _id = GUID ef2f6d62-0c83-4dfa-abf0-649fdf6036da;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "rampUp(int)";
+							- _id = GUID 79d23ae9-b21b-4cf9-ab29-153447068fb1;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "rampDown(int)";
+							- _id = GUID d6de5e1a-25b7-43ff-ad67-59abc5dc4e68;
+						}
 					}
 					- m_multiplicity = { CGIText 
 						- m_str = "1";
@@ -1050,7 +1148,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.157632 0 0 0.0908231 333.98 368.777 ;
+					- m_transform = 0.157632 0 0 0.0908231 333.197 368.109 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -1069,7 +1167,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
 					- Attrs = { IRPYRawContainer 
-						- size = 2;
+						- size = 4;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IAttribute";
@@ -1086,6 +1184,22 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Led";
 							- _name = "blinkBool";
 							- _id = GUID ece34f36-4a84-402e-ae96-b45548c8987d;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Led";
+							- _name = "ledName";
+							- _id = GUID 2fa62759-2f04-43b8-afb5-550c39b87842;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Led";
+							- _name = "enable";
+							- _id = GUID cf048423-608f-4d06-921b-22d53b3b2bc3;
 						}
 					}
 					- Operations = { IRPYRawContainer 
@@ -1120,7 +1234,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "Led(RhpString)";
+							- _name = "Led(RhpString,RhpString)";
 							- _id = GUID e03b2141-7a3f-4126-b4f5-d8cc769b7170;
 						}
 						{ IHandle 
@@ -1128,7 +1242,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "init(RhpString)";
+							- _name = "init()";
 							- _id = GUID 61702f1a-b3c0-480d-8da7-f373ef5620e1;
 						}
 						{ IHandle 
@@ -1276,7 +1390,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.219207 0 0 0.113529 540.004 358.273 ;
+					- m_transform = 0.219207 0 0 0.113529 539.612 357.939 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -1295,7 +1409,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
 					- Attrs = { IRPYRawContainer 
-						- size = 2;
+						- size = 4;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IAttribute";
@@ -1312,6 +1426,22 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Led";
 							- _name = "blinkBool";
 							- _id = GUID ece34f36-4a84-402e-ae96-b45548c8987d;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Led";
+							- _name = "ledName";
+							- _id = GUID 2fa62759-2f04-43b8-afb5-550c39b87842;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Led";
+							- _name = "enable";
+							- _id = GUID cf048423-608f-4d06-921b-22d53b3b2bc3;
 						}
 					}
 					- Operations = { IRPYRawContainer 
@@ -1346,7 +1476,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "Led(RhpString)";
+							- _name = "Led(RhpString,RhpString)";
 							- _id = GUID e03b2141-7a3f-4126-b4f5-d8cc769b7170;
 						}
 						{ IHandle 
@@ -1354,7 +1484,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "init(RhpString)";
+							- _name = "init()";
 							- _id = GUID 61702f1a-b3c0-480d-8da7-f373ef5620e1;
 						}
 						{ IHandle 
@@ -1502,7 +1632,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.211818 0 0 0.0883002 793.026 370.819 ;
+					- m_transform = 0.211818 0 0 0.0883002 792.634 370.485 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -1521,7 +1651,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
 					- Attrs = { IRPYRawContainer 
-						- size = 2;
+						- size = 4;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IAttribute";
@@ -1538,6 +1668,22 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Led";
 							- _name = "blinkBool";
 							- _id = GUID ece34f36-4a84-402e-ae96-b45548c8987d;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Led";
+							- _name = "ledName";
+							- _id = GUID 2fa62759-2f04-43b8-afb5-550c39b87842;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Led";
+							- _name = "enable";
+							- _id = GUID cf048423-608f-4d06-921b-22d53b3b2bc3;
 						}
 					}
 					- Operations = { IRPYRawContainer 
@@ -1572,7 +1718,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "Led(RhpString)";
+							- _name = "Led(RhpString,RhpString)";
 							- _id = GUID e03b2141-7a3f-4126-b4f5-d8cc769b7170;
 						}
 						{ IHandle 
@@ -1580,7 +1726,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "init(RhpString)";
+							- _name = "init()";
 							- _id = GUID 61702f1a-b3c0-480d-8da7-f373ef5620e1;
 						}
 						{ IHandle 
@@ -1728,7 +1874,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.129308 0 0 0.109745 974.469 696.366 ;
+					- m_transform = 0.129308 0 0 0.109745 973.685 695.698 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -1906,7 +2052,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.133002 0 0 0.12362 974.853 863.389 ;
+					- m_transform = 0.133002 0 0 0.12362 974.461 863.055 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -2084,7 +2230,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.149012 0 0 0.11479 965.895 1037.52 ;
+					- m_transform = 0.149012 0 0 0.11479 965.503 1037.19 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -3602,7 +3748,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			}
 		}
 	}
-	- weakCGTime = 6.2.2017::10:23:2;
+	- weakCGTime = 6.13.2017::8:29:53;
 	- strongCGTime = 6.2.2017::9:2:17;
 	- _defaultComposite = GUID e672814b-95ce-4292-8c6d-653b8e26bb07;
 	- _eventsBaseID = -1;
@@ -3613,14 +3759,11 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID e672814b-95ce-4292-8c6d-653b8e26bb07;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 6.2.2017::10:23:2;
-			- strongCGTime = 12.13.2011::14:23:27;
+			- weakCGTime = 6.12.2017::14:58:41;
+			- strongCGTime = 6.2.2017::9:2:17;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
-			}
-			- Associations = { IRPYRawContainer 
-				- size = 0;
 			}
 			- _classModifier = Unspecified;
 		}
@@ -3645,8 +3788,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				- _id = GUID 08ca1f6a-c02c-41cc-995d-690125b595e1;
 			}
 			- _lastID = 10;
-			- weakCGTime = 6.2.2017::10:23:35;
-			- strongCGTime = 6.2.2017::10:23:35;
+			- weakCGTime = 6.12.2017::13:42:3;
+			- strongCGTime = 6.12.2017::13:42:3;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -3688,22 +3831,22 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- _m2Class = "";
 					}
 					- _initialCallAction = { ICallAction 
-						- _id = GUID f4f7882c-8fbe-49c1-9e20-eea1d5ebeb41;
+						- _id = GUID c29db68d-0ef2-4411-84f7-a9547f0a0bb9;
 						- _interfaceItem = { IHandle 
 							- _m2Class = "IConstructor";
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "Led(RhpString)";
+							- _name = "Led(RhpString,RhpString)";
 							- _id = GUID e03b2141-7a3f-4126-b4f5-d8cc769b7170;
 						}
 						- _argumentNames = { IRPYRawContainer 
-							- size = 1;
-							- value = "ledName"; 
+							- size = 2;
+							- value = "ledName"; "enable"; 
 						}
 						- _argumentValues = { IRPYRawContainer 
-							- size = 1;
-							- value = "LED1"; 
+							- size = 2;
+							- value = "LED1"; "ENABLE_LED1"; 
 						}
 					}
 				}
@@ -3724,22 +3867,22 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- _m2Class = "";
 					}
 					- _initialCallAction = { ICallAction 
-						- _id = GUID fa99cafa-e245-41a0-bd2f-61251c8288b6;
+						- _id = GUID fff92cd3-144f-45c7-ab0f-d9c47b5c0f64;
 						- _interfaceItem = { IHandle 
 							- _m2Class = "IConstructor";
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "Led(RhpString)";
+							- _name = "Led(RhpString,RhpString)";
 							- _id = GUID e03b2141-7a3f-4126-b4f5-d8cc769b7170;
 						}
 						- _argumentNames = { IRPYRawContainer 
-							- size = 1;
-							- value = "ledName"; 
+							- size = 2;
+							- value = "ledName"; "enable"; 
 						}
 						- _argumentValues = { IRPYRawContainer 
-							- size = 1;
-							- value = "LED2"; 
+							- size = 2;
+							- value = "LED2"; "ENABLE_LED2"; 
 						}
 					}
 				}
@@ -3760,22 +3903,22 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- _m2Class = "";
 					}
 					- _initialCallAction = { ICallAction 
-						- _id = GUID e5192a74-6830-4d42-810f-d355bac2740f;
+						- _id = GUID 87d5bd2e-8787-4f29-87d6-157505d56735;
 						- _interfaceItem = { IHandle 
 							- _m2Class = "IConstructor";
 							- _filename = "Design.sbs";
 							- _subsystem = "Design";
 							- _class = "Led";
-							- _name = "Led(RhpString)";
+							- _name = "Led(RhpString,RhpString)";
 							- _id = GUID e03b2141-7a3f-4126-b4f5-d8cc769b7170;
 						}
 						- _argumentNames = { IRPYRawContainer 
-							- size = 1;
-							- value = "ledName"; 
+							- size = 2;
+							- value = "ledName"; "enable"; 
 						}
 						- _argumentValues = { IRPYRawContainer 
-							- size = 1;
-							- value = "LED3"; 
+							- size = 2;
+							- value = "LED3"; "ENABLE_LED3"; 
 						}
 					}
 				}
@@ -3795,6 +3938,25 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _inverse = { IHandle 
 						- _m2Class = "";
 					}
+					- _initialCallAction = { ICallAction 
+						- _id = GUID bc7fd494-58df-418b-b910-44957f0a1d58;
+						- _interfaceItem = { IHandle 
+							- _m2Class = "IConstructor";
+							- _filename = "DesignKey.sbs";
+							- _subsystem = "DesignKey";
+							- _class = "Key";
+							- _name = "Key(int)";
+							- _id = GUID cbfeee4c-fe47-4d51-b375-ba9a9a9fd2f8;
+						}
+						- _argumentNames = { IRPYRawContainer 
+							- size = 1;
+							- value = "Key"; 
+						}
+						- _argumentValues = { IRPYRawContainer 
+							- size = 1;
+							- value = "1"; 
+						}
+					}
 				}
 				{ IPart 
 					- _id = GUID 6905c226-663e-4384-b12a-bd66d7c04ada;
@@ -3812,6 +3974,25 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _inverse = { IHandle 
 						- _m2Class = "";
 					}
+					- _initialCallAction = { ICallAction 
+						- _id = GUID 969d1880-2fce-4710-b5be-e6347b30ba77;
+						- _interfaceItem = { IHandle 
+							- _m2Class = "IConstructor";
+							- _filename = "DesignKey.sbs";
+							- _subsystem = "DesignKey";
+							- _class = "Key";
+							- _name = "Key(int)";
+							- _id = GUID cbfeee4c-fe47-4d51-b375-ba9a9a9fd2f8;
+						}
+						- _argumentNames = { IRPYRawContainer 
+							- size = 1;
+							- value = "Key"; 
+						}
+						- _argumentValues = { IRPYRawContainer 
+							- size = 1;
+							- value = "2"; 
+						}
+					}
 				}
 				{ IPart 
 					- _id = GUID 44c3824e-8565-4308-9493-cd5eb5a429a6;
@@ -3828,6 +4009,25 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					}
 					- _inverse = { IHandle 
 						- _m2Class = "";
+					}
+					- _initialCallAction = { ICallAction 
+						- _id = GUID 648a1e4d-1346-4ee6-98d9-15bae44f3486;
+						- _interfaceItem = { IHandle 
+							- _m2Class = "IConstructor";
+							- _filename = "DesignKey.sbs";
+							- _subsystem = "DesignKey";
+							- _class = "Key";
+							- _name = "Key(int)";
+							- _id = GUID cbfeee4c-fe47-4d51-b375-ba9a9a9fd2f8;
+						}
+						- _argumentNames = { IRPYRawContainer 
+							- size = 1;
+							- value = "Key"; 
+						}
+						- _argumentValues = { IRPYRawContainer 
+							- size = 1;
+							- value = "3"; 
+						}
 					}
 				}
 				{ IPart 
@@ -3963,7 +4163,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				{ IObjectLink 
 					- _id = GUID 2481dbcd-0a0c-4af9-9761-bd4590be88a4;
 					- _myState = 2048;
-					- _name = "connector_4";
+					- _name = "itsController_itsKey";
 					- Stereotypes = { IRPYRawContainer 
 						- size = 1;
 						- value = 
@@ -4009,7 +4209,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				{ IObjectLink 
 					- _id = GUID ff3e2e34-a925-49de-8242-dd1d17662071;
 					- _myState = 2048;
-					- _name = "connector_5";
+					- _name = "itsController_itsKey_0";
 					- Stereotypes = { IRPYRawContainer 
 						- size = 1;
 						- value = 
@@ -4055,7 +4255,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				{ IObjectLink 
 					- _id = GUID fe88cd5d-786c-477c-8838-760c86200b75;
 					- _myState = 2048;
-					- _name = "connector_6";
+					- _name = "itsController_itsKey_1";
 					- Stereotypes = { IRPYRawContainer 
 						- size = 1;
 						- value = 

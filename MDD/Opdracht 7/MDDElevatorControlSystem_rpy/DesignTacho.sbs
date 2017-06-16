@@ -177,7 +177,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 6c142614-3349-49e9-8c6b-0236be5f6b61;
 				}
 			}
-			- _lastModifiedTime = "6.2.2017::10:13:59";
+			- _lastModifiedTime = "6.13.2017::8:37:25";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID ea8bf87d-e479-42b5-8177-40f41ec27abe;
 				- m_type = 0;
@@ -568,7 +568,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.134089 0 0 0.0998217 176.732 147.159 ;
+					- m_transform = 0.134089 0 0 0.0998217 84.732 154.159 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -632,8 +632,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID cbe91cfa-0a90-4825-9b2a-e3dabe2c6fb1;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 6.2.2017::9:1:32;
-			- strongCGTime = 6.2.2017::9:1:32;
+			- weakCGTime = 6.2.2017::10:5:34;
+			- strongCGTime = 6.2.2017::9:2:17;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";

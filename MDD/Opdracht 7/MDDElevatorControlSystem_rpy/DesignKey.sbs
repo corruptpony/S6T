@@ -177,7 +177,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 6c142614-3349-49e9-8c6b-0236be5f6b61;
 				}
 			}
-			- _lastModifiedTime = "6.2.2017::10:5:34";
+			- _lastModifiedTime = "6.13.2017::8:37:25";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID bfb7bf87-2c5c-4536-bb08-5b9969ca6293;
 				- m_type = 0;
@@ -201,7 +201,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				}
 				- m_drawBehavior = 0;
 				- m_bIsPreferencesInitialized = 0;
-				- elementList = 4;
+				- elementList = 5;
 				{ CGIClass 
 					- _id = GUID a5664831-cd9f-4ec9-82b1-06695e9a81b3;
 					- m_type = 78;
@@ -335,7 +335,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.188857 0 0 0.191622 36.6223 50.9564 ;
+					- m_transform = 0.188857 0 0 0.191622 62.6223 54.9564 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -440,6 +440,61 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 1;
 					}
 				}
+				{ CGIClass 
+					- _id = GUID 6723ab5e-0b89-46ff-a91f-a807007179e2;
+					- m_type = 87;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IClass";
+						- _id = GUID 1741c586-74e9-4772-bd1c-9e61f2917a7d;
+					}
+					- m_pParent = GUID a5664831-cd9f-4ec9-82b1-06695e9a81b3;
+					- m_name = { CGIText 
+						- m_str = "iKeyCB";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_drawBehavior = 2824;
+					- m_transform = 0.149197 0 0 0.108734 340.702 164.226 ;
+					- m_bIsPreferencesInitialized = 1;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 4 2 329  2 1451  1061 1451  1061 329  ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+					- frameset = "<frameset rows=41%,59%>
+<frame name=AttributeListCompartment>
+<frame name=PrimitiveOperationListCompartment>";
+					- Attrs = { IRPYRawContainer 
+						- size = 0;
+					}
+					- Operations = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _id = GUID cef6d1ff-3a7d-4f02-9f35-9373bdd00982;
+						}
+					}
+				}
 				
 				- m_access = 'Z';
 				- m_modified = 'N';
@@ -459,7 +514,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			}
 		}
 	}
-	- weakCGTime = 6.2.2017::10:5:34;
+	- weakCGTime = 6.12.2017::14:20:56;
 	- strongCGTime = 6.2.2017::9:2:17;
 	- _defaultComposite = GUID 52da6243-0c00-4277-9d0a-cbe4d1ce993c;
 	- _eventsBaseID = 1;
@@ -470,7 +525,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID 52da6243-0c00-4277-9d0a-cbe4d1ce993c;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 6.2.2017::9:2:17;
+			- weakCGTime = 6.12.2017::14:20:56;
 			- strongCGTime = 6.2.2017::9:2:17;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
@@ -499,7 +554,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				- _id = GUID 0c2e06f6-fd42-433e-94e2-a4eca3ff30d4;
 			}
 			- _lastID = 5;
-			- weakCGTime = 6.2.2017::9:2:17;
+			- weakCGTime = 6.12.2017::13:9:26;
 			- strongCGTime = 6.2.2017::9:2:17;
 			- Ports = { IRPYRawContainer 
 				- size = 1;
@@ -777,7 +832,7 @@ return count;";
 					}
 					- _name = "statechart_1";
 					- _lastID = 2;
-					- _lastModifiedTime = "5.15.2017::8:52:20";
+					- _lastModifiedTime = "6.12.2017::13:9:26";
 					- _graphicChart = { CGIStateChart 
 						- _id = GUID bc05b39b-df78-4b7f-925b-4e33106c1e06;
 						- m_type = 0;
@@ -1152,7 +1207,7 @@ return count;";
 							}
 						}
 					}
-					- _version = 5.15.2017::11:53:6;
+					- _version = 6.12.2017::15:56:48;
 					- _baseVersion = 1.2.1990::0:0:0;
 				}
 			}
@@ -1178,8 +1233,12 @@ return count;";
 					- _id = GUID 2a7b8a63-f54f-4379-bab0-02800a5084e1;
 				}
 			}
+			- _theMainDiagram = { IHandle 
+				- _m2Class = "IDiagram";
+				- _id = GUID 0c2e06f6-fd42-433e-94e2-a4eca3ff30d4;
+			}
 			- _lastID = 5;
-			- weakCGTime = 6.2.2017::9:2:17;
+			- weakCGTime = 6.12.2017::13:54:52;
 			- strongCGTime = 6.2.2017::9:2:17;
 			- Operations = { IRPYRawContainer 
 				- size = 1;
@@ -1211,7 +1270,7 @@ return count;";
 			- _id = GUID b87b4160-f284-43b0-a67a-b187f8c2a01b;
 			- _myState = 8192;
 			- _name = "evKey";
-			- _lastID = 1;
+			- _lastID = 3;
 			- _virtual = 0;
 			- Args = { IRPYRawContainer 
 				- size = 1;

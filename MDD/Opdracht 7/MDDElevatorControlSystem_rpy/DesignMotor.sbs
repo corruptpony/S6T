@@ -177,7 +177,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 6c142614-3349-49e9-8c6b-0236be5f6b61;
 				}
 			}
-			- _lastModifiedTime = "6.2.2017::10:13:29";
+			- _lastModifiedTime = "6.13.2017::8:37:24";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID 5c2130f1-90e1-4965-846e-fb7a91ddf325;
 				- m_type = 0;
@@ -335,7 +335,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.148253 0 0 0.202317 59.7035 -32.5624 ;
+					- m_transform = 0.148253 0 0 0.262032 59.7035 -52.2086 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -350,10 +350,11 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_bImplicitSetRectPoints = 0;
 						- m_nOrientationCtrlPt = 1;
 					}
+					- m_bFramesetModified = 1;
 					- m_polygon = 4 2 329  2 1451  1061 1451  1061 329  ;
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
-					- frameset = "<frameset rows=50%,50%>
+					- frameset = "<frameset rows=39%,61%>
 <frame name=AttributeListCompartment>
 <frame name=PrimitiveOperationListCompartment>";
 					- Attrs = { IRPYRawContainer 
@@ -440,7 +441,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 0;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0 4.94273 -6.74522 0 1328.09 726.32 ;
+					- m_transform = 0 3.81633 -6.74522 0 1328.09 762.57 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_position = 4 0 0  0 73  68 73  68 0  ;
 					- m_pInheritsFrom = { IHandle 
@@ -609,8 +610,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID 431bf5fd-34e5-4c14-bf2d-e495fb987de7;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 6.2.2017::9:1:11;
-			- strongCGTime = 6.2.2017::9:1:11;
+			- weakCGTime = 6.2.2017::10:5:34;
+			- strongCGTime = 6.2.2017::9:2:17;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -638,7 +639,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				- _id = GUID 33faa830-d401-4abc-9329-8aea173418cf;
 			}
 			- _lastID = 10;
-			- weakCGTime = 6.2.2017::9:2:17;
+			- weakCGTime = 6.13.2017::8:27:40;
 			- strongCGTime = 6.2.2017::9:1:11;
 			- Ports = { IRPYRawContainer 
 				- size = 1;
@@ -1125,7 +1126,7 @@ setSpeed(duty);";
 					}
 					- _name = "statechart_1";
 					- _lastID = 3;
-					- _lastModifiedTime = "5.8.2017::10:44:42";
+					- _lastModifiedTime = "6.13.2017::8:27:40";
 					- _graphicChart = { CGIStateChart 
 						- _id = GUID 1e1876ee-0c53-40a6-8349-69cd34d60db1;
 						- m_type = 0;
@@ -1243,7 +1244,7 @@ setSpeed(duty);";
 								- m_nOrientationCtrlPt = 5;
 							}
 							- m_drawBehavior = 4104;
-							- m_transform = 0.0912409 0 0 0.0641509 195 156 ;
+							- m_transform = 0.0912409 0 0 0.0641509 199 157 ;
 							- m_bIsPreferencesInitialized = 1;
 							- m_AdditionalLabel = { CGIText 
 								- m_str = "";
@@ -1661,7 +1662,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 9d03c569-ba13-4a65-ac20-6138d0f829ae;
-									- _body = "cout << \"Error!\" << endl;";
+									- _body = "cout << \"Error: Cannot setspeed\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1684,7 +1685,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 74aee926-1a1e-4757-9c8d-e1af05a69725;
-									- _body = "cout << \"Error!\" << endl;";
+									- _body = "cout << \"Error: Cannot speeddown\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1707,7 +1708,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID e17436ea-51ae-4a68-9dda-949fab8a2c6c;
-									- _body = "cout << \"Error!\" << endl;";
+									- _body = "cout << \"Error: Cannot speedup\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1730,7 +1731,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 20f9bf9f-17e8-403c-bfe3-a6a358ef000e;
-									- _body = "cout << \"Error!\" << endl;";
+									- _body = "cout << \"Error: Cannot Stopmotor\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1823,7 +1824,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 19dfc8e7-38f0-4ca6-a5a5-d50b6da6c371;
-									- _body = "cout << \"Error!\" << endl;";
+									- _body = "cout << \"Error: Motor already started\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 749de288-783b-4ae4-b813-5e4311448dc1;
@@ -1846,7 +1847,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 6849d719-22f7-4ed0-b012-3ed27448024a;
-									- _body = "cout << \"Error!\" << endl;";
+									- _body = "cout << \"Error: cannot set direction\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 749de288-783b-4ae4-b813-5e4311448dc1;
@@ -1890,7 +1891,7 @@ setSpeed(duty);";
 							- _defaultTrans = ;
 						}
 					}
-					- _version = 5.8.2017::13:37:34;
+					- _version = 6.13.2017::10:27:40;
 					- _baseVersion = 1.2.1990::0:0:0;
 				}
 			}

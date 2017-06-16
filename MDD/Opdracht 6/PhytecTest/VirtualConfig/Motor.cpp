@@ -4,7 +4,7 @@
 	Component	: PhytecTest 
 	Configuration 	: VirtualConfig
 	Model Element	: Motor
-//!	Generated Date	: Mon, 15, May 2017  
+//!	Generated Date	: Mon, 12, Jun 2017  
 	File Path	: PhytecTest/VirtualConfig/Motor.cpp
 *********************************************************************/
 
@@ -252,7 +252,6 @@ void Motor::setSpeed(int speed) {
     {
     	file << (1000 - speed);   
     }
-    cout << speed << endl;
     file.close();
     //#]
 }

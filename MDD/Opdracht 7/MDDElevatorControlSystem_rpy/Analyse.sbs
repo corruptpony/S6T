@@ -3436,8 +3436,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID 95b01087-61c7-4f21-98f1-7c304cb2b448;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 6.2.2017::8:59:36;
-			- strongCGTime = 12.13.2011::14:23:27;
+			- weakCGTime = 6.2.2017::10:2:40;
+			- strongCGTime = 6.2.2017::9:44:56;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -3452,8 +3452,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID aa5db3c3-e5b3-46ce-b351-21a8ab239ec4;
 			- _myState = 8192;
 			- _name = "User calls the elevator";
-			- weakCGTime = 1.1.1970::1:0:0;
-			- strongCGTime = 1.1.1970::1:0:0;
+			- weakCGTime = 1.2.1990::0:0:0;
+			- strongCGTime = 1.2.1990::0:0:0;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -3480,9 +3480,6 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				}
 			}
 			- _classModifier = Unspecified;
-			- UseCaseStereoTypes = { IRPYRawContainer 
-				- size = 0;
-			}
 			- _EntryPoints = { IRPYRawContainer 
 				- size = 0;
 			}
@@ -3491,8 +3488,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID 68b4bd45-f6f9-4842-8c14-0e4bc75c4eff;
 			- _myState = 8192;
 			- _name = "User picks a floor";
-			- weakCGTime = 1.1.1970::1:0:0;
-			- strongCGTime = 1.1.1970::1:0:0;
+			- weakCGTime = 1.2.1990::0:0:0;
+			- strongCGTime = 1.2.1990::0:0:0;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -3519,9 +3516,6 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				}
 			}
 			- _classModifier = Unspecified;
-			- UseCaseStereoTypes = { IRPYRawContainer 
-				- size = 0;
-			}
 			- _EntryPoints = { IRPYRawContainer 
 				- size = 0;
 			}
