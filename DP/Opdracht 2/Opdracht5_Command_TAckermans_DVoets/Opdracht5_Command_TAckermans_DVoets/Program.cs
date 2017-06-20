@@ -16,7 +16,7 @@ namespace Opdracht5_Command_TAckermans_DVoets
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new GUI());
         }
     }
 }
