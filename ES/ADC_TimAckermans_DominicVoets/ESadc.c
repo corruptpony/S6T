@@ -15,7 +15,6 @@
 #define MAJORNR             253
 #define ADC_NUMCHANNELS		3
 
-
 #define READ_REG(a)         (*(volatile unsigned int *)(a))
 #define WRITE_REG(b,a)      (*(volatile unsigned int *)(a) = (b))
 
@@ -26,6 +25,9 @@
 #define	ADC_CTRL			io_p2v(0x40048008)
 #define ADC_VALUE           io_p2v(0x40048048)
 #define SIC2_ATR            io_p2v(0x40010010)
+
+#define P0_OUT_SET 			io_p2v(0x40028044)
+#define P0_OUT_CLR 			io_p2v(0x40028048)
 
 // Masks
 #define RTC_CLK_ADC             ~0x01ff
@@ -105,12 +107,18 @@ static void adc_start (unsigned char channel)
 	//nu ook globaal zetten zodat we de interrupt kunnen herkennen
 	adc_channel = channel;
 
+	// Pin hoog voor tijdmeting
+	setNewRegValue(P0_OUT_SET, HIGH_MASK, BIT(2));
+
 	// start conversie
     setNewRegValue(ADC_CTRL, HIGH_MASK, ADC_CONVERSIE_MASK);
 }
 
 static irqreturn_t adc_interrupt (int irq, void * dev_id)
 {
+	// Pin laag na tijdmeting
+    setNewRegValue(P0_OUT_CLR, HIGH_MASK, BIT(2));
+
     adc_values[adc_channel] = (READ_REG(ADC_VALUE) & ADC_VALUE_MASK);
     printk(KERN_WARNING "ADC(%d)=%d\n", adc_channel, adc_values[adc_channel]);
 
@@ -122,6 +130,9 @@ static irqreturn_t adc_interrupt (int irq, void * dev_id)
 
 static irqreturn_t gp_interrupt(int irq, void * dev_id)
 {
+	// Pin hoog voor tijdmeting
+	setNewRegValue(P0_OUT_SET, HIGH_MASK, BIT(2));
+
     adc_start (2);
 
     printk(KERN_INFO "EINT0 interrupt triggered");
