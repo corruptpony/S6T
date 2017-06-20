@@ -2,7 +2,8 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 
 - filesTable = { IRPYRawContainer 
 	- size = 10;
-	- value = "MDDElevatorControlSystem.rpy" ""
+	- value = "C:\\Documents and Settings\\User\\My Documents\\Rhapsody\\Projects.rpl" ""
+	"MDDElevatorControlSystem.rpy" ""
 	"MDDElevatorControlSystem_rpy\\Analyse.sbs" "Analyse"
 	"MDDElevatorControlSystem_rpy\\CGCompatibilityPre73Cpp.sbs" "CGCompatibilityPre73Cpp"
 	"MDDElevatorControlSystem_rpy\\Design.sbs" "Design"
@@ -11,7 +12,6 @@ I-Logix-RPY-Archive version 8.1.4 * 1367309
 	"MDDElevatorControlSystem_rpy\\DesignTacho.sbs" "DesignTacho"
 	"MDDElevatorControlSystem_rpy\\PhytecTest.cmp" "PhytecTest"
 	"MDDElevatorControlSystem_rpy\\Test.sbs" "Test"
-	"Projects.rpl" ""
 	
 }
 

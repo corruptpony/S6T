@@ -17,7 +17,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					{ IPropertySubject 
 						- _Name = "Format";
 						- Metaclasses = { IRPYRawContainer 
-							- size = 5;
+							- size = 6;
 							- value = 
 							{ IPropertyMetaclass 
 								- _Name = "Class";
@@ -208,6 +208,48 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 								}
 							}
 							{ IPropertyMetaclass 
+								- _Name = "Package";
+								- Properties = { IRPYRawContainer 
+									- size = 7;
+									- value = 
+									{ IProperty 
+										- _Name = "DefaultSize";
+										- _Value = "0,0,216,151";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Fill.FillColor";
+										- _Value = "255,255,255";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Font.Font";
+										- _Value = "Arial";
+										- _Type = String;
+									}
+									{ IProperty 
+										- _Name = "Font.FontColor";
+										- _Value = "0,0,0";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Font.Size";
+										- _Value = "10";
+										- _Type = Int;
+									}
+									{ IProperty 
+										- _Name = "Line.LineColor";
+										- _Value = "221,0,0";
+										- _Type = Color;
+									}
+									{ IProperty 
+										- _Name = "Line.LineWidth";
+										- _Value = "1";
+										- _Type = Int;
+									}
+								}
+							}
+							{ IPropertyMetaclass 
 								- _Name = "Port";
 								- Properties = { IRPYRawContainer 
 									- size = 7;
@@ -266,7 +308,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 38dfec39-1968-4f0a-87ef-c2fde9a5d5e1;
 				}
 			}
-			- _lastModifiedTime = "6.13.2017::8:29:53";
+			- _lastModifiedTime = "6.13.2017::10:33:19";
 			- _graphicChart = { CGIClassChart 
 				- _id = GUID cd36fd47-6607-45d1-94f1-78902653b9d3;
 				- m_type = 0;
@@ -472,8 +514,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_position = 1 0 0  ;
 						- m_nIdent = 0;
 						- m_bImplicitSetRectPoints = 0;
-						- m_nHorizontalSpacing = -38;
-						- m_nVerticalSpacing = -19;
+						- m_nHorizontalSpacing = -26;
+						- m_nVerticalSpacing = -17;
 						- m_nOrientationCtrlPt = 1;
 					}
 					- m_drawBehavior = 4104;
@@ -917,7 +959,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
 					- Attrs = { IRPYRawContainer 
-						- size = 6;
+						- size = 7;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IAttribute";
@@ -967,9 +1009,17 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _name = "fullSpeedRotations";
 							- _id = GUID a8cbb2f0-7f64-4c35-a6a5-f3fec8fa6764;
 						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "floorQueue";
+							- _id = GUID e882a2ab-b6ac-4766-8413-1eee220d958c;
+						}
 					}
 					- Operations = { IRPYRawContainer 
-						- size = 6;
+						- size = 7;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IPrimitiveOperation";
@@ -1018,6 +1068,14 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Controller";
 							- _name = "rampDown(int)";
 							- _id = GUID d6de5e1a-25b7-43ff-ad67-59abc5dc4e68;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "Design.sbs";
+							- _subsystem = "Design";
+							- _class = "Controller";
+							- _name = "nextFloor()";
+							- _id = GUID ce6e3eb5-a851-4546-bddc-606644ba9a09;
 						}
 					}
 					- m_multiplicity = { CGIText 
@@ -1874,7 +1932,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.129308 0 0 0.109745 973.685 695.698 ;
+					- m_transform = 0.129308 0 0 0.109745 973.293 695.364 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -2052,7 +2110,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.133002 0 0 0.12362 974.461 863.055 ;
+					- m_transform = 0.133002 0 0 0.12362 974.069 862.721 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -2230,7 +2288,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.149012 0 0 0.11479 965.503 1037.19 ;
+					- m_transform = 0.149012 0 0 0.11479 965.111 1036.86 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -2278,264 +2336,6 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _class = "Key";
 							- _name = "Key(int)";
 							- _id = GUID cbfeee4c-fe47-4d51-b375-ba9a9a9fd2f8;
-						}
-					}
-					- m_multiplicity = { CGIText 
-						- m_str = "1";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nOrientationCtrlPt = 8;
-					}
-				}
-				{ CGIPortConnector 
-					- _id = GUID cf623e77-7757-42aa-8a89-b55d15c9697f;
-					- m_type = 57;
-					- m_pModelObject = { IHandle 
-						- _m2Class = "IPort";
-						- _filename = "DesignMotor.sbs";
-						- _subsystem = "DesignMotor";
-						- _class = "Motor";
-						- _name = "control";
-						- _id = GUID 9ad70402-5d45-49ac-8b25-1acf12007a98;
-					}
-					- m_pParent = GUID d9c150f4-4677-466d-a930-37cb397b8bdf;
-					- m_name = { CGIText 
-						- m_str = "control";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nHorizontalSpacing = 28;
-						- m_nVerticalSpacing = -18;
-						- m_nOrientationCtrlPt = 0;
-					}
-					- m_drawBehavior = 4104;
-					- m_transform = 0 10.6857 -7.30345 0 1349.07 537.626 ;
-					- m_bIsPreferencesInitialized = 0;
-					- m_position = 4 0 0  0 73  68 73  68 0  ;
-					- m_pInheritsFrom = { IHandle 
-						- _m2Class = "";
-					}
-					- m_nInheritanceMask = 0;
-					- m_SubType = 0;
-					- m_providedInterfaceLabel = { CGIText 
-						- m_str = "iMotor";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nHorizontalSpacing = 27;
-						- m_nVerticalSpacing = 19;
-						- m_nOrientationCtrlPt = 5;
-					}
-					- m_requiredInterfaceLabel = { CGIText 
-						- m_str = "";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nHorizontalSpacing = -67;
-						- m_nVerticalSpacing = -25;
-						- m_nOrientationCtrlPt = 8;
-					}
-				}
-				{ CGIObjectInstance 
-					- _id = GUID d9c150f4-4677-466d-a930-37cb397b8bdf;
-					- _properties = { IPropertyContainer 
-						- Subjects = { IRPYRawContainer 
-							- size = 1;
-							- value = 
-							{ IPropertySubject 
-								- _Name = "General";
-								- Metaclasses = { IRPYRawContainer 
-									- size = 1;
-									- value = 
-									{ IPropertyMetaclass 
-										- _Name = "Graphics";
-										- Properties = { IRPYRawContainer 
-											- size = 1;
-											- value = 
-											{ IProperty 
-												- _Name = "FitBoxToItsTextuals";
-												- _Value = "False";
-												- _Type = Bool;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-					- m_type = 111;
-					- m_pModelObject = { IHandle 
-						- _m2Class = "IPart";
-						- _id = GUID eef7ab81-a84e-45cb-b898-e95f519ba44b;
-					}
-					- m_pParent = GUID b139adcf-0943-404b-91a1-386aa072e2ff;
-					- m_name = { CGIText 
-						- m_str = "itsMotor:Motor";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nOrientationCtrlPt = 5;
-					}
-					- m_drawBehavior = 2824;
-					- m_transform = 0.178568 0 0 0.13245 72.284 728.859 ;
-					- m_bIsPreferencesInitialized = 0;
-					- m_AdditionalLabel = { CGIText 
-						- m_str = "";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nOrientationCtrlPt = 1;
-					}
-					- m_polygon = 4 2 329  2 1451  1061 1451  1061 329  ;
-					- m_nNameFormat = 0;
-					- m_nIsNameFormat = 0;
-					- Attrs = { IRPYRawContainer 
-						- size = 2;
-						- value = 
-						{ IHandle 
-							- _m2Class = "IAttribute";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "direction";
-							- _id = GUID 564f6c63-94ac-4020-93af-5f10a13eabed;
-						}
-						{ IHandle 
-							- _m2Class = "IAttribute";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "duty";
-							- _id = GUID 49759ff0-ac83-4401-b9c8-9fefe32e7095;
-						}
-					}
-					- Operations = { IRPYRawContainer 
-						- size = 11;
-						- value = 
-						{ IHandle 
-							- _m2Class = "IReception";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "evStartMotor()";
-							- _id = GUID 5f5028b8-cea3-4e04-9eb6-42bed5d02a65;
-						}
-						{ IHandle 
-							- _m2Class = "IReception";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "evStopMotor()";
-							- _id = GUID 74cf8b37-8ed9-4052-ab4c-b0bb904f6859;
-						}
-						{ IHandle 
-							- _m2Class = "IReception";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "evSetDirection()";
-							- _id = GUID bb51d328-f20c-4ada-8af9-3992c126e167;
-						}
-						{ IHandle 
-							- _m2Class = "IReception";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "evSetSpeed()";
-							- _id = GUID 433bcf46-570f-42e1-ad18-d88a365f6fef;
-						}
-						{ IHandle 
-							- _m2Class = "IReception";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "evSpeedDown()";
-							- _id = GUID 8489186a-eb1b-478f-a547-c132f0a40617;
-						}
-						{ IHandle 
-							- _m2Class = "IReception";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "evSpeedUp()";
-							- _id = GUID 6bf584fe-5533-443e-85c2-7905990f65d3;
-						}
-						{ IHandle 
-							- _m2Class = "IPrimitiveOperation";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "startMotor()";
-							- _id = GUID 24bf4a9a-7148-4a42-b8b5-c06d2d5e9c0e;
-						}
-						{ IHandle 
-							- _m2Class = "IPrimitiveOperation";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "stopMotor()";
-							- _id = GUID 4e5dd209-c58d-4c09-bb07-c04f6ffaf93a;
-						}
-						{ IHandle 
-							- _m2Class = "IPrimitiveOperation";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "setSpeed(int)";
-							- _id = GUID cb49e9b6-c6b0-43eb-ae91-c60b95243c17;
-						}
-						{ IHandle 
-							- _m2Class = "IPrimitiveOperation";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "speedUp()";
-							- _id = GUID db65116c-1a87-4637-9133-3a95ec629cb9;
-						}
-						{ IHandle 
-							- _m2Class = "IPrimitiveOperation";
-							- _filename = "DesignMotor.sbs";
-							- _subsystem = "DesignMotor";
-							- _class = "Motor";
-							- _name = "speedDown()";
-							- _id = GUID 671ffeee-3fe7-49ad-906b-59dabecfd9d8;
 						}
 					}
 					- m_multiplicity = { CGIText 
@@ -2720,131 +2520,6 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nIdent = 0;
 						- m_bImplicitSetRectPoints = 0;
 						- m_nOrientationCtrlPt = 8;
-					}
-				}
-				{ CGIObjectLink 
-					- _id = GUID aec20321-1d22-480b-a18f-8ac6ab649a04;
-					- _properties = { IPropertyContainer 
-						- Subjects = { IRPYRawContainer 
-							- size = 1;
-							- value = 
-							{ IPropertySubject 
-								- _Name = "General";
-								- Metaclasses = { IRPYRawContainer 
-									- size = 1;
-									- value = 
-									{ IPropertyMetaclass 
-										- _Name = "Graphics";
-										- Properties = { IRPYRawContainer 
-											- size = 1;
-											- value = 
-											{ IProperty 
-												- _Name = "ShowLabels";
-												- _Value = "False";
-												- _Type = Bool;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-					- m_type = 80;
-					- m_pModelObject = { IHandle 
-						- _m2Class = "IObjectLink";
-						- _id = GUID e9c2badd-9c0b-41d3-8d71-bd2dde184595;
-					}
-					- m_pParent = ;
-					- m_name = { CGIText 
-						- m_str = "connector";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nOrientationCtrlPt = 8;
-					}
-					- m_drawBehavior = 0;
-					- m_bIsPreferencesInitialized = 1;
-					- m_pSource = GUID cf623e77-7757-42aa-8a89-b55d15c9697f;
-					- m_sourceType = 'F';
-					- m_pTarget = GUID bff7969a-3427-408c-b756-e94c69326364;
-					- m_targetType = 'T';
-					- m_direction = ' ';
-					- m_rpn = { CGIText 
-						- m_str = "";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 0;
-						- m_bImplicitSetRectPoints = 0;
-						- m_nOrientationCtrlPt = 8;
-					}
-					- m_anglePoint1 = 0 0 ;
-					- m_anglePoint2 = 0 0 ;
-					- m_line_style = 2;
-					- m_SourcePort = 29 42 ;
-					- m_TargetPort = 31 36 ;
-					- m_bShowSourceMultiplicity = 0;
-					- m_bShowSourceRole = 0;
-					- m_bShowTargetMultiplicity = 0;
-					- m_bShowTargetRole = 0;
-					- m_bShowLinkName = 0;
-					- m_sourceRole = { CGIText 
-						- m_str = "";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 2;
-						- m_bImplicitSetRectPoints = 0;
-					}
-					- m_targetRole = { CGIText 
-						- m_str = "";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 3;
-						- m_bImplicitSetRectPoints = 0;
-					}
-					- m_sourceMultiplicity = { CGIText 
-						- m_str = "";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 4;
-						- m_bImplicitSetRectPoints = 0;
-					}
-					- m_targetMultiplicity = { CGIText 
-						- m_str = "";
-						- m_style = "Arial" 10 0 0 0 1 ;
-						- m_color = { IColor 
-							- m_fgColor = 0;
-							- m_bgColor = 0;
-							- m_bgFlag = 0;
-						}
-						- m_position = 1 0 0  ;
-						- m_nIdent = 5;
-						- m_bImplicitSetRectPoints = 0;
 					}
 				}
 				{ CGIObjectLink 
@@ -3729,6 +3404,405 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_bImplicitSetRectPoints = 0;
 					}
 				}
+				{ CGIPortConnector 
+					- _id = GUID f53cef9d-77b8-4c4f-a1d1-51342a2927bf;
+					- m_type = 57;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IPort";
+						- _filename = "DesignMotor.sbs";
+						- _subsystem = "DesignMotor";
+						- _class = "Motor";
+						- _name = "control";
+						- _id = GUID 9ad70402-5d45-49ac-8b25-1acf12007a98;
+					}
+					- m_pParent = GUID 4dcd8441-5894-430c-af9c-714f78b7b1d6;
+					- m_name = { CGIText 
+						- m_str = "control";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nHorizontalSpacing = 28;
+						- m_nVerticalSpacing = -18;
+						- m_nOrientationCtrlPt = 0;
+					}
+					- m_drawBehavior = 4104;
+					- m_transform = 0 8.13043 -8.68033 0 1404.52 621.147 ;
+					- m_bIsPreferencesInitialized = 0;
+					- m_position = 4 0 0  0 73  68 73  68 0  ;
+					- m_pInheritsFrom = { IHandle 
+						- _m2Class = "";
+					}
+					- m_nInheritanceMask = 0;
+					- m_SubType = 0;
+					- m_providedInterfaceLabel = { CGIText 
+						- m_str = "iMotor";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nHorizontalSpacing = 27;
+						- m_nVerticalSpacing = 19;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_requiredInterfaceLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nHorizontalSpacing = -67;
+						- m_nVerticalSpacing = -25;
+						- m_nOrientationCtrlPt = 8;
+					}
+				}
+				{ CGIObjectInstance 
+					- _id = GUID 4dcd8441-5894-430c-af9c-714f78b7b1d6;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "FitBoxToItsTextuals";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					- m_type = 111;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IPart";
+						- _id = GUID 9e4cc0ca-e5b6-473c-93f4-49796d1d5691;
+					}
+					- m_pParent = GUID b139adcf-0943-404b-91a1-386aa072e2ff;
+					- m_name = { CGIText 
+						- m_str = "itsMotor:Motor";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 5;
+					}
+					- m_drawBehavior = 2824;
+					- m_transform = 0.150243 0 0 0.174078 79.9622 676.958 ;
+					- m_bIsPreferencesInitialized = 0;
+					- m_AdditionalLabel = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 1;
+					}
+					- m_polygon = 4 2 329  2 1451  1061 1451  1061 329  ;
+					- m_nNameFormat = 0;
+					- m_nIsNameFormat = 0;
+					- Attrs = { IRPYRawContainer 
+						- size = 2;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "direction";
+							- _id = GUID 564f6c63-94ac-4020-93af-5f10a13eabed;
+						}
+						{ IHandle 
+							- _m2Class = "IAttribute";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "duty";
+							- _id = GUID 49759ff0-ac83-4401-b9c8-9fefe32e7095;
+						}
+					}
+					- Operations = { IRPYRawContainer 
+						- size = 13;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "evStartMotor()";
+							- _id = GUID 5f5028b8-cea3-4e04-9eb6-42bed5d02a65;
+						}
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "evStopMotor()";
+							- _id = GUID 74cf8b37-8ed9-4052-ab4c-b0bb904f6859;
+						}
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "evSetDirection()";
+							- _id = GUID bb51d328-f20c-4ada-8af9-3992c126e167;
+						}
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "evSetSpeed()";
+							- _id = GUID 433bcf46-570f-42e1-ad18-d88a365f6fef;
+						}
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "evSpeedDown()";
+							- _id = GUID 8489186a-eb1b-478f-a547-c132f0a40617;
+						}
+						{ IHandle 
+							- _m2Class = "IReception";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "evSpeedUp()";
+							- _id = GUID 6bf584fe-5533-443e-85c2-7905990f65d3;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "startMotor()";
+							- _id = GUID 24bf4a9a-7148-4a42-b8b5-c06d2d5e9c0e;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "stopMotor()";
+							- _id = GUID 4e5dd209-c58d-4c09-bb07-c04f6ffaf93a;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "setSpeed(int)";
+							- _id = GUID cb49e9b6-c6b0-43eb-ae91-c60b95243c17;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "speedUp()";
+							- _id = GUID db65116c-1a87-4637-9133-3a95ec629cb9;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "speedDown()";
+							- _id = GUID 671ffeee-3fe7-49ad-906b-59dabecfd9d8;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "setDirection()";
+							- _id = GUID 00cae37a-511a-4e8e-9011-200353a4da56;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _filename = "DesignMotor.sbs";
+							- _subsystem = "DesignMotor";
+							- _class = "Motor";
+							- _name = "init()";
+							- _id = GUID cabaed06-d431-46fe-87cd-71ce92a8c21e;
+						}
+					}
+					- m_multiplicity = { CGIText 
+						- m_str = "1";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 8;
+					}
+				}
+				{ CGIObjectLink 
+					- _id = GUID 6c647dfb-3227-4dee-b59f-f20dcdfd44dd;
+					- _properties = { IPropertyContainer 
+						- Subjects = { IRPYRawContainer 
+							- size = 1;
+							- value = 
+							{ IPropertySubject 
+								- _Name = "General";
+								- Metaclasses = { IRPYRawContainer 
+									- size = 1;
+									- value = 
+									{ IPropertyMetaclass 
+										- _Name = "Graphics";
+										- Properties = { IRPYRawContainer 
+											- size = 1;
+											- value = 
+											{ IProperty 
+												- _Name = "ShowLabels";
+												- _Value = "False";
+												- _Type = Bool;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					- m_type = 80;
+					- m_pModelObject = { IHandle 
+						- _m2Class = "IObjectLink";
+						- _id = GUID 11e9a4df-9a41-416b-b98a-254fa15d1e60;
+					}
+					- m_pParent = ;
+					- m_name = { CGIText 
+						- m_str = "connector";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 8;
+					}
+					- m_drawBehavior = 0;
+					- m_bIsPreferencesInitialized = 1;
+					- m_pSource = GUID f53cef9d-77b8-4c4f-a1d1-51342a2927bf;
+					- m_sourceType = 'F';
+					- m_pTarget = GUID bff7969a-3427-408c-b756-e94c69326364;
+					- m_targetType = 'T';
+					- m_direction = ' ';
+					- m_rpn = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 0;
+						- m_bImplicitSetRectPoints = 0;
+						- m_nOrientationCtrlPt = 8;
+					}
+					- m_anglePoint1 = 0 0 ;
+					- m_anglePoint2 = 0 0 ;
+					- m_line_style = 2;
+					- m_SourcePort = 37 2 ;
+					- m_TargetPort = 30 36 ;
+					- m_bShowSourceMultiplicity = 0;
+					- m_bShowSourceRole = 0;
+					- m_bShowTargetMultiplicity = 0;
+					- m_bShowTargetRole = 0;
+					- m_bShowLinkName = 0;
+					- m_sourceRole = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 2;
+						- m_bImplicitSetRectPoints = 0;
+					}
+					- m_targetRole = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 3;
+						- m_bImplicitSetRectPoints = 0;
+					}
+					- m_sourceMultiplicity = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 4;
+						- m_bImplicitSetRectPoints = 0;
+					}
+					- m_targetMultiplicity = { CGIText 
+						- m_str = "";
+						- m_style = "Arial" 10 0 0 0 1 ;
+						- m_color = { IColor 
+							- m_fgColor = 0;
+							- m_bgColor = 0;
+							- m_bgFlag = 0;
+						}
+						- m_position = 1 0 0  ;
+						- m_nIdent = 5;
+						- m_bImplicitSetRectPoints = 0;
+					}
+				}
 				
 				- m_access = 'Z';
 				- m_modified = 'N';
@@ -3748,8 +3822,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			}
 		}
 	}
-	- weakCGTime = 6.13.2017::8:29:53;
-	- strongCGTime = 6.2.2017::9:2:17;
+	- weakCGTime = 6.20.2017::8:24:17;
+	- strongCGTime = 6.13.2017::9:2:57;
 	- _defaultComposite = GUID e672814b-95ce-4292-8c6d-653b8e26bb07;
 	- _eventsBaseID = -1;
 	- Classes = { IRPYRawContainer 
@@ -3759,8 +3833,8 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID e672814b-95ce-4292-8c6d-653b8e26bb07;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 6.12.2017::14:58:41;
-			- strongCGTime = 6.2.2017::9:2:17;
+			- weakCGTime = 6.13.2017::10:33:19;
+			- strongCGTime = 6.13.2017::9:2:57;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -3787,9 +3861,9 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				- _m2Class = "IStructureDiagram";
 				- _id = GUID 08ca1f6a-c02c-41cc-995d-690125b595e1;
 			}
-			- _lastID = 10;
-			- weakCGTime = 6.12.2017::13:42:3;
-			- strongCGTime = 6.12.2017::13:42:3;
+			- _lastID = 11;
+			- weakCGTime = 6.13.2017::10:33:19;
+			- strongCGTime = 6.13.2017::9:3:54;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -4031,23 +4105,6 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					}
 				}
 				{ IPart 
-					- _id = GUID eef7ab81-a84e-45cb-b898-e95f519ba44b;
-					- _myState = 8192;
-					- _name = "itsMotor";
-					- _multiplicity = "1";
-					- _otherClass = { IClassifierHandle 
-						- _m2Class = "IClass";
-						- _filename = "DesignMotor.sbs";
-						- _subsystem = "DesignMotor";
-						- _class = "";
-						- _name = "Motor";
-						- _id = GUID 7c6e72d0-1a25-4f5c-badd-d8d380788941;
-					}
-					- _inverse = { IHandle 
-						- _m2Class = "";
-					}
-				}
-				{ IPart 
 					- _id = GUID 81300276-d04c-4978-b6a3-cba522719253;
 					- _myState = 8192;
 					- _name = "itsTacho";
@@ -4064,56 +4121,27 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- _m2Class = "";
 					}
 				}
+				{ IPart 
+					- _id = GUID 9e4cc0ca-e5b6-473c-93f4-49796d1d5691;
+					- _myState = 8192;
+					- _name = "itsMotor";
+					- _multiplicity = "1";
+					- _otherClass = { IClassifierHandle 
+						- _m2Class = "IClass";
+						- _filename = "DesignMotor.sbs";
+						- _subsystem = "DesignMotor";
+						- _class = "";
+						- _name = "Motor";
+						- _id = GUID 7c6e72d0-1a25-4f5c-badd-d8d380788941;
+					}
+					- _inverse = { IHandle 
+						- _m2Class = "";
+					}
+				}
 			}
 			- ObjectLinks = { IRPYRawContainer 
 				- size = 8;
 				- value = 
-				{ IObjectLink 
-					- _id = GUID e9c2badd-9c0b-41d3-8d71-bd2dde184595;
-					- _myState = 2048;
-					- _name = "connector_2";
-					- Stereotypes = { IRPYRawContainer 
-						- size = 1;
-						- value = 
-						{ IHandle 
-							- _m2Class = "IStereotype";
-							- _filename = "SysML.sbs";
-							- _subsystem = "SysML::Blocks";
-							- _class = "";
-							- _name = "connector";
-							- _id = GUID af0f57c0-ca41-456e-87cc-be8bf10a1c55;
-						}
-					}
-					- _toLink = { IHandle 
-						- _m2Class = "IPart";
-						- _id = GUID dc91f7cc-3919-44fe-a7b8-1a13a648d4aa;
-					}
-					- _fromLink = { IHandle 
-						- _m2Class = "IPart";
-						- _id = GUID eef7ab81-a84e-45cb-b898-e95f519ba44b;
-					}
-					- _instantiates = { IMetaLinkHandle 
-						- _m2Class = "";
-					}
-					- _end1Multiplicity = "1";
-					- _end2Multiplicity = "1";
-					- _toPort = { IHandle 
-						- _m2Class = "IPort";
-						- _filename = "Design.sbs";
-						- _subsystem = "Design";
-						- _class = "Controller";
-						- _name = "m_control";
-						- _id = GUID b6197364-a52d-46b2-9679-c3798a7bbeab;
-					}
-					- _fromPort = { IHandle 
-						- _m2Class = "IPort";
-						- _filename = "DesignMotor.sbs";
-						- _subsystem = "DesignMotor";
-						- _class = "Motor";
-						- _name = "control";
-						- _id = GUID 9ad70402-5d45-49ac-8b25-1acf12007a98;
-					}
-				}
 				{ IObjectLink 
 					- _id = GUID 117218d2-511a-4fec-8f80-02a6563df46f;
 					- _myState = 2048;
@@ -4436,10 +4464,56 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- _id = GUID 362d6ab3-fe71-4b30-91b7-08f1f6b49d58;
 					}
 				}
+				{ IObjectLink 
+					- _id = GUID 11e9a4df-9a41-416b-b98a-254fa15d1e60;
+					- _myState = 2048;
+					- _name = "connector_10";
+					- Stereotypes = { IRPYRawContainer 
+						- size = 1;
+						- value = 
+						{ IHandle 
+							- _m2Class = "IStereotype";
+							- _filename = "SysML.sbs";
+							- _subsystem = "SysML::Blocks";
+							- _class = "";
+							- _name = "connector";
+							- _id = GUID af0f57c0-ca41-456e-87cc-be8bf10a1c55;
+						}
+					}
+					- _toLink = { IHandle 
+						- _m2Class = "IPart";
+						- _id = GUID dc91f7cc-3919-44fe-a7b8-1a13a648d4aa;
+					}
+					- _fromLink = { IHandle 
+						- _m2Class = "IPart";
+						- _id = GUID 9e4cc0ca-e5b6-473c-93f4-49796d1d5691;
+					}
+					- _instantiates = { IMetaLinkHandle 
+						- _m2Class = "";
+					}
+					- _end1Multiplicity = "1";
+					- _end2Multiplicity = "1";
+					- _toPort = { IHandle 
+						- _m2Class = "IPort";
+						- _filename = "Design.sbs";
+						- _subsystem = "Design";
+						- _class = "Controller";
+						- _name = "m_control";
+						- _id = GUID b6197364-a52d-46b2-9679-c3798a7bbeab;
+					}
+					- _fromPort = { IHandle 
+						- _m2Class = "IPort";
+						- _filename = "DesignMotor.sbs";
+						- _subsystem = "DesignMotor";
+						- _class = "Motor";
+						- _name = "control";
+						- _id = GUID 9ad70402-5d45-49ac-8b25-1acf12007a98;
+					}
+				}
 			}
 			- _classModifier = Unspecified;
 		}
 	}
-	- _configurationRelatedTime = 6.2.2017::10:23:2;
+	- _configurationRelatedTime = 6.13.2017::9:3:44;
 }
 

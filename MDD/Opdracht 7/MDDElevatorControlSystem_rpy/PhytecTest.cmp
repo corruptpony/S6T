@@ -192,7 +192,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 	}
 	- m_configActive = { ICodeGenConfigInfoHandle 
 		- _m2Class = "ICodeGenConfigInfo";
-		- _id = GUID 130b4e0e-3779-4552-8cdc-ede77f852955;
+		- _id = GUID a48922f9-459a-4af1-8e93-a7bd3f75cc83;
 	}
 	- Configs = { IRPYRawContainer 
 		- size = 3;
@@ -539,7 +539,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- m_allInAnimScope = 1;
 		}
 	}
-	- weakCGTime = 6.12.2017::14:22:3;
+	- weakCGTime = 6.20.2017::8:24:17;
 	- strongCGTime = 3.13.2012::22:12:35;
 }
 

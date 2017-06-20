@@ -116,7 +116,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 		- value = 
 		{ IMultiplicityItem 
 			- _name = "1";
-			- _count = 6;
+			- _count = 7;
 		}
 		{ IMultiplicityItem 
 			- _name = "*";
@@ -157,16 +157,16 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			- _id = GUID cd381dde-b3d4-47ff-8af3-32c5339a2b0a;
 		}
 		{ ISubsystem 
-			- fileName = "DesignMotor";
-			- _id = GUID 7a1f56bc-877b-4a20-92ef-c7a8d44b05ad;
-		}
-		{ ISubsystem 
 			- fileName = "DesignTacho";
 			- _id = GUID 213c115e-4748-4ed4-a1ca-20763bda4b9b;
 		}
 		{ ISubsystem 
 			- fileName = "DesignKey";
 			- _id = GUID 631849e3-2f32-4679-be19-5688a81e2f35;
+		}
+		{ ISubsystem 
+			- fileName = "DesignMotor";
+			- _id = GUID ddfbbf49-3a8e-438f-a8fa-e2ef23bece37;
 		}
 	}
 	- Diagrams = { IRPYRawContainer 

@@ -1,14 +1,22 @@
 I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 { ISubsystem 
-	- _id = GUID 7a1f56bc-877b-4a20-92ef-c7a8d44b05ad;
+	- _id = GUID ddfbbf49-3a8e-438f-a8fa-e2ef23bece37;
 	- _myState = 8192;
 	- _name = "DesignMotor";
+	- _theMainDiagram = { IHandle 
+		- _m2Class = "IStructureDiagram";
+		- _filename = "Test.sbs";
+		- _subsystem = "Test";
+		- _class = "";
+		- _name = "TestSystem";
+		- _id = GUID 08ca1f6a-c02c-41cc-995d-690125b595e1;
+	}
 	- _lastID = 12;
 	- Declaratives = { IRPYRawContainer 
 		- size = 1;
 		- value = 
 		{ IDiagram 
-			- _id = GUID 33faa830-d401-4abc-9329-8aea173418cf;
+			- _id = GUID 1ce7c550-8d95-4717-b28f-461c5f88be70;
 			- _myState = 8192;
 			- _properties = { IPropertyContainer 
 				- Subjects = { IRPYRawContainer 
@@ -177,13 +185,13 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _id = GUID 6c142614-3349-49e9-8c6b-0236be5f6b61;
 				}
 			}
-			- _lastModifiedTime = "6.13.2017::8:37:24";
+			- _lastModifiedTime = "6.13.2017::10:16:57";
 			- _graphicChart = { CGIClassChart 
-				- _id = GUID 5c2130f1-90e1-4965-846e-fb7a91ddf325;
+				- _id = GUID 42db9ca2-bc4d-4ac1-8ec0-c2c8d812af3d;
 				- m_type = 0;
 				- m_pModelObject = { IHandle 
 					- _m2Class = "IDiagram";
-					- _id = GUID 33faa830-d401-4abc-9329-8aea173418cf;
+					- _id = GUID 1ce7c550-8d95-4717-b28f-461c5f88be70;
 				}
 				- m_pParent = ;
 				- m_name = { CGIText 
@@ -203,11 +211,11 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				- m_bIsPreferencesInitialized = 0;
 				- elementList = 5;
 				{ CGIClass 
-					- _id = GUID 89e1bf82-8b01-4387-b085-afd11fb7f4a1;
+					- _id = GUID ab3b0627-9ad9-4035-b2f8-4ded050ab5d6;
 					- m_type = 78;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "IClass";
-						- _id = GUID 431bf5fd-34e5-4c14-bf2d-e495fb987de7;
+						- _id = GUID 12f43fd9-322b-475b-b264-3c0978e3b85e;
 					}
 					- m_pParent = ;
 					- m_name = { CGIText 
@@ -249,12 +257,12 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					}
 				}
 				{ CGIDiagramFrame 
-					- _id = GUID 77011e4d-1253-4419-89ca-102facd8f4ac;
+					- _id = GUID ad892c6a-71a6-464c-a6f3-15b2e620daa0;
 					- m_type = 203;
 					- m_pModelObject = { IHandle 
 						- _m2Class = "";
 					}
-					- m_pParent = GUID 89e1bf82-8b01-4387-b085-afd11fb7f4a1;
+					- m_pParent = GUID ab3b0627-9ad9-4035-b2f8-4ded050ab5d6;
 					- m_name = { CGIText 
 						- m_str = "";
 						- m_style = "Arial" 10 0 0 0 1 ;
@@ -320,7 +328,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- _m2Class = "IClass";
 						- _id = GUID 7c6e72d0-1a25-4f5c-badd-d8d380788941;
 					}
-					- m_pParent = GUID 89e1bf82-8b01-4387-b085-afd11fb7f4a1;
+					- m_pParent = GUID ab3b0627-9ad9-4035-b2f8-4ded050ab5d6;
 					- m_name = { CGIText 
 						- m_str = "Motor";
 						- m_style = "Arial" 10 0 0 0 1 ;
@@ -335,7 +343,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 5;
 					}
 					- m_drawBehavior = 2824;
-					- m_transform = 0.148253 0 0 0.262032 59.7035 -52.2086 ;
+					- m_transform = 0.148253 0 0 0.202317 59.7035 -32.5624 ;
 					- m_bIsPreferencesInitialized = 1;
 					- m_AdditionalLabel = { CGIText 
 						- m_str = "";
@@ -350,11 +358,10 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_bImplicitSetRectPoints = 0;
 						- m_nOrientationCtrlPt = 1;
 					}
-					- m_bFramesetModified = 1;
 					- m_polygon = 4 2 329  2 1451  1061 1451  1061 329  ;
 					- m_nNameFormat = 0;
 					- m_nIsNameFormat = 0;
-					- frameset = "<frameset rows=39%,61%>
+					- frameset = "<frameset rows=50%,50%>
 <frame name=AttributeListCompartment>
 <frame name=PrimitiveOperationListCompartment>";
 					- Attrs = { IRPYRawContainer 
@@ -370,7 +377,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						}
 					}
 					- Operations = { IRPYRawContainer 
-						- size = 11;
+						- size = 13;
 						- value = 
 						{ IHandle 
 							- _m2Class = "IReception";
@@ -416,6 +423,14 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 							- _m2Class = "IPrimitiveOperation";
 							- _id = GUID 671ffeee-3fe7-49ad-906b-59dabecfd9d8;
 						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _id = GUID 00cae37a-511a-4e8e-9011-200353a4da56;
+						}
+						{ IHandle 
+							- _m2Class = "IPrimitiveOperation";
+							- _id = GUID cabaed06-d431-46fe-87cd-71ce92a8c21e;
+						}
 					}
 				}
 				{ CGIPortConnector 
@@ -441,7 +456,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- m_nOrientationCtrlPt = 0;
 					}
 					- m_drawBehavior = 4104;
-					- m_transform = 0 3.81633 -6.74522 0 1328.09 762.57 ;
+					- m_transform = 0 4.94273 -6.74522 0 1328.09 726.32 ;
 					- m_bIsPreferencesInitialized = 0;
 					- m_position = 4 0 0  0 73  68 73  68 0  ;
 					- m_pInheritsFrom = { IHandle 
@@ -511,7 +526,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 						- _m2Class = "IClass";
 						- _id = GUID e408fd75-d7f1-43cd-804d-29514aae195c;
 					}
-					- m_pParent = GUID 89e1bf82-8b01-4387-b085-afd11fb7f4a1;
+					- m_pParent = GUID ab3b0627-9ad9-4035-b2f8-4ded050ab5d6;
 					- m_name = { CGIText 
 						- m_str = "iMotor";
 						- m_style = "Arial" 10 0 0 0 1 ;
@@ -589,29 +604,29 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				- m_creator = "";
 				- m_bScaleWithZoom = 1;
 				- m_arrowStyle = 'S';
-				- m_pRoot = GUID 89e1bf82-8b01-4387-b085-afd11fb7f4a1;
+				- m_pRoot = GUID ab3b0627-9ad9-4035-b2f8-4ded050ab5d6;
 				- m_currentLeftTop = 0 0 ;
 				- m_currentRightBottom = 0 0 ;
 			}
 			- _defaultSubsystem = { IHandle 
 				- _m2Class = "ISubsystem";
-				- _id = GUID 7a1f56bc-877b-4a20-92ef-c7a8d44b05ad;
+				- _id = GUID ddfbbf49-3a8e-438f-a8fa-e2ef23bece37;
 			}
 		}
 	}
-	- weakCGTime = 6.2.2017::10:5:34;
-	- strongCGTime = 6.2.2017::9:2:17;
-	- _defaultComposite = GUID 431bf5fd-34e5-4c14-bf2d-e495fb987de7;
+	- weakCGTime = 6.20.2017::8:24:17;
+	- strongCGTime = 6.13.2017::9:2:57;
+	- _defaultComposite = GUID 12f43fd9-322b-475b-b264-3c0978e3b85e;
 	- _eventsBaseID = 28001;
 	- Classes = { IRPYRawContainer 
 		- size = 3;
 		- value = 
 		{ IClass 
-			- _id = GUID 431bf5fd-34e5-4c14-bf2d-e495fb987de7;
+			- _id = GUID 12f43fd9-322b-475b-b264-3c0978e3b85e;
 			- _myState = 40960;
 			- _name = "TopLevel";
-			- weakCGTime = 6.2.2017::10:5:34;
-			- strongCGTime = 6.2.2017::9:2:17;
+			- weakCGTime = 6.13.2017::9:2:57;
+			- strongCGTime = 6.13.2017::9:2:57;
 			- _multiplicity = "";
 			- _itsStateChart = { IHandle 
 				- _m2Class = "";
@@ -636,11 +651,11 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 			}
 			- _theMainDiagram = { IHandle 
 				- _m2Class = "IDiagram";
-				- _id = GUID 33faa830-d401-4abc-9329-8aea173418cf;
+				- _id = GUID 1ce7c550-8d95-4717-b28f-461c5f88be70;
 			}
-			- _lastID = 10;
-			- weakCGTime = 6.13.2017::8:27:40;
-			- strongCGTime = 6.2.2017::9:1:11;
+			- _lastID = 12;
+			- weakCGTime = 6.13.2017::9:2:57;
+			- strongCGTime = 6.13.2017::9:2:57;
 			- Ports = { IRPYRawContainer 
 				- size = 1;
 				- value = 
@@ -672,7 +687,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 								- _id = GUID 2a7b8a63-f54f-4379-bab0-02800a5084e1;
 							}
 						}
-						- weakCGTime = 6.2.2017::9:2:17;
+						- weakCGTime = 6.13.2017::9:2:57;
 						- strongCGTime = 5.8.2017::9:59:6;
 						- Inheritances = { IRPYRawContainer 
 							- size = 1;
@@ -697,7 +712,7 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 				}
 			}
 			- Operations = { IRPYRawContainer 
-				- size = 11;
+				- size = 13;
 				- value = 
 				{ IReception 
 					- _id = GUID 5f5028b8-cea3-4e04-9eb6-42bed5d02a65;
@@ -794,17 +809,9 @@ I-Logix-RPY-Archive version 8.1.4 C++ 1367309
 					- _static = 0;
 					- _constant = 0;
 					- _itsBody = { IBody 
-						- _bodyData = "ofstream file;  
-file.open(MOTOR_PERIOD);
-file << 3000;
-file.close();
-file.open(MOTOR_DUTY);
-if(!direction){ file << 0; }
-else { file << 1000; }
-file.close();
-file.open(MOTOR_ACTIVE);
-file << 1;
-file.close();";
+						- _bodyData = "duty = 0;
+setSpeed(duty); 
+cout << \"Motor Started\" << endl;";
 					}
 				}
 				{ IPrimitiveOperation 
@@ -830,10 +837,9 @@ file.close();";
 					- _static = 0;
 					- _constant = 0;
 					- _itsBody = { IBody 
-						- _bodyData = "ofstream file;
-file.open(MOTOR_ACTIVE);
-file << 0;
-file.close();";
+						- _bodyData = "duty = 0;
+setSpeed(duty); 
+cout << \"Motor Stopped\" << endl;";
 					}
 				}
 				{ IPrimitiveOperation 
@@ -878,8 +884,14 @@ file.close();";
 					- _itsBody = { IBody 
 						- _bodyData = "ofstream file;
 file.open(MOTOR_DUTY);
-if(!direction){file << speed ;}
-else {file << (1000 - speed);}
+if(!direction)
+{
+	file << speed ;
+}
+else 
+{
+	file << (1000 - speed);   
+}
 file.close();";
 					}
 				}
@@ -908,7 +920,8 @@ file.close();";
 					- _itsBody = { IBody 
 						- _bodyData = "duty += 100;
 if(duty > 1000){duty = 1000;}  
-setSpeed(duty);";
+setSpeed(duty); 
+cout << \"Motor Speed Up\" << endl;";
 					}
 				}
 				{ IPrimitiveOperation 
@@ -936,7 +949,77 @@ setSpeed(duty);";
 					- _itsBody = { IBody 
 						- _bodyData = "duty -= 100;
 if(duty < 0){duty = 0;}  
+setSpeed(duty);
+cout << \"Motor Speed Down\" << endl;";
+					}
+				}
+				{ IPrimitiveOperation 
+					- _id = GUID 00cae37a-511a-4e8e-9011-200353a4da56;
+					- _myState = 8192;
+					- _name = "setDirection";
+					- _virtual = 0;
+					- Args = { IRPYRawContainer 
+						- size = 0;
+					}
+					- _returnType = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "PredefinedTypesC++.sbs";
+						- _subsystem = "PredefinedTypesCpp";
+						- _class = "";
+						- _name = "void";
+						- _id = GUID c6b70728-b655-45a0-abb7-8ea5d3da94be;
+					}
+					- _abstract = 0;
+					- _final = 0;
+					- _concurrency = Sequential;
+					- _protection = iPublic;
+					- _static = 0;
+					- _constant = 0;
+					- _itsBody = { IBody 
+						- _bodyData = "ofstream file;
+file.open(MOTOR_DIRECTION);
+file << direction;   
+file.close();
 setSpeed(duty);";
+					}
+				}
+				{ IPrimitiveOperation 
+					- _id = GUID cabaed06-d431-46fe-87cd-71ce92a8c21e;
+					- _myState = 8192;
+					- _name = "init";
+					- _virtual = 0;
+					- Args = { IRPYRawContainer 
+						- size = 0;
+					}
+					- _returnType = { IHandle 
+						- _m2Class = "IType";
+						- _filename = "PredefinedTypesC++.sbs";
+						- _subsystem = "PredefinedTypesCpp";
+						- _class = "";
+						- _name = "void";
+						- _id = GUID c6b70728-b655-45a0-abb7-8ea5d3da94be;
+					}
+					- _abstract = 0;
+					- _final = 0;
+					- _concurrency = Sequential;
+					- _protection = iPublic;
+					- _static = 0;
+					- _constant = 0;
+					- _itsBody = { IBody 
+						- _bodyData = "ofstream file;
+file.open(MOTOR_PERIOD);
+file << 3000;
+file.close(); 
+file.open(MOTOR_ACTIVE);
+file << 1;
+file.close();  
+file.open(MOTOR_DIRECTION);
+file << 0;
+file.close(); 
+file.open(MOTOR_DUTY);
+file << 0;
+file.close();
+cout << \"Motor Initialized\" << endl;";
 					}
 				}
 			}
@@ -964,7 +1047,7 @@ setSpeed(duty);";
 				{ IAttribute 
 					- _id = GUID 49759ff0-ac83-4401-b9c8-9fefe32e7095;
 					- _name = "duty";
-					- _defaultValue = "";
+					- _defaultValue = "0";
 					- _typeOf = { IHandle 
 						- _m2Class = "IType";
 						- _filename = "PredefinedTypesC++.sbs";
@@ -1126,7 +1209,7 @@ setSpeed(duty);";
 					}
 					- _name = "statechart_1";
 					- _lastID = 3;
-					- _lastModifiedTime = "6.13.2017::8:27:40";
+					- _lastModifiedTime = "5.15.2017::10:28:14";
 					- _graphicChart = { CGIStateChart 
 						- _id = GUID 1e1876ee-0c53-40a6-8349-69cd34d60db1;
 						- m_type = 0;
@@ -1244,7 +1327,7 @@ setSpeed(duty);";
 								- m_nOrientationCtrlPt = 5;
 							}
 							- m_drawBehavior = 4104;
-							- m_transform = 0.0912409 0 0 0.0641509 199 157 ;
+							- m_transform = 0.0912409 0 0 0.0641509 302 250 ;
 							- m_bIsPreferencesInitialized = 1;
 							- m_AdditionalLabel = { CGIText 
 								- m_str = "";
@@ -1268,6 +1351,7 @@ setSpeed(duty);";
 							}
 							- m_nInheritanceMask = 0;
 							- m_pDefaultComponentRelation = ;
+							- m_moveAndLineTimeStamp = 1.2.1990::0:0:0;
 						}
 						{ CGIState 
 							- _id = GUID 72e1f315-e0d9-4a17-843f-0b1ef9fa4561;
@@ -1291,7 +1375,7 @@ setSpeed(duty);";
 								- m_nOrientationCtrlPt = 5;
 							}
 							- m_drawBehavior = 4104;
-							- m_transform = 0.0875912 0 0 0.0566038 461 169 ;
+							- m_transform = 0.0875912 0 0 0.0566038 687 330 ;
 							- m_bIsPreferencesInitialized = 1;
 							- m_AdditionalLabel = { CGIText 
 								- m_str = "";
@@ -1530,7 +1614,7 @@ setSpeed(duty);";
 							- m_targetType = 'T';
 							- m_direction = ' ';
 							- m_rpn = { CGIText 
-								- m_str = "";
+								- m_str = "/init();";
 								- m_style = "Arial" 10 0 0 0 1 ;
 								- m_color = { IColor 
 									- m_fgColor = 0;
@@ -1569,7 +1653,7 @@ setSpeed(duty);";
 							- _m2Class = "";
 						}
 					}
-					- _defNumber = 3;
+					- _defNumber = 4;
 					- Transitions = { IRPYRawContainer 
 						- size = 13;
 						- value = 
@@ -1639,7 +1723,8 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID f519e364-3eab-498d-ae00-84a31f278919;
-									- _body = "direction = params->direction";
+									- _body = "direction = params->direction;
+setDirection();";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1662,7 +1747,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 9d03c569-ba13-4a65-ac20-6138d0f829ae;
-									- _body = "cout << \"Error: Cannot setspeed\" << endl;";
+									- _body = "cout << \"Error! setspeed\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1685,7 +1770,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 74aee926-1a1e-4757-9c8d-e1af05a69725;
-									- _body = "cout << \"Error: Cannot speeddown\" << endl;";
+									- _body = "cout << \"Error! speeddown\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1708,7 +1793,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID e17436ea-51ae-4a68-9dda-949fab8a2c6c;
-									- _body = "cout << \"Error: Cannot speedup\" << endl;";
+									- _body = "cout << \"Error! speedup\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1731,7 +1816,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 20f9bf9f-17e8-403c-bfe3-a6a358ef000e;
-									- _body = "cout << \"Error: Cannot Stopmotor\" << endl;";
+									- _body = "cout << \"Error! stopmotor\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
@@ -1824,7 +1909,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 19dfc8e7-38f0-4ca6-a5a5-d50b6da6c371;
-									- _body = "cout << \"Error: Motor already started\" << endl;";
+									- _body = "cout << \"Error!\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 749de288-783b-4ae4-b813-5e4311448dc1;
@@ -1847,7 +1932,7 @@ setSpeed(duty);";
 								- _itsGuard = NULL;
 								- _itsAction = { IAction 
 									- _id = GUID 6849d719-22f7-4ed0-b012-3ed27448024a;
-									- _body = "cout << \"Error: cannot set direction\" << endl;";
+									- _body = "cout << \"Error!\" << endl;";
 								}
 							}
 							- _itsTarget = GUID 749de288-783b-4ae4-b813-5e4311448dc1;
@@ -1862,7 +1947,10 @@ setSpeed(duty);";
 								- _id = GUID 106ac219-012b-48e0-b1e1-1f1550de91c2;
 								- _itsTrigger = NULL;
 								- _itsGuard = NULL;
-								- _itsAction = NULL;
+								- _itsAction = { IAction 
+									- _id = GUID 9ad1066d-c060-4560-8ed2-bb5518b805e5;
+									- _body = "init();";
+								}
 							}
 							- _itsTarget = GUID 1e0d55db-6433-41ff-ba13-8a2a8ce1063c;
 							- _staticReaction = 0;
@@ -1891,7 +1979,7 @@ setSpeed(duty);";
 							- _defaultTrans = ;
 						}
 					}
-					- _version = 6.13.2017::10:27:40;
+					- _version = 6.13.2017::11:55:36;
 					- _baseVersion = 1.2.1990::0:0:0;
 				}
 			}
@@ -1919,11 +2007,11 @@ setSpeed(duty);";
 			}
 			- _theMainDiagram = { IHandle 
 				- _m2Class = "IDiagram";
-				- _id = GUID 33faa830-d401-4abc-9329-8aea173418cf;
+				- _id = GUID 1ce7c550-8d95-4717-b28f-461c5f88be70;
 			}
 			- _lastID = 3;
-			- weakCGTime = 6.2.2017::9:1:11;
-			- strongCGTime = 6.2.2017::9:1:11;
+			- weakCGTime = 6.13.2017::9:2:57;
+			- strongCGTime = 6.13.2017::9:2:57;
 			- Operations = { IRPYRawContainer 
 				- size = 6;
 				- value = 
